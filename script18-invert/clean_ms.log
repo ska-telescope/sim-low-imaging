@@ -1,0 +1,95 @@
+
+SKA LOW imaging using ARL
+Started at Tue Sep 24 09:30:10 2019
+
+Target MS is /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS
+[131 132 133 134 135 136 137 138 139]
+
+Setup of processing mode
+Will use dask processing
+create_visibility_from_ms: Reading channels from 131 to 131 (inclusive)
+Time to read and convert /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS, channels 131 to 131 = 68.6 s
+Size of visibility before conversion 24 rows, 0.328 GB, after 3139584 rows, 0.327 GB
+advise_wide_field: Maximum wavelength 2.066 (meters)
+advise_wide_field: Minimum wavelength 2.066 (meters)
+advise_wide_field: Maximum baseline 31353.7 (wavelengths)
+advise_wide_field: Maximum w 20756.6 (wavelengths)
+advise_wide_field: Station/antenna diameter 35.0 (meters)
+advise_wide_field: Primary beam 0.059 (rad) 3.38 (deg) 1.22e+04 (asec)
+advise_wide_field: Image field of view 0.0826 (rad) 4.74 (deg) 1.7e+04 (asec)
+advise_wide_field: Synthesized beam 3.19e-05 (rad) 0.00183 (deg) 6.58 (asec)
+advise_wide_field: Cellsize 1.06e-05 (rad) 0.000609 (deg) 2.19 (asec)
+advice_wide_field: Npixels per side = 7774
+advice_wide_field: Npixels (power of 2) per side = 8192
+advice_wide_field: Npixels (power of 2, 3) per side = 8192
+advice_wide_field: W sampling for full image = 33.0 (wavelengths)
+advice_wide_field: W sampling for primary beam = 64.6 (wavelengths)
+advice_wide_field: Time sampling for full image = 28.9 (s)
+advice_wide_field: Time sampling for primary beam = 56.7 (s)
+advice_wide_field: Frequency sampling for full image = 48544.1 (Hz)
+advice_wide_field: Frequency sampling for primary beam = 95146.5 (Hz)
+advice_wide_field: Number of planes in w stack 642 (primary beam)
+advice_wide_field: Number of planes in w projection 642 (primary beam)
+advice_wide_field: W support = 74 (pixels) (primary beam)
+create_visibility_from_ms: Reading channels from 137 to 137 (inclusive)
+Time to read and convert /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS, channels 137 to 137 = 68.0 s
+Size of visibility before conversion 24 rows, 0.328 GB, after 3139584 rows, 0.327 GB
+create_visibility_from_ms: Reading channels from 138 to 138 (inclusive)
+Time to read and convert /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS, channels 138 to 138 = 68.5 s
+Size of visibility before conversion 24 rows, 0.328 GB, after 3139584 rows, 0.327 GB
+create_visibility_from_ms: Reading channels from 136 to 136 (inclusive)
+Time to read and convert /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS, channels 136 to 136 = 67.7 s
+Size of visibility before conversion 24 rows, 0.328 GB, after 3139584 rows, 0.327 GB
+create_visibility_from_ms: Reading channels from 132 to 132 (inclusive)
+Time to read and convert /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS, channels 132 to 132 = 67.2 s
+Size of visibility before conversion 24 rows, 0.328 GB, after 3139584 rows, 0.327 GB
+create_visibility_from_ms: Reading channels from 134 to 134 (inclusive)
+Time to read and convert /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS, channels 134 to 134 = 68.4 s
+Size of visibility before conversion 24 rows, 0.328 GB, after 3139584 rows, 0.327 GB
+create_visibility_from_ms: Reading channels from 135 to 135 (inclusive)
+Time to read and convert /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS, channels 135 to 135 = 67.1 s
+Size of visibility before conversion 24 rows, 0.328 GB, after 3139584 rows, 0.327 GB
+create_visibility_from_ms: Reading channels from 133 to 133 (inclusive)
+Time to read and convert /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS, channels 133 to 133 = 68.2 s
+Size of visibility before conversion 24 rows, 0.328 GB, after 3139584 rows, 0.327 GB
+Creating LocalCluster and Dask Client
+<Client: 'tcp://127.0.0.1:36126' processes=8 threads=16, memory=1.10 TB>
+Will use serial invert
+
+Setup of visibility ingest
+[[131, 131], [132, 132], [133, 133], [134, 134], [135, 135], [136, 136], [137, 137], [138, 138]]
+
+Setup of images
+Image shape is 8192 by 8192 pixels
+
+Setup of wide field imaging
+Will do w projection, 642 planes, support 74, step 71.0
+
+Setup of weighting
+
+
+Will apply uniform weighting
+
+
+Running invert
+
+Processing took 456.02 (s)
+Quality assessment:
+	Origin: qa_image
+	Context: 
+	Data:
+		shape: '(1, 1, 8192, 8192)'
+		max: '1.8323993152569582'
+		min: '-0.12393933492495805'
+		maxabs: '1.8323993152569582'
+		rms: '0.0025044865850855163'
+		sum: '36.34031625392865'
+		medianabs: '0.001074530820643165'
+		medianabsdevmedian: '0.0010741198860954812'
+		median: '-3.0982270101581816e-05'
+
+Writing dirty image to EoR0_20deg_24_dirty.fits
+
+SKA LOW imaging using ARL
+Started at  Tue Sep 24 09:30:10 2019
+Finished at Tue Sep 24 09:39:23 2019

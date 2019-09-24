@@ -76,7 +76,6 @@ if __name__ == "__main__":
     parser.add_argument('--ngroup', type=int, default=4,
                         help='Number of channels in each BlockVisibility')
     parser.add_argument('--single', type=str, default='False', help='Use a single channel')
-    parser.add_argument('--nmoment', type=int, default=1, help='Number of spectral moments' )
 
     parser.add_argument('--time_coal', type=float, default=0.0, help='Coalesce time')
     parser.add_argument('--frequency_coal', type=float, default=0.0, help='Coalesce frequency')
@@ -121,7 +120,6 @@ if __name__ == "__main__":
     print("Target MS is %s" % target_ms)
     
     ochannels = numpy.arange(args.channels[0], args.channels[1]+1)
-    nmoment = args.nmoment
     print(ochannels)
     ngroup = args.ngroup
     weighting = args.weighting
@@ -310,7 +308,7 @@ if __name__ == "__main__":
                                                             threshold=args.threshold,
                                                             nmajor=args.nmajor, gain=0.1,
                                                             algorithm='mmclean',
-                                                            nmoment=nmoment, findpeak='ARL',
+                                                            nmoment=1, findpeak='ARL',
                                                             scales=[0],
                                                             deconvolve_facets=args.deconvolve_facets,
                                                             deconvolve_overlap=args.deconvolve_overlap,
