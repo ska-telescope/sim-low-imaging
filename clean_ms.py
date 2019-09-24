@@ -59,48 +59,57 @@ if __name__ == "__main__":
         '/alaska/tim/Code/sim-low-imaging/data/EoR0_20deg_360.MS',
         '/alaska/tim/Code/sim-low-imaging/data/EoR0_20deg_720.MS']
     
-    print("\nSKA LOW imaging using ARL\n")
+    start_epoch = time.asctime()
+    print("\nSKA LOW imaging using ARL\nStarted at %s\n" % start_epoch)
 
     ########################################################################################################################
 
-    parser = argparse.ArgumentParser(description='Low imaging test')
+    parser = argparse.ArgumentParser(description='SKA LOW imaging using ARL')
     parser.add_argument('--context', type=str, default='2d', help='Imaging context')
     parser.add_argument('--mode', type=str, default='pipeline', help='Imaging mode')
     parser.add_argument('--msname', type=str, default='../data/EoR0_20deg_24.MS',
                         help='MS to process')
     parser.add_argument('--local_directory', type=str, default='dask-workspace',
                         help='Local directory for Dask files')
+
+    parser.add_argument('--channels', type=int, nargs=2, default=[0, 160], help='Channels to process')
     parser.add_argument('--ngroup', type=int, default=4,
                         help='Number of channels in each BlockVisibility')
-    
-    parser.add_argument('--channels', type=int, nargs=2, default=[0, 160], help='Channels to process')
+    parser.add_argument('--single', type=str, default='False', help='Use a single channel')
+
+    parser.add_argument('--time_coal', type=float, default=0.0, help='Coalesce time')
+    parser.add_argument('--frequency_coal', type=float, default=0.0, help='Coalesce frequency')
+
     parser.add_argument('--npixel', type=int, default=None, help='Number of pixels')
     parser.add_argument('--fov', type=float, default=1.0, help='Field of view in primary beams' )
     parser.add_argument('--cellsize', type=float, default=None, help='Cellsize in radians' )
-    parser.add_argument('--single', type=str, default='False', help='Use a single channel')
+    
     parser.add_argument('--wstep', type=float, default=None, help='FStep in w' )
     parser.add_argument('--nwplanes', type=int, default=None, help='Number of wplanes')
     parser.add_argument('--nwslabs', type=int, default=None, help='Number of w slabs')
     parser.add_argument('--amplitude_loss', type=float, default=0.02, help='Amplitude loss due to w sampling')
+    parser.add_argument('--facets', type=int, default=1, help='Number of facets in imaging')
+    
+    parser.add_argument('--weighting', type=str, default='natural', help='Type of weighting')
+    
     parser.add_argument('--nmajor', type=int, default=1, help='Number of major cycles')
     parser.add_argument('--niter', type=int, default=1, help='Number of iterations per major cycle')
-    parser.add_argument('--fractional_threshold', type=float, default=0.2, help='Fractional threshold to terminate major cycle')
+    parser.add_argument('--fractional_threshold', type=float, default=0.2,
+                        help='Fractional threshold to terminate major cycle')
     parser.add_argument('--threshold', type=float, default=0.01, help='Absolute threshold to terminate')
-    parser.add_argument('--window', type=str, default='no_edge', help='Window shape')
-    parser.add_argument('--facets', type=int, default=1, help='Number of facets')
-    parser.add_argument('--weighting', type=str, default='natural', help='Type of weighting')
-    parser.add_argument('--use_serial_invert', type=str, default='False', help='Use serial invert?')
-    parser.add_argument('--use_serial_predict', type=str, default='False', help='Use serial invert?')
-    parser.add_argument('--plot', type=str, default='False', help='Plot data?')
-    parser.add_argument('--serial', type=str, default='False', help='Use serial processing?')
-    parser.add_argument('--nworkers', type=int, default=4, help='Number of workers')
-    parser.add_argument('--memory', type=int, default=64, help='Memory of each worker')
-    parser.add_argument('--time_coal', type=float, default=0.0, help='Coalesce time')
-    parser.add_argument('--frequency_coal', type=float, default=0.0, help='Coalesce frequency')
-    
+    parser.add_argument('--window', type=str, default=None, help='Window shape')
     parser.add_argument('--deconvolve_facets', type=int, default=1, help='Number of facets in deconvolution')
     parser.add_argument('--deconvolve_overlap', type=int, default=128, help='overlap in deconvolution')
     parser.add_argument('--deconvolve_taper', type=str, default='tukey', help='Number of facets in deconvolution')
+
+    parser.add_argument('--serial', type=str, default='False', help='Use serial processing?')
+    parser.add_argument('--nworkers', type=int, default=4, help='Number of workers')
+    parser.add_argument('--threads_per_worker', type=int, default=2, help='Number of threads per worker')
+    parser.add_argument('--memory', type=int, default=64, help='Memory of each worker')
+
+    parser.add_argument('--use_serial_invert', type=str, default='False', help='Use serial invert?')
+    parser.add_argument('--use_serial_predict', type=str, default='False', help='Use serial invert?')
+    parser.add_argument('--plot', type=str, default='False', help='Plot data?')
 
     args = parser.parse_args()
     
@@ -126,6 +135,7 @@ if __name__ == "__main__":
     plot = args.plot == "True"
     single = args.single == "True"
     nworkers = args.nworkers
+    threads_per_worker = args.threads_per_worker
     memory = args.memory
     time_coal = args.time_coal
     frequency_coal = args.frequency_coal
@@ -145,7 +155,7 @@ if __name__ == "__main__":
         print("Will use dask processing")
         if nworkers > 0:
             client = get_dask_Client(n_workers=nworkers, memory_limit=memory * 1024 * 1024 * 1024,
-                                     local_dir=local_directory)
+                                     local_dir=local_directory, threads_per_worker=threads_per_worker)
             arlexecute.set_client(client=client)
         else:
             client = get_dask_Client()
@@ -160,7 +170,7 @@ if __name__ == "__main__":
     ####################################################################################################################
 
     # Read an MS and convert to Visibility format
-    print("\nSetup of visibility ingest\n")
+    print("\nSetup of visibility ingest")
     def read_convert(ms, ch):
         start = time.time()
         bvis = create_blockvisibility_from_ms(ms, start_chan=ch[0], end_chan=ch[1])[0]
@@ -181,7 +191,6 @@ if __name__ == "__main__":
         del bvis
         return vis
         
-    print("Processing in groups of %d channels" % ngroup)
     channels = []
     for i in range(0, len(ochannels)-1, ngroup):
         channels.append([ochannels[i], ochannels[i + ngroup - 1]])
@@ -196,8 +205,7 @@ if __name__ == "__main__":
 
     ####################################################################################################################
 
-    print("\nSetup of images\n")
-    cellsize = 1.7578125 * numpy.pi / (180.0 * 3600.0)
+    print("\nSetup of images")
     phasecentre = SkyCoord(ra=0.0 * u.deg, dec=-27.0 * u.deg)
 
     advice = [arlexecute.execute(advise_wide_field)(v, guard_band_image=fov, delA=dela, verbose=(iv==0))
@@ -215,9 +223,47 @@ if __name__ == "__main__":
         
     if cellsize is None:
         cellsize = advice[-1]['cellsize']
-        
+    
+    cellsize = 1.7578125 * numpy.pi / (180.0 * 3600.0)
+
     print('Image shape is %d by %d pixels' % (npixel, npixel))
 
+    ####################################################################################################################
+
+    print("\nSetup of wide field imaging")
+    vis_slices = 1
+    actual_context = '2d'
+    support = 1
+    if context == 'wprojection':
+        # w projection
+        vis_slices = 1
+        support = advice[0]['nwpixels']
+        actual_context = '2d'
+        print("Will do w projection, %d planes, support %d, step %.1f" %
+              (nwplanes, support, wstep))
+
+    elif context == 'wstack':
+        # w stacking
+        print("Will do w stack, %d planes, step %.1f" % (nwplanes, wstep))
+        actual_context = 'wstack'
+        
+    elif context == 'wprojectwstack':
+        # Hybrid w projection/wstack
+        nwplanes = int(1.1 * nwplanes) // nwslabs
+        support = advice[0]['nwpixels']
+        vis_slices = nwslabs
+        actual_context = 'wstack'
+        print("Will do hybrid w stack/w projection, %d w slabs, %d planes, support %d, step %.1f" %
+              (nwslabs, nwplanes, support, wstep))
+        
+    else:
+        print("Will do 2d processing")
+        # Simple 2D
+        actual_context = '2d'
+        vis_slices = 1
+        wstep = 1e15
+        nwplanes = 1
+        
     model_list = [arlexecute.execute(create_image_from_visibility)(v, npixel=npixel, cellsize=cellsize)
                   for v in vis_list]
 
@@ -227,44 +273,20 @@ if __name__ == "__main__":
         print("\nWill apply uniform weighting\n")
         vis_list = weight_list_arlexecute_workflow(vis_list, model_list)
 
-    ####################################################################################################################
 
-    print("\nSetup of wide field imaging\n")
-    vis_slices = 1
-    actual_context = '2d'
-    support = 1
-    if context == 'wprojection':
-        # w projection
-        print("Will construct w projection kernels, %d planes, step %.1f" % (nwplanes, wstep))
-        vis_slices = 1
-        support = advice[0]['nwpixels']
-        actual_context = '2d'
-    elif context == 'wstack':
-        # w stacking
-        print("Will w stack, %d planes, step %.1f" % (nwplanes, wstep))
-        actual_context = 'wstack'
-    elif context == 'wprojectwstack':
-        # Hybrid w projection/wstack
-        nwplanes = 2 * nwplanes // nwslabs
-        support = advice[0]['nwpixels'] // nwslabs
-        vis_slices = nwslabs
-        actual_context = 'wstack'
-        print("Will do hybrid w stack/ w projection, %d w slabs, %d planes, step %.1f" % (nwslabs, nwplanes, wstep))
-    else:
-        # Simple 2D
-        actual_context = '2d'
-        vis_slices = 1
-        wstep = 1e15
-        nwplanes = 1
     
     if context == 'wprojection' or context == 'wprojectwstack':
-        print("Will construct w projection kernels")
         gcfcf_list = [arlexecute.execute(create_awterm_convolutionfunction)(m, nw=nwplanes, wstep=wstep,
                                                                             oversampling=4,
                                                                             support=support,
                                                                             maxsupport=512)
                       for m in model_list]
         gcfcf_list = arlexecute.persist(gcfcf_list)
+        # gcfcf = arlexecute.compute(gcfcf_list[0], sync=True)
+        # cf = convert_convolutionfunction_to_image(gcfcf[1])
+        # cf.data = numpy.real(cf.data)
+        # export_image_to_fits(cf, "cf.fits")
+        # exit()
     else:
         gcfcf_list = None
         
@@ -272,7 +294,7 @@ if __name__ == "__main__":
     ####################################################################################################################
 
     if mode == 'pipeline':
-        print("\nRunning pipeline\n")
+        print("\nRunning pipeline")
         result = continuum_imaging_list_arlexecute_workflow(vis_list, model_list, context=actual_context,
                                                             vis_slices=vis_slices,
                                                             facets=facets, use_serial_invert=use_serial_invert,
@@ -303,7 +325,8 @@ if __name__ == "__main__":
 
         print(qa_image(restored))
 
-        show_image(restored, vmax=0.03, vmin=-0.003)
+        title = target_ms.split('/')[-1].replace('.MS', ' restored image')
+        show_image(restored, vmax=0.03, vmin=-0.003, title=title)
         plot_name = target_ms.split('/')[-1].replace('.MS', '_restored.jpg')
         plt.savefig(plot_name)
         plt.show(block=False)
@@ -328,7 +351,8 @@ if __name__ == "__main__":
 
         print(qa_image(dirty))
         
-        show_image(dirty, vmax=0.03, vmin=-0.003)
+        title = target_ms.split('/')[-1].replace('.MS', ' dirty image')
+        show_image(dirty, vmax=0.03, vmin=-0.003, title=title)
         plot_name = target_ms.split('/')[-1].replace('.MS', '_dirty.jpg')
         plt.savefig(plot_name)
         plt.show(block=False)
@@ -339,3 +363,8 @@ if __name__ == "__main__":
 
     if not serial:
         arlexecute.close()
+
+    print("\nSKA LOW imaging using ARL")
+    print("Started at  %s" % start_epoch)
+    print("Finished at %s" % time.asctime())
+
