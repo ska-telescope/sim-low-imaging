@@ -1,0 +1,113 @@
+ |                                                                   
+=|== OSKAR-2.7.4-dev 2019-08-19 4068d29 starting at 2019-08-21, 15:15:56 (BST).
+ |                                                                   
+ | + Current dir is /mnt/storage-nvme/fred/sim-low-beams.git/wide_bandwidth
+ | + Logging to file oskar_2019-08-21_151556.log
+ |                                                                   
+=|== Loaded settings file 'imager_test_multi.ini'
+ |                                                                   
+ | + Image settings
+ |   - Use double precision              : false
+ |   - Use GPUs                          : true
+ |   - Number of compute devices         : auto
+ |   - Field of view [deg]               : 8.0
+ |   - Image dimension [pixels]          : 16384
+ |   - Image type                        : I
+ |   - Channel snapshots                 : false
+ |   - Algorithm                         : W-projection
+ |   - Weighting                         : Natural
+ |   - FFT options
+ |     * Use GPU for FFT                 : true
+ |     * Use GPU for gridding            : true
+ |   - Input visibility data file(s)     : GLEAM_A-team_EoR0_0.270_dB.vis
+ |   - Scale normalisation with number of input files: false
+ |   - Output image root path            : GLEAM_A-team_EoR0_0.270_dB_16384
+ |                                                                   
+=|== Starting imager...
+ |                                                                   
+ | + Opening 'GLEAM_A-team_EoR0_0.270_dB.vis'
+ |                                                                   
+=|== Reading coordinates...
+ |                                                                   
+ | + Opening 'GLEAM_A-team_EoR0_0.270_dB.vis'
+ | + Using 160 frequency channel(s)
+ |   - Range 132.000 MHz to 147.900 MHz
+ |      10% ...
+ |      20% ...
+ |      30% ...
+ |      40% ...
+ |      50% ...
+ |      60% ...
+ |      70% ...
+ |      80% ...
+ |      90% ...
+ |     100% ...
+ |                                                                   
+=|== Initialising algorithm...
+ |                                                                   
+ | + Baseline W values (wavelengths)
+ |   - Min: 4.900284125142e-07
+ |   - Max: 2.054725781250e+04
+ |   - RMS: 1.997801156434e+03
+ | + Using 1503 W-projection planes.
+ | + Convolution kernel support range 4 to 221.
+ | + Convolution kernels use 3306.6 MB.
+ |                                                                   
+=|== Reading visibility data...
+ |                                                                   
+ | + Opening 'GLEAM_A-team_EoR0_0.270_dB.vis'
+ | + Plane size is 20000 x 20000.
+ | + Allocating 1 plane(s) of size 3200.0 MB (3200.0 MB total).
+ | + Allocating memory on device 0 for visibility grids.
+ | + Allocating memory on device 1 for visibility grids.
+ | + Allocating memory on device 2 for visibility grids.
+ | + Allocating memory on device 3 for visibility grids.
+ |      10% ...
+ |      20% ...
+ |      30% ...
+ |      40% ...
+ |      50% ...
+ |      60% ...
+ |      70% ...
+ |      80% ...
+ |      90% ...
+ |     100% ...
+ |                                                                   
+=|== Finalising 1 image plane(s)...
+ |                                                                   
+ | + Stacking 1 grid(s) from 4 devices...
+ |                                                                   
+=|== Memory usage
+ |                                                                   
+ | + CUDA device 0 [Tesla P100-PCIE-12GB] memory is 52.4% (6397/12198 MiB) used.
+ | + CUDA device 1 [Tesla P100-PCIE-12GB] memory is 27.2% (3319/12198 MiB) used.
+ | + CUDA device 2 [Tesla P100-PCIE-12GB] memory is 27.2% (3319/12198 MiB) used.
+ | + CUDA device 3 [Tesla P100-PCIE-12GB] memory is 27.2% (3319/12198 MiB) used.
+ | + System memory is 15.9% (20.0 GB/125.6 GB) used.
+ | + System memory used by current process: 3732.2 MB.
+ |                                                                   
+=|== Imager timing
+ |                                                                   
+ | + Coordinate scan           : 10.653 s
+ | + Initialise                : 24.784 s
+ | + Copy/convert data         : 116.188 s
+ | + Select/scale data         : 51.439 s
+ | + Grid update               : 276.696 s
+ | + Grid finalise             : 4.764 s
+ | + Read visibility data      : 120.277 s
+ | + Write image data          : 1.854 s
+ |                                                                   
+=|== Imaging complete
+ |                                                                   
+ | + Visibilities processed    : 7535.002 million
+ | + W-projection planes       : 1503
+ | + Field of view [deg]       : 8.0
+ | + Image dimension [pixels]  : 16384
+ | + Input(s):
+ |   - Visibility data         : GLEAM_A-team_EoR0_0.270_dB.vis
+ | + Output(s):
+ |   - FITS file               : GLEAM_A-team_EoR0_0.270_dB_16384_I.fits (1073.7 MB)
+ | + Run completed in 614.283 sec.
+ |                                                                   
+=|== OSKAR-2.7.4-dev 2019-08-19 4068d29 ending at 2019-08-21, 15:26:11 (BST).
+ |
