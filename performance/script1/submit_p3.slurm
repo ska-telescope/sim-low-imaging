@@ -79,7 +79,7 @@ echo "Scheduler and workers now running"
 export ARL_DASK_SCHEDULER=${scheduler}:8786
 echo "Scheduler is running at ${scheduler}"
 
-CMD="python ../../clean_ms.py --ngroup 1 --nworkers 8 --weighting uniform --context wprojectwstack --nwslabs 15 \
+CMD="python ../../clean_ms.py --ngroup 1 --nworkers 0 --weighting uniform --context wprojectwstack --nwslabs 15 \
 --mode pipeline --niter 1000 --nmajor 5 --fractional_threshold 0.2 --threshold 0.01 \
 --amplitude_loss 0.25 --deconvolve_facets 8 --deconvolve_overlap 16 --restore_facets 4 \
 --msname /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS \
