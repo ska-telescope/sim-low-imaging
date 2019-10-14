@@ -230,7 +230,7 @@ if __name__ == "__main__":
     advice = arlexecute.compute(advice, sync=True)
     
     if npixel is None:
-        npixel = advice[0]['npixels23']
+        npixel = advice[0]['npixels_min']
     
     if wstep is None:
         wstep = 1.1 * advice[0]['wstep']
