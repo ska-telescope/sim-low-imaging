@@ -59,29 +59,23 @@ echo ${SLURM_JOB_NODELIST}
 scontrol show hostnames $SLURM_JOB_NODELIST | uniq > hostfile.$JOBID
 
 scheduler=$(head -1 hostfile.$JOBID)
-hostIndex=0
-for host in `cat hostfile.$JOBID`; do
-    echo "Working on $host ...."
-    if [ "$hostIndex" = "0" ]; then
-        echo "run dask-scheduler"
-        ssh $host dask-scheduler --port=8786 &
-        sleep 5
-    fi
-    echo "run dask-worker"
-    ssh $host dask-worker --nprocs 2 --nthreads 1 --interface ib0 \
-    --memory-limit 100GB --local-directory /mnt/storage-ssd/tim/dask-workspace/${host} $scheduler:8786  &
-        sleep 1
-    hostIndex="1"
-done
+
+dask-ssh --nthreads 4 --memory-limit 100GB --nprocs 2 --hostfile hostfile.$JOBID --log-directory $SLURM_SUBMIT_DIR &
+sleep 5
+
 echo "Scheduler and workers now running"
 
 #! We need to tell dask Client (inside python) where the scheduler is running
 export ARL_DASK_SCHEDULER=${scheduler}:8786
 echo "Scheduler is running at ${scheduler}"
 
-CMD="python ../../clean_ms.py --ngroup 1 --weighting natural --context wstack --nwplanes 128 \
---msname /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_96.MS \
---use_serial_invert False --plot True --npixel 16384 --single False | tee image_ms.log"
+cp ../../clean_ms.py .
+
+CMD="python ./clean_ms.py --ngroup 1 --nworkers 0 --weighting natural --context wprojection \
+--mode invert --amplitude_loss 0.25 --channels 131 147 \
+--msname /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_192.MS \
+--use_serial_invert True --use_serial_predict True --plot False --fov 2.0 --single False | tee clean_ms.log"
+
 echo "About to execute $CMD"
 
 eval $CMD

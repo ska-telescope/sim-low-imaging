@@ -16,7 +16,7 @@
 #! How many whole nodes should be allocated?
 #SBATCH --nodes=16
 #! How many (MPI) tasks will there be in total? (<= nodes*16)
-#SBATCH --ntasks=32
+#SBATCH --ntasks=16
 #! Memory limit: P3 has roughly 107GB per node
 #SBATCH --mem 100000
 #! How much wallclock time will be required?
@@ -50,7 +50,7 @@ echo -e "Running python: `which python`"
 echo -e "Running dask-scheduler: `which dask-scheduler`"
 
 cd $SLURM_SUBMIT_DIR
-echo -e "Changed directory to `pwd`.\n"
+echo -e "Changed directory to `pwd`\n"
 
 JOBID=${SLURM_JOB_ID}
 echo ${SLURM_JOB_NODELIST}
@@ -59,29 +59,25 @@ echo ${SLURM_JOB_NODELIST}
 scontrol show hostnames $SLURM_JOB_NODELIST | uniq > hostfile.$JOBID
 
 scheduler=$(head -1 hostfile.$JOBID)
-hostIndex=0
-for host in `cat hostfile.$JOBID`; do
-    echo "Working on $host ...."
-    if [ "$hostIndex" = "0" ]; then
-        echo "run dask-scheduler"
-        ssh $host dask-scheduler --port=8786 &
-        sleep 5
-    fi
-    echo "run dask-worker"
-    ssh $host dask-worker --nprocs 2 --nthreads 1 --interface ib0 \
-    --memory-limit 100GB --local-directory /mnt/storage-ssd/tim/dask-workspace/${host} $scheduler:8786  &
-        sleep 1
-    hostIndex="1"
-done
+
+dask-ssh --nthreads 2 --memory-limit 100GB --nprocs 1 --hostfile hostfile.$JOBID --log-directory $SLURM_SUBMIT_DIR &
+sleep 5
+
 echo "Scheduler and workers now running"
 
 #! We need to tell dask Client (inside python) where the scheduler is running
 export ARL_DASK_SCHEDULER=${scheduler}:8786
 echo "Scheduler is running at ${scheduler}"
 
-CMD="python ../../clean_ms.py --ngroup 1 --weighting natural --context wstack --nwplanes 128 \
---msname /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_96.MS \
---use_serial_invert False --plot True --npixel 16384 --single False | tee image_ms.log"
+cp ../../clean_ms.py .
+
+CMD="python ./clean_ms.py --ngroup 1 --nworkers 0 --weighting uniform --context wprojectwstack --nwslabs 15 \
+--mode pipeline --niter 1000 --nmajor 5 --fractional_threshold 0.2 --threshold 0.01 \
+--amplitude_loss 0.25 --deconvolve_facets 8 --deconvolve_overlap 16 --restore_facets 4 \
+--msname /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS \
+--time_coal 0.0 --frequency_coal 0.0 --memory 128 --channels 131 146 \
+--use_serial_invert True --use_serial_predict True --plot False --fov 1.4 --single False | tee clean_ms.log"
+
 echo "About to execute $CMD"
 
 eval $CMD

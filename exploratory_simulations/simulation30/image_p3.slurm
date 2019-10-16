@@ -18,7 +18,7 @@
 #! How many (MPI) tasks will there be in total? (<= nodes*16)
 #SBATCH --ntasks=32
 #! Memory limit: P3 has roughly 107GB per node
-#SBATCH --mem 100000
+#SBATCH --mem 50000
 #! How much wallclock time will be required?
 #SBATCH --time=23:59:59
 #! What types of email messages do you wish to receive?
@@ -64,12 +64,12 @@ for host in `cat hostfile.$JOBID`; do
     echo "Working on $host ...."
     if [ "$hostIndex" = "0" ]; then
         echo "run dask-scheduler"
-        ssh $host dask-scheduler --port=8786 &
+        ssh $host dask-scheduler --port=8786 --local-directory /mnt/storage-ssd/tim/dask-workspace &
         sleep 5
     fi
     echo "run dask-worker"
-    ssh $host dask-worker --nprocs 2 --nthreads 1 --interface ib0 \
-    --memory-limit 100GB --local-directory /mnt/storage-ssd/tim/dask-workspace/${host} $scheduler:8786  &
+    ssh $host dask-worker --host ${host} --nprocs 2 --nthreads 1  \
+    --memory-limit 50GB --local-directory /mnt/storage-ssd/tim/dask-workspace $scheduler:8786  &
         sleep 1
     hostIndex="1"
 done
@@ -79,9 +79,9 @@ echo "Scheduler and workers now running"
 export ARL_DASK_SCHEDULER=${scheduler}:8786
 echo "Scheduler is running at ${scheduler}"
 
-CMD="python ../../clean_ms.py --ngroup 1 --weighting natural --context wstack --nwplanes 128 \
---msname /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_96.MS \
---use_serial_invert False --plot True --npixel 16384 --single False | tee image_ms.log"
+CMD="python ../image_ms.py --ngroup 5 --weighting natural --context wstack --nwplanes 128 \
+--msname /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS \
+--use_serial_invert False --plot False --npixel 16384 --single False | tee image_ms.log"
 echo "About to execute $CMD"
 
 eval $CMD
