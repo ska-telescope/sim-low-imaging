@@ -5,8 +5,8 @@
 
 cp ../../clean_ms.py .
 python ./clean_ms.py --ngroup 1 --nworkers 8 --weighting uniform --context wprojectwstack --nwslabs 15 \
---mode pipeline --niter 1000 --nmajor 5 --fractional_threshold 0.2 --threshold 0.01 \
+--mode invert --niter 1000 --nmajor 5 --fractional_threshold 0.2 --threshold 0.01 \
 --amplitude_loss 0.25 --deconvolve_facets 8 --deconvolve_overlap 16 --restore_facets 4 \
 --msname /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS \
 --time_coal 0.0 --frequency_coal 0.0 --memory 128 --channels 131 139 \
---use_serial_invert False --use_serial_predict False --plot False --fov 1.4 --single False | tee clean_ms.log
+--use_serial_invert False --use_serial_predict False --plot False --fov 0.1 --single False | tee clean_ms.log
