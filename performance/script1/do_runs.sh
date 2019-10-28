@@ -2,7 +2,7 @@
 #!
 
 cd run1
-pip remove pyfftw
+pip uninstall pyfftw
 sh ../clean_ms.sh
 cd ../run2
 pip install pyfftw
