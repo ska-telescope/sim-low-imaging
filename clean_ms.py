@@ -309,8 +309,7 @@ if __name__ == "__main__":
     ####################################################################################################################
 
     from dask.distributed import get_task_stream
-    arlexecute.client.profile()
-    arlexecute.client.get_task_stream()
+    arlexecute.init_statistics()
     
     if mode == 'pipeline':
         print("\nRunning pipeline")
@@ -382,27 +381,7 @@ if __name__ == "__main__":
         print("Writing dirty image to %s" % dirty_name)
         export_image_to_fits(dirty, dirty_name)
     
-    task_stream, graph = arlexecute.client.get_task_stream(plot='save', filename="clean_ms_task_stream.html")
-    arlexecute.client.profile(plot='save', filename="clean_ms_profile.html")
-
-    def print_ts(ts):
-        print(">>> Time used in each function")
-        summary = {}
-        for t in ts:
-            name = t['key'].split('-')[0]
-            elapsed = t['startstops'][0][2]-t['startstops'][0][1]
-            if name not in summary.keys():
-                summary[name] = elapsed
-            else:
-                summary[name] += elapsed
-        total = 0.0
-        for key in summary.keys():
-            total += summary[key]
-        for key in summary.keys():
-            print(">>> %s %.3f (s) %.1f %s" % (key, summary[key], 100.0 * summary[key]/total, '%'))
-        print(">>> Total time %.3f (s)" % total)
-
-    print_ts(task_stream)
+    arlexecute.save_statistics(name='clean_ms')
 
     if not serial:
         arlexecute.close()
