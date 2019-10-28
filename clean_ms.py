@@ -4,6 +4,9 @@ import pprint
 import sys
 import time
 
+import matplotlib as mpl
+mpl.use('Agg')
+
 import astropy.units as u
 import matplotlib.pyplot as plt
 import numpy
@@ -30,9 +33,6 @@ log.addHandler(logging.StreamHandler(sys.stdout))
 mpl_logger = logging.getLogger("matplotlib")
 mpl_logger.setLevel(logging.WARNING)
 
-import matplotlib as mpl
-
-mpl.use('Agg')
 
 if __name__ == "__main__":
     
