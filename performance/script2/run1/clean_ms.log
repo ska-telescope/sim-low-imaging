@@ -1,0 +1,2315 @@
+
+SKA LOW imaging using ARL
+Started at Mon Oct 28 11:31:55 2019
+
+{'amplitude_loss': 0.25,
+ 'cellsize': None,
+ 'channels': [131, 139],
+ 'context': 'wprojectwstack',
+ 'deconvolve_facets': 8,
+ 'deconvolve_overlap': 16,
+ 'deconvolve_taper': 'tukey',
+ 'facets': 1,
+ 'fov': 1.4,
+ 'fractional_threshold': 0.2,
+ 'frequency_coal': 0.0,
+ 'local_directory': 'dask-workspace',
+ 'memory': 128,
+ 'mode': 'pipeline',
+ 'msname': '/mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS',
+ 'ngroup': 1,
+ 'niter': 1000,
+ 'nmajor': 3,
+ 'nmoment': 1,
+ 'npixel': None,
+ 'nworkers': 8,
+ 'nwplanes': None,
+ 'nwslabs': 15,
+ 'oversampling': 16,
+ 'plot': 'False',
+ 'restore_facets': 4,
+ 'serial': 'False',
+ 'single': 'False',
+ 'threads_per_worker': 4,
+ 'threshold': 0.01,
+ 'time_coal': 0.0,
+ 'use_serial_invert': 'False',
+ 'use_serial_predict': 'False',
+ 'weighting': 'uniform',
+ 'window_edge': None,
+ 'window_shape': None,
+ 'wstep': None}
+Target MS is /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS
+[131 132 133 134 135 136 137 138 139]
+
+Setup of processing mode
+Will use dask processing
+create_visibility_from_ms: Reading channels from 138 to 138 (inclusive)
+Time to read and convert /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS, channels 138 to 138 = 30.0 s
+Size of visibility before conversion 24 rows, 0.328 GB, after 3139584 rows, 0.327 GB
+advice_wide_field: Npixels (power of 2, 3, 4, 5) per side = 8192
+create_visibility_from_ms: Reading channels from 134 to 134 (inclusive)
+Time to read and convert /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS, channels 134 to 134 = 30.2 s
+Size of visibility before conversion 24 rows, 0.328 GB, after 3139584 rows, 0.327 GB
+advice_wide_field: Npixels (power of 2, 3, 4, 5) per side = 8192
+create_visibility_from_ms: Reading channels from 137 to 137 (inclusive)
+Time to read and convert /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS, channels 137 to 137 = 30.4 s
+Size of visibility before conversion 24 rows, 0.328 GB, after 3139584 rows, 0.327 GB
+advice_wide_field: Npixels (power of 2, 3, 4, 5) per side = 8192
+create_visibility_from_ms: Reading channels from 136 to 136 (inclusive)
+Time to read and convert /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS, channels 136 to 136 = 30.4 s
+Size of visibility before conversion 24 rows, 0.328 GB, after 3139584 rows, 0.327 GB
+advice_wide_field: Npixels (power of 2, 3, 4, 5) per side = 8192
+create_visibility_from_ms: Reading channels from 132 to 132 (inclusive)
+Time to read and convert /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS, channels 132 to 132 = 30.5 s
+Size of visibility before conversion 24 rows, 0.328 GB, after 3139584 rows, 0.327 GB
+advice_wide_field: Npixels (power of 2, 3, 4, 5) per side = 8192
+create_visibility_from_ms: Reading channels from 135 to 135 (inclusive)
+Time to read and convert /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS, channels 135 to 135 = 30.6 s
+Size of visibility before conversion 24 rows, 0.328 GB, after 3139584 rows, 0.327 GB
+advice_wide_field: Npixels (power of 2, 3, 4, 5) per side = 8192
+create_visibility_from_ms: Reading channels from 133 to 133 (inclusive)
+Time to read and convert /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS, channels 133 to 133 = 30.6 s
+Size of visibility before conversion 24 rows, 0.328 GB, after 3139584 rows, 0.327 GB
+advice_wide_field: Npixels (power of 2, 3, 4, 5) per side = 8192
+create_visibility_from_ms: Reading channels from 131 to 131 (inclusive)
+Time to read and convert /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS, channels 131 to 131 = 30.9 s
+Size of visibility before conversion 24 rows, 0.328 GB, after 3139584 rows, 0.327 GB
+advise_wide_field: Maximum wavelength 2.066 (meters)
+advise_wide_field: Minimum wavelength 2.066 (meters)
+advise_wide_field: Maximum baseline 31353.7 (wavelengths)
+advise_wide_field: Maximum w 20756.6 (wavelengths)
+advise_wide_field: Station/dish diameter 35.0 (meters)
+advise_wide_field: Primary beam 0.059 (rad) 3.38 (deg) 1.22e+04 (asec)
+advise_wide_field: Image field of view 0.0826 (rad) 4.74 (deg) 1.7e+04 (asec)
+advise_wide_field: Synthesized beam 3.19e-05 (rad) 0.00183 (deg) 6.58 (asec)
+advise_wide_field: Cellsize 1.06e-05 (rad) 0.000609 (deg) 2.19 (asec)
+advice_wide_field: Npixels per side = 7774
+advice_wide_field: Npixels (power of 2) per side = 8192
+advice_wide_field: Npixels (power of 2, 3) per side = 8192
+advice_wide_field: Npixels (power of 2, 3, 4, 5) per side = 8192
+advice_wide_field: W sampling for full image = 33.0 (wavelengths)
+advice_wide_field: W sampling for primary beam = 64.6 (wavelengths)
+advice_wide_field: Time sampling for full image = 28.9 (s)
+advice_wide_field: Time sampling for primary beam = 56.7 (s)
+advice_wide_field: Frequency sampling for full image = 48544.1 (Hz)
+advice_wide_field: Frequency sampling for primary beam = 95146.5 (Hz)
+advice_wide_field: Number of planes in w stack 642 (primary beam)
+advice_wide_field: Number of planes in w projection 642 (primary beam)
+advice_wide_field: W support = 74 (pixels) (primary beam)
+threshold_list: using moment 0, sub_image 0, peak = 0.045898,
+threshold_list: using moment 0, sub_image 1, peak = 0.090423,
+threshold_list: using moment 0, sub_image 2, peak = 0.255871,
+threshold_list: using moment 0, sub_image 3, peak = 0.096695,
+threshold_list: using moment 0, sub_image 4, peak = 0.090377,
+threshold_list: using moment 0, sub_image 5, peak = 0.184535,
+threshold_list: using moment 0, sub_image 6, peak = 0.622478,
+threshold_list: using moment 0, sub_image 7, peak = 0.240179,
+threshold_list: using moment 0, sub_image 8, peak = 0.188939,
+threshold_list: using moment 0, sub_image 9, peak = 0.322400,
+threshold_list: using moment 0, sub_image 10, peak = 0.110525,
+threshold_list: using moment 0, sub_image 11, peak = 0.233060,
+threshold_list: using moment 0, sub_image 12, peak = 0.215847,
+threshold_list: using moment 0, sub_image 13, peak = 0.464677,
+threshold_list: using moment 0, sub_image 14, peak = 1.836766,
+threshold_list: using moment 0, sub_image 15, peak = 0.146989,
+threshold_list: using moment 0, sub_image 16, peak = 0.096997,
+threshold_list: using moment 0, sub_image 17, peak = 0.371984,
+threshold_list: using moment 0, sub_image 18, peak = 0.129602,
+threshold_list: using moment 0, sub_image 19, peak = 0.628921,
+threshold_list: using moment 0, sub_image 20, peak = 0.350420,
+threshold_list: using moment 0, sub_image 21, peak = 0.176617,
+threshold_list: using moment 0, sub_image 22, peak = 0.092639,
+threshold_list: using moment 0, sub_image 23, peak = 0.078307,
+threshold_list: using moment 0, sub_image 24, peak = 0.085801,
+threshold_list: using moment 0, sub_image 25, peak = 0.113061,
+threshold_list: using moment 0, sub_image 26, peak = 0.210459,
+threshold_list: using moment 0, sub_image 27, peak = 0.131915,
+threshold_list: using moment 0, sub_image 28, peak = 0.196465,
+threshold_list: using moment 0, sub_image 29, peak = 0.006350,
+threshold_list: using moment 0, sub_image 30, peak = 0.143801,
+threshold_list: using moment 0, sub_image 31, peak = 0.688081,
+threshold_list: using moment 0, sub_image 32, peak = 0.066208,
+threshold_list: using moment 0, sub_image 33, peak = 0.179561,
+threshold_list: using moment 0, sub_image 34, peak = 0.196465,
+threshold_list: using moment 0, sub_image 35, peak = 0.190335,
+threshold_list cycle 0: Global peak in moment 0 = 1.836766, sub-image clean threshold will be 0.367353
+deconvolve_cube cycle 0, facet 13: Cleaning entire image
+deconvolve_cube cycle 0, facet 13: PSF support = +/- 256 pixels
+deconvolve_cube cycle 0, facet 13: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 0, facet 13: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 0, facet 13: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 0, facet 13: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 0, facet 13: Processing pol 0
+mmclean cycle 0, facet 13: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 0, facet 13: Peak of Dirty = 0.464671 Jy/beam at (0, 134, 533) 
+mmclean cycle 0, facet 13: Max abs in dirty Image = 0.464671 Jy/beam
+mmclean cycle 0, facet 13: Start of minor cycle
+mmclean cycle 0, facet 13: This minor cycle will stop at 1000 iterations or peak < 0.367353 (Jy/beam)
+mmclean cycle 0, facet 13: Timing for setup: 0.259 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 0, facet 13: Minor cycle 0, peak [0.46467114] at [134, 533, 0]
+mmclean cycle 0, facet 13: At iteration 4, absolute value of peak 0.338769 is below stopping threshold 0.367353
+mmclean cycle 0, facet 13: End of minor cycles
+mmclean cycle 0, facet 13: Scale counts [5]
+mmclean cycle 0, facet 13: Scale flux [1.96662478]
+mmclean cycle 0, facet 13: Timing for clean: 0.058 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 5 iterations, time per clean 11.685 (ms)
+deconvolve_cube cycle 0, facet 13: calculating spectral cubes
+deconvolve_cube cycle 0, facet 6: Cleaning entire image
+deconvolve_cube cycle 0, facet 6: PSF support = +/- 256 pixels
+deconvolve_cube cycle 0, facet 6: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 0, facet 6: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 0, facet 6: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 0, facet 6: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 0, facet 6: Processing pol 0
+mmclean cycle 0, facet 6: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 0, facet 6: Peak of Dirty = 0.622470 Jy/beam at (0, 59, 427) 
+mmclean cycle 0, facet 6: Max abs in dirty Image = 0.622470 Jy/beam
+mmclean cycle 0, facet 6: Start of minor cycle
+mmclean cycle 0, facet 6: This minor cycle will stop at 1000 iterations or peak < 0.367353 (Jy/beam)
+mmclean cycle 0, facet 6: Timing for setup: 0.263 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 0, facet 6: Minor cycle 0, peak [0.6224705] at [59, 427, 0]
+mmclean cycle 0, facet 6: At iteration 6, absolute value of peak 0.339819 is below stopping threshold 0.367353
+mmclean cycle 0, facet 6: End of minor cycles
+mmclean cycle 0, facet 6: Scale counts [7]
+mmclean cycle 0, facet 6: Scale flux [3.27857645]
+mmclean cycle 0, facet 6: Timing for clean: 0.089 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 7 iterations, time per clean 12.753 (ms)
+deconvolve_cube cycle 0, facet 6: calculating spectral cubes
+deconvolve_cube cycle 0, facet 19: Cleaning entire image
+deconvolve_cube cycle 0, facet 19: PSF support = +/- 256 pixels
+deconvolve_cube cycle 0, facet 19: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 0, facet 19: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 0, facet 14: Cleaning entire image
+deconvolve_cube cycle 0, facet 14: PSF support = +/- 256 pixels
+deconvolve_cube cycle 0, facet 14: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 0, facet 14: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 0, facet 19: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 0, facet 19: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 0, facet 19: Processing pol 0
+mmclean cycle 0, facet 19: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 0, facet 19: Peak of Dirty = 0.628914 Jy/beam at (0, 777, 253) 
+deconvolve_cube cycle 0, facet 14: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 0, facet 14: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 0, facet 14: Processing pol 0
+mmclean cycle 0, facet 14: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 0, facet 14: Peak of Dirty = 1.836743 Jy/beam at (0, 269, 704) 
+mmclean cycle 0, facet 14: Max abs in dirty Image = 1.836743 Jy/beam
+mmclean cycle 0, facet 14: Start of minor cycle
+mmclean cycle 0, facet 14: This minor cycle will stop at 1000 iterations or peak < 0.367353 (Jy/beam)
+mmclean cycle 0, facet 14: Timing for setup: 0.237 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 0, facet 19: Max abs in dirty Image = 0.628914 Jy/beam
+mmclean cycle 0, facet 14: Minor cycle 0, peak [1.83674326] at [269, 704, 0]
+mmclean cycle 0, facet 19: Start of minor cycle
+mmclean cycle 0, facet 19: This minor cycle will stop at 1000 iterations or peak < 0.367353 (Jy/beam)
+mmclean cycle 0, facet 19: Timing for setup: 0.263 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 0, facet 19: Minor cycle 0, peak [0.62891356] at [777, 253, 0]
+mmclean cycle 0, facet 19: At iteration 6, absolute value of peak 0.349783 is below stopping threshold 0.367353
+mmclean cycle 0, facet 19: End of minor cycles
+mmclean cycle 0, facet 19: Scale counts [7]
+mmclean cycle 0, facet 19: Scale flux [3.32973529]
+mmclean cycle 0, facet 19: Timing for clean: 0.091 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 7 iterations, time per clean 12.945 (ms)
+deconvolve_cube cycle 0, facet 19: calculating spectral cubes
+mmclean cycle 0, facet 14: At iteration 17, absolute value of peak 0.348133 is below stopping threshold 0.367353
+mmclean cycle 0, facet 14: End of minor cycles
+mmclean cycle 0, facet 14: Scale counts [18]
+mmclean cycle 0, facet 14: Scale flux [15.99484182]
+mmclean cycle 0, facet 14: Timing for clean: 0.154 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 18 iterations, time per clean 8.558 (ms)
+deconvolve_cube cycle 0, facet 14: calculating spectral cubes
+deconvolve_cube cycle 0, facet 31: Cleaning entire image
+deconvolve_cube cycle 0, facet 31: PSF support = +/- 256 pixels
+deconvolve_cube cycle 0, facet 31: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 0, facet 31: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 0, facet 31: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 0, facet 31: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 0, facet 31: Processing pol 0
+mmclean cycle 0, facet 31: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 0, facet 31: Peak of Dirty = 0.688073 Jy/beam at (0, 683, 1028) 
+mmclean cycle 0, facet 31: Max abs in dirty Image = 0.688073 Jy/beam
+mmclean cycle 0, facet 31: Start of minor cycle
+mmclean cycle 0, facet 31: This minor cycle will stop at 1000 iterations or peak < 0.367353 (Jy/beam)
+mmclean cycle 0, facet 31: Timing for setup: 0.245 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 0, facet 31: Minor cycle 0, peak [0.68807255] at [683, 1028, 0]
+mmclean cycle 0, facet 31: At iteration 7, absolute value of peak 0.335746 is below stopping threshold 0.367353
+mmclean cycle 0, facet 31: End of minor cycles
+mmclean cycle 0, facet 31: Scale counts [8]
+mmclean cycle 0, facet 31: Scale flux [3.9408935]
+mmclean cycle 0, facet 31: Timing for clean: 0.060 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 8 iterations, time per clean 7.540 (ms)
+deconvolve_cube cycle 0, facet 31: calculating spectral cubes
+threshold_list: using moment 0, sub_image 0, peak = 0.040291,
+threshold_list: using moment 0, sub_image 1, peak = 0.072707,
+threshold_list: using moment 0, sub_image 2, peak = 0.208332,
+threshold_list: using moment 0, sub_image 3, peak = 0.080099,
+threshold_list: using moment 0, sub_image 4, peak = 0.070686,
+threshold_list: using moment 0, sub_image 5, peak = 0.151796,
+threshold_list: using moment 0, sub_image 6, peak = 0.351262,
+threshold_list: using moment 0, sub_image 7, peak = 0.228321,
+threshold_list: using moment 0, sub_image 8, peak = 0.176624,
+threshold_list: using moment 0, sub_image 9, peak = 0.302973,
+threshold_list: using moment 0, sub_image 10, peak = 0.091663,
+threshold_list: using moment 0, sub_image 11, peak = 0.192128,
+threshold_list: using moment 0, sub_image 12, peak = 0.172617,
+threshold_list: using moment 0, sub_image 13, peak = 0.329022,
+threshold_list: using moment 0, sub_image 14, peak = 0.360959,
+threshold_list: using moment 0, sub_image 15, peak = 0.143425,
+threshold_list: using moment 0, sub_image 16, peak = 0.092841,
+threshold_list: using moment 0, sub_image 17, peak = 0.301743,
+threshold_list: using moment 0, sub_image 18, peak = 0.103811,
+threshold_list: using moment 0, sub_image 19, peak = 0.365121,
+threshold_list: using moment 0, sub_image 20, peak = 0.348236,
+threshold_list: using moment 0, sub_image 21, peak = 0.175286,
+threshold_list: using moment 0, sub_image 22, peak = 0.089512,
+threshold_list: using moment 0, sub_image 23, peak = 0.065519,
+threshold_list: using moment 0, sub_image 24, peak = 0.067601,
+threshold_list: using moment 0, sub_image 25, peak = 0.094400,
+threshold_list: using moment 0, sub_image 26, peak = 0.193995,
+threshold_list: using moment 0, sub_image 27, peak = 0.122541,
+threshold_list: using moment 0, sub_image 28, peak = 0.157068,
+threshold_list: using moment 0, sub_image 29, peak = 0.005616,
+threshold_list: using moment 0, sub_image 30, peak = 0.118881,
+threshold_list: using moment 0, sub_image 31, peak = 0.365848,
+threshold_list: using moment 0, sub_image 32, peak = 0.041810,
+threshold_list: using moment 0, sub_image 33, peak = 0.146387,
+threshold_list: using moment 0, sub_image 34, peak = 0.157068,
+threshold_list: using moment 0, sub_image 35, peak = 0.155997,
+threshold_list cycle 1: Global peak in moment 0 = 0.365848, sub-image clean threshold will be 0.073170
+deconvolve_cube cycle 1, facet 6: Cleaning entire image
+deconvolve_cube cycle 1, facet 6: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 6: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 6: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 31: Cleaning entire image
+deconvolve_cube cycle 1, facet 31: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 31: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 31: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 22: Cleaning entire image
+deconvolve_cube cycle 1, facet 22: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 22: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 22: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 6: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 22: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 6: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 22: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 22: Processing pol 0
+deconvolve_cube cycle 1, facet 6: Processing pol 0
+mmclean cycle 1, facet 6: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 22: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 1, facet 31: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 31: Shape of PSF moments image (1, 1, 512, 512)
+mmclean cycle 1, facet 6: Peak of Dirty = 0.351258 Jy/beam at (0, 59, 426) 
+mmclean cycle 1, facet 22: Peak of Dirty = 0.089511 Jy/beam at (0, 648, 267) 
+deconvolve_cube cycle 1, facet 31: Processing pol 0
+mmclean cycle 1, facet 31: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 31: Peak of Dirty = 0.365844 Jy/beam at (0, 683, 1028) 
+mmclean cycle 1, facet 31: Max abs in dirty Image = 0.365844 Jy/beam
+mmclean cycle 1, facet 22: Max abs in dirty Image = 0.089511 Jy/beam
+mmclean cycle 1, facet 31: Start of minor cycle
+mmclean cycle 1, facet 31: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 31: Timing for setup: 0.281 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 22: Start of minor cycle
+mmclean cycle 1, facet 22: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 22: Timing for setup: 0.291 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 22: Minor cycle 0, peak [0.08951102] at [648, 267, 0]
+mmclean cycle 1, facet 31: Minor cycle 0, peak [0.36584359] at [683, 1028, 0]
+mmclean cycle 1, facet 6: Max abs in dirty Image = 0.351258 Jy/beam
+mmclean cycle 1, facet 6: Start of minor cycle
+mmclean cycle 1, facet 6: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 6: Timing for setup: 0.310 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 6: Minor cycle 0, peak [0.35125779] at [59, 426, 0]
+mmclean cycle 1, facet 22: At iteration 4, absolute value of peak 0.072504 is below stopping threshold 0.073170
+mmclean cycle 1, facet 22: End of minor cycles
+mmclean cycle 1, facet 22: Scale counts [5]
+mmclean cycle 1, facet 22: Scale flux [0.39449359]
+mmclean cycle 1, facet 22: Timing for clean: 0.064 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 5 iterations, time per clean 12.808 (ms)
+deconvolve_cube cycle 1, facet 22: calculating spectral cubes
+mmclean cycle 1, facet 31: At iteration 17, absolute value of peak 0.071447 is below stopping threshold 0.073170
+mmclean cycle 1, facet 31: End of minor cycles
+mmclean cycle 1, facet 31: Scale counts [18]
+mmclean cycle 1, facet 31: Scale flux [3.25447939]
+mmclean cycle 1, facet 31: Timing for clean: 0.260 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 18 iterations, time per clean 14.434 (ms)
+deconvolve_cube cycle 1, facet 31: calculating spectral cubes
+mmclean cycle 1, facet 6: At iteration 22, absolute value of peak 0.071631 is below stopping threshold 0.073170
+mmclean cycle 1, facet 6: End of minor cycles
+mmclean cycle 1, facet 6: Scale counts [23]
+mmclean cycle 1, facet 6: Scale flux [3.6065832]
+mmclean cycle 1, facet 6: Timing for clean: 0.293 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 23 iterations, time per clean 12.745 (ms)
+deconvolve_cube cycle 1, facet 6: calculating spectral cubes
+deconvolve_cube cycle 1, facet 17: Cleaning entire image
+deconvolve_cube cycle 1, facet 17: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 17: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 17: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 17: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 17: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 17: Processing pol 0
+mmclean cycle 1, facet 17: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 17: Peak of Dirty = 0.301740 Jy/beam at (0, 565, 964) 
+mmclean cycle 1, facet 17: Max abs in dirty Image = 0.301740 Jy/beam
+mmclean cycle 1, facet 17: Start of minor cycle
+mmclean cycle 1, facet 17: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 17: Timing for setup: 0.280 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 17: Minor cycle 0, peak [0.30173979] at [565, 964, 0]
+mmclean cycle 1, facet 17: At iteration 15, absolute value of peak 0.067475 is below stopping threshold 0.073170
+mmclean cycle 1, facet 17: End of minor cycles
+mmclean cycle 1, facet 17: Scale counts [16]
+mmclean cycle 1, facet 17: Scale flux [2.50865657]
+mmclean cycle 1, facet 17: Timing for clean: 0.245 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 16 iterations, time per clean 15.325 (ms)
+deconvolve_cube cycle 1, facet 17: calculating spectral cubes
+deconvolve_cube cycle 1, facet 7: Cleaning entire image
+deconvolve_cube cycle 1, facet 7: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 7: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 7: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 19: Cleaning entire image
+deconvolve_cube cycle 1, facet 19: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 19: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 19: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 20: Cleaning entire image
+deconvolve_cube cycle 1, facet 20: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 20: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 20: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 10: Cleaning entire image
+deconvolve_cube cycle 1, facet 10: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 10: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 10: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 21: Cleaning entire image
+deconvolve_cube cycle 1, facet 27: Cleaning entire image
+deconvolve_cube cycle 1, facet 21: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 27: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 21: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 27: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 21: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 27: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 14: Cleaning entire image
+deconvolve_cube cycle 1, facet 14: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 14: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 14: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 7: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 19: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 7: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 19: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 7: Processing pol 0
+deconvolve_cube cycle 1, facet 19: Processing pol 0
+deconvolve_cube cycle 1, facet 20: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 20: Shape of PSF moments image (1, 1, 512, 512)
+mmclean cycle 1, facet 19: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 7: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 19: Peak of Dirty = 0.365117 Jy/beam at (0, 777, 253) 
+mmclean cycle 1, facet 7: Peak of Dirty = 0.228318 Jy/beam at (0, 1055, 930) 
+deconvolve_cube cycle 1, facet 20: Processing pol 0
+mmclean cycle 1, facet 20: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 20: Peak of Dirty = 0.348232 Jy/beam at (0, 897, 699) 
+deconvolve_cube cycle 1, facet 10: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 10: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 10: Processing pol 0
+mmclean cycle 1, facet 10: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 10: Peak of Dirty = 0.091662 Jy/beam at (0, 992, 1029) 
+deconvolve_cube cycle 1, facet 21: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 21: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 27: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 27: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 14: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 14: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 21: Processing pol 0
+deconvolve_cube cycle 1, facet 14: Processing pol 0
+mmclean cycle 1, facet 21: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 1, facet 27: Processing pol 0
+mmclean cycle 1, facet 21: Peak of Dirty = 0.175284 Jy/beam at (0, 420, 852) 
+mmclean cycle 1, facet 14: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 27: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 14: Peak of Dirty = 0.360955 Jy/beam at (0, 270, 704) 
+mmclean cycle 1, facet 27: Peak of Dirty = 0.122539 Jy/beam at (0, 596, 426) 
+mmclean cycle 1, facet 19: Max abs in dirty Image = 0.365117 Jy/beam
+mmclean cycle 1, facet 19: Start of minor cycle
+mmclean cycle 1, facet 19: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 19: Timing for setup: 0.272 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+deconvolve_cube cycle 1, facet 25: Cleaning entire image
+deconvolve_cube cycle 1, facet 25: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 25: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 25: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 13: Cleaning entire image
+deconvolve_cube cycle 1, facet 13: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 13: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 13: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 9: Cleaning entire image
+deconvolve_cube cycle 1, facet 9: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 9: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 9: Multi-scale multi-frequency clean of each polarisation separately
+mmclean cycle 1, facet 7: Max abs in dirty Image = 0.228318 Jy/beam
+mmclean cycle 1, facet 19: Minor cycle 0, peak [0.36511676] at [777, 253, 0]
+mmclean cycle 1, facet 7: Start of minor cycle
+mmclean cycle 1, facet 7: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 7: Timing for setup: 0.289 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 20: Max abs in dirty Image = 0.348232 Jy/beam
+mmclean cycle 1, facet 20: Start of minor cycle
+mmclean cycle 1, facet 20: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 20: Timing for setup: 0.289 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 7: Minor cycle 0, peak [0.22831812] at [1055, 930, 0]
+mmclean cycle 1, facet 20: Minor cycle 0, peak [0.34823205] at [897, 699, 0]
+mmclean cycle 1, facet 21: Max abs in dirty Image = 0.175284 Jy/beam
+mmclean cycle 1, facet 21: Start of minor cycle
+mmclean cycle 1, facet 21: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 21: Timing for setup: 0.276 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 10: Max abs in dirty Image = 0.091662 Jy/beam
+mmclean cycle 1, facet 14: Max abs in dirty Image = 0.360955 Jy/beam
+mmclean cycle 1, facet 10: Start of minor cycle
+mmclean cycle 1, facet 10: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 10: Timing for setup: 0.299 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 27: Max abs in dirty Image = 0.122539 Jy/beam
+mmclean cycle 1, facet 14: Start of minor cycle
+mmclean cycle 1, facet 14: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 14: Timing for setup: 0.285 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 21: Minor cycle 0, peak [0.17528424] at [420, 852, 0]
+mmclean cycle 1, facet 27: Start of minor cycle
+mmclean cycle 1, facet 27: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 27: Timing for setup: 0.287 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 10: Minor cycle 0, peak [0.0916623] at [992, 1029, 0]
+mmclean cycle 1, facet 14: Minor cycle 0, peak [0.36095503] at [270, 704, 0]
+mmclean cycle 1, facet 27: Minor cycle 0, peak [0.12253934] at [596, 426, 0]
+deconvolve_cube cycle 1, facet 25: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 25: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 9: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 9: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 13: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 13: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 9: Processing pol 0
+deconvolve_cube cycle 1, facet 25: Processing pol 0
+deconvolve_cube cycle 1, facet 13: Processing pol 0
+mmclean cycle 1, facet 9: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 25: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 13: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 9: Peak of Dirty = 0.302969 Jy/beam at (0, 598, 698) 
+mmclean cycle 1, facet 25: Peak of Dirty = 0.094399 Jy/beam at (0, 581, 428) 
+mmclean cycle 1, facet 13: Peak of Dirty = 0.329018 Jy/beam at (0, 134, 533) 
+mmclean cycle 1, facet 10: At iteration 3, absolute value of peak 0.067785 is below stopping threshold 0.073170
+mmclean cycle 1, facet 10: End of minor cycles
+mmclean cycle 1, facet 10: Scale counts [4]
+mmclean cycle 1, facet 10: Scale flux [0.31730954]
+mmclean cycle 1, facet 10: Timing for clean: 0.067 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 4 iterations, time per clean 16.716 (ms)
+deconvolve_cube cycle 1, facet 10: calculating spectral cubes
+mmclean cycle 1, facet 27: At iteration 5, absolute value of peak 0.072358 is below stopping threshold 0.073170
+mmclean cycle 1, facet 27: End of minor cycles
+mmclean cycle 1, facet 27: Scale counts [6]
+mmclean cycle 1, facet 27: Scale flux [0.57416909]
+mmclean cycle 1, facet 27: Timing for clean: 0.094 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 6 iterations, time per clean 15.635 (ms)
+deconvolve_cube cycle 1, facet 27: calculating spectral cubes
+mmclean cycle 1, facet 7: At iteration 14, absolute value of peak 0.073145 is below stopping threshold 0.073170
+mmclean cycle 1, facet 7: End of minor cycles
+mmclean cycle 1, facet 7: Scale counts [15]
+mmclean cycle 1, facet 7: Scale flux [1.88283394]
+mmclean cycle 1, facet 7: Timing for clean: 0.235 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 15 iterations, time per clean 15.674 (ms)
+deconvolve_cube cycle 1, facet 7: calculating spectral cubes
+mmclean cycle 1, facet 21: At iteration 17, absolute value of peak 0.069481 is below stopping threshold 0.073170
+mmclean cycle 1, facet 21: End of minor cycles
+mmclean cycle 1, facet 21: Scale counts [18]
+mmclean cycle 1, facet 21: Scale flux [2.05232785]
+mmclean cycle 1, facet 21: Timing for clean: 0.284 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 18 iterations, time per clean 15.754 (ms)
+deconvolve_cube cycle 1, facet 21: calculating spectral cubes
+mmclean cycle 1, facet 9: Max abs in dirty Image = 0.302969 Jy/beam
+mmclean cycle 1, facet 9: Start of minor cycle
+mmclean cycle 1, facet 9: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 9: Timing for setup: 0.314 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+deconvolve_cube cycle 1, facet 16: Cleaning entire image
+deconvolve_cube cycle 1, facet 16: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 16: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 16: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 8: Cleaning entire image
+deconvolve_cube cycle 1, facet 8: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 8: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 8: Multi-scale multi-frequency clean of each polarisation separately
+mmclean cycle 1, facet 13: Max abs in dirty Image = 0.329018 Jy/beam
+deconvolve_cube cycle 1, facet 18: Cleaning entire image
+deconvolve_cube cycle 1, facet 18: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 18: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 18: Multi-scale multi-frequency clean of each polarisation separately
+mmclean cycle 1, facet 13: Start of minor cycle
+mmclean cycle 1, facet 13: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 13: Timing for setup: 0.321 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 9: Minor cycle 0, peak [0.30296896] at [598, 698, 0]
+mmclean cycle 1, facet 25: Max abs in dirty Image = 0.094399 Jy/beam
+mmclean cycle 1, facet 25: Start of minor cycle
+mmclean cycle 1, facet 25: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 25: Timing for setup: 0.337 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 13: Minor cycle 0, peak [0.32901754] at [134, 533, 0]
+mmclean cycle 1, facet 25: Minor cycle 0, peak [0.09439882] at [581, 428, 0]
+deconvolve_cube cycle 1, facet 16: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 16: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 8: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 8: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 18: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 18: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 8: Processing pol 0
+deconvolve_cube cycle 1, facet 16: Processing pol 0
+deconvolve_cube cycle 1, facet 18: Processing pol 0
+mmclean cycle 1, facet 8: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 16: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 8: Peak of Dirty = 0.176622 Jy/beam at (0, 466, 715) 
+mmclean cycle 1, facet 16: Peak of Dirty = 0.092840 Jy/beam at (0, 382, 324) 
+mmclean cycle 1, facet 18: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 18: Peak of Dirty = 0.103810 Jy/beam at (0, 686, 279) 
+mmclean cycle 1, facet 20: At iteration 28, absolute value of peak 0.071201 is below stopping threshold 0.073170
+mmclean cycle 1, facet 20: End of minor cycles
+mmclean cycle 1, facet 20: Scale counts [29]
+mmclean cycle 1, facet 20: Scale flux [4.22539081]
+mmclean cycle 1, facet 20: Timing for clean: 0.496 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 29 iterations, time per clean 17.120 (ms)
+deconvolve_cube cycle 1, facet 20: calculating spectral cubes
+mmclean cycle 1, facet 25: At iteration 5, absolute value of peak 0.072462 is below stopping threshold 0.073170
+mmclean cycle 1, facet 25: End of minor cycles
+mmclean cycle 1, facet 25: Scale counts [6]
+mmclean cycle 1, facet 25: Scale flux [0.49688267]
+mmclean cycle 1, facet 25: Timing for clean: 0.102 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 6 iterations, time per clean 17.012 (ms)
+deconvolve_cube cycle 1, facet 25: calculating spectral cubes
+mmclean cycle 1, facet 19: At iteration 36, absolute value of peak 0.072619 is below stopping threshold 0.073170
+mmclean cycle 1, facet 19: End of minor cycles
+mmclean cycle 1, facet 19: Scale counts [37]
+mmclean cycle 1, facet 19: Scale flux [5.77315166]
+mmclean cycle 1, facet 19: Timing for clean: 0.596 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 37 iterations, time per clean 16.104 (ms)
+deconvolve_cube cycle 1, facet 19: calculating spectral cubes
+deconvolve_cube cycle 1, facet 28: Cleaning entire image
+deconvolve_cube cycle 1, facet 28: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 28: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 28: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 34: Cleaning entire image
+deconvolve_cube cycle 1, facet 34: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 34: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 34: Multi-scale multi-frequency clean of each polarisation separately
+mmclean cycle 1, facet 9: At iteration 15, absolute value of peak 0.072323 is below stopping threshold 0.073170
+mmclean cycle 1, facet 9: End of minor cycles
+mmclean cycle 1, facet 9: Scale counts [16]
+mmclean cycle 1, facet 9: Scale flux [2.48381298]
+mmclean cycle 1, facet 9: Timing for clean: 0.270 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 16 iterations, time per clean 16.902 (ms)
+deconvolve_cube cycle 1, facet 9: calculating spectral cubes
+deconvolve_cube cycle 1, facet 28: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 28: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 34: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 34: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 28: Processing pol 0
+deconvolve_cube cycle 1, facet 34: Processing pol 0
+mmclean cycle 1, facet 28: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 34: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 28: Peak of Dirty = 0.157066 Jy/beam at (0, 1041, 818) 
+mmclean cycle 1, facet 34: Peak of Dirty = 0.157066 Jy/beam at (0, 1, 818) 
+mmclean cycle 1, facet 8: Max abs in dirty Image = 0.176622 Jy/beam
+mmclean cycle 1, facet 8: Start of minor cycle
+mmclean cycle 1, facet 8: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 8: Timing for setup: 0.295 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 8: Minor cycle 0, peak [0.17662185] at [466, 715, 0]
+mmclean cycle 1, facet 16: Max abs in dirty Image = 0.092840 Jy/beam
+mmclean cycle 1, facet 16: Start of minor cycle
+mmclean cycle 1, facet 16: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 16: Timing for setup: 0.324 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 18: Max abs in dirty Image = 0.103810 Jy/beam
+deconvolve_cube cycle 1, facet 15: Cleaning entire image
+deconvolve_cube cycle 1, facet 15: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 15: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 15: Multi-scale multi-frequency clean of each polarisation separately
+mmclean cycle 1, facet 18: Start of minor cycle
+mmclean cycle 1, facet 18: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 18: Timing for setup: 0.330 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 16: Minor cycle 0, peak [0.09284009] at [382, 324, 0]
+mmclean cycle 1, facet 18: Minor cycle 0, peak [0.10380969] at [686, 279, 0]
+mmclean cycle 1, facet 14: At iteration 44, absolute value of peak 0.071862 is below stopping threshold 0.073170
+mmclean cycle 1, facet 14: End of minor cycles
+mmclean cycle 1, facet 14: Scale counts [45]
+mmclean cycle 1, facet 14: Scale flux [7.42156283]
+mmclean cycle 1, facet 14: Timing for clean: 0.768 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 45 iterations, time per clean 17.067 (ms)
+deconvolve_cube cycle 1, facet 14: calculating spectral cubes
+deconvolve_cube cycle 1, facet 15: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 15: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 15: Processing pol 0
+mmclean cycle 1, facet 15: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 15: Peak of Dirty = 0.143423 Jy/beam at (0, 157, 786) 
+mmclean cycle 1, facet 16: At iteration 5, absolute value of peak 0.071768 is below stopping threshold 0.073170
+mmclean cycle 1, facet 16: End of minor cycles
+mmclean cycle 1, facet 16: Scale counts [6]
+mmclean cycle 1, facet 16: Scale flux [0.49234964]
+mmclean cycle 1, facet 16: Timing for clean: 0.103 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 6 iterations, time per clean 17.102 (ms)
+deconvolve_cube cycle 1, facet 16: calculating spectral cubes
+mmclean cycle 1, facet 18: At iteration 7, absolute value of peak 0.072805 is below stopping threshold 0.073170
+mmclean cycle 1, facet 18: End of minor cycles
+mmclean cycle 1, facet 18: Scale counts [8]
+mmclean cycle 1, facet 18: Scale flux [0.69655281]
+mmclean cycle 1, facet 18: Timing for clean: 0.117 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 8 iterations, time per clean 14.593 (ms)
+deconvolve_cube cycle 1, facet 18: calculating spectral cubes
+mmclean cycle 1, facet 8: At iteration 14, absolute value of peak 0.067425 is below stopping threshold 0.073170
+mmclean cycle 1, facet 8: End of minor cycles
+mmclean cycle 1, facet 8: Scale counts [15]
+mmclean cycle 1, facet 8: Scale flux [1.59844665]
+mmclean cycle 1, facet 8: Timing for clean: 0.227 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 15 iterations, time per clean 15.160 (ms)
+deconvolve_cube cycle 1, facet 8: calculating spectral cubes
+deconvolve_cube cycle 1, facet 5: Cleaning entire image
+deconvolve_cube cycle 1, facet 5: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 5: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 5: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 2: Cleaning entire image
+deconvolve_cube cycle 1, facet 2: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 2: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 2: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 11: Cleaning entire image
+deconvolve_cube cycle 1, facet 11: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 11: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 11: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 2: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 2: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 2: Processing pol 0
+mmclean cycle 1, facet 2: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 1, facet 11: Shape of Dirty moments image (1, 1, 1056, 1056)
+mmclean cycle 1, facet 2: Peak of Dirty = 0.208329 Jy/beam at (0, 223, 29) 
+deconvolve_cube cycle 1, facet 11: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 5: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 5: Shape of PSF moments image (1, 1, 512, 512)
+mmclean cycle 1, facet 34: Max abs in dirty Image = 0.157066 Jy/beam
+mmclean cycle 1, facet 34: Start of minor cycle
+mmclean cycle 1, facet 34: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 34: Timing for setup: 0.401 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+deconvolve_cube cycle 1, facet 11: Processing pol 0
+deconvolve_cube cycle 1, facet 5: Processing pol 0
+mmclean cycle 1, facet 5: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 11: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 5: Peak of Dirty = 0.151794 Jy/beam at (0, 492, 49) 
+mmclean cycle 1, facet 11: Peak of Dirty = 0.192126 Jy/beam at (0, 585, 1016) 
+mmclean cycle 1, facet 34: Minor cycle 0, peak [0.15706593] at [1, 818, 0]
+mmclean cycle 1, facet 28: Max abs in dirty Image = 0.157066 Jy/beam
+mmclean cycle 1, facet 28: Start of minor cycle
+mmclean cycle 1, facet 28: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 28: Timing for setup: 0.451 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 28: Minor cycle 0, peak [0.15706593] at [1041, 818, 0]
+mmclean cycle 1, facet 34: At iteration 8, absolute value of peak 0.071342 is below stopping threshold 0.073170
+mmclean cycle 1, facet 34: End of minor cycles
+mmclean cycle 1, facet 34: Scale counts [9]
+mmclean cycle 1, facet 34: Scale flux [0.97815224]
+mmclean cycle 1, facet 34: Timing for clean: 0.119 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 9 iterations, time per clean 13.275 (ms)
+deconvolve_cube cycle 1, facet 34: calculating spectral cubes
+mmclean cycle 1, facet 28: At iteration 8, absolute value of peak 0.071342 is below stopping threshold 0.073170
+mmclean cycle 1, facet 28: End of minor cycles
+mmclean cycle 1, facet 28: Scale counts [9]
+mmclean cycle 1, facet 28: Scale flux [0.97815224]
+mmclean cycle 1, facet 28: Timing for clean: 0.112 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 9 iterations, time per clean 12.391 (ms)
+deconvolve_cube cycle 1, facet 28: calculating spectral cubes
+deconvolve_cube cycle 1, facet 26: Cleaning entire image
+deconvolve_cube cycle 1, facet 33: Cleaning entire image
+deconvolve_cube cycle 1, facet 26: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 33: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 26: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 33: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 26: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 33: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 26: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 26: Shape of PSF moments image (1, 1, 512, 512)
+mmclean cycle 1, facet 2: Max abs in dirty Image = 0.208329 Jy/beam
+deconvolve_cube cycle 1, facet 26: Processing pol 0
+mmclean cycle 1, facet 11: Max abs in dirty Image = 0.192126 Jy/beam
+mmclean cycle 1, facet 2: Start of minor cycle
+mmclean cycle 1, facet 2: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 2: Timing for setup: 0.365 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 26: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 26: Peak of Dirty = 0.193993 Jy/beam at (0, 673, 854) 
+mmclean cycle 1, facet 5: Max abs in dirty Image = 0.151794 Jy/beam
+mmclean cycle 1, facet 11: Start of minor cycle
+mmclean cycle 1, facet 11: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 11: Timing for setup: 0.344 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 5: Start of minor cycle
+mmclean cycle 1, facet 5: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 5: Timing for setup: 0.347 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+deconvolve_cube cycle 1, facet 33: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 33: Shape of PSF moments image (1, 1, 512, 512)
+mmclean cycle 1, facet 2: Minor cycle 0, peak [0.20832923] at [223, 29, 0]
+deconvolve_cube cycle 1, facet 33: Processing pol 0
+mmclean cycle 1, facet 33: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 11: Minor cycle 0, peak [0.19212614] at [585, 1016, 0]
+mmclean cycle 1, facet 33: Peak of Dirty = 0.146385 Jy/beam at (0, 337, 591) 
+mmclean cycle 1, facet 5: Minor cycle 0, peak [0.15179442] at [492, 49, 0]
+mmclean cycle 1, facet 15: Max abs in dirty Image = 0.143423 Jy/beam
+mmclean cycle 1, facet 15: Start of minor cycle
+mmclean cycle 1, facet 15: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 15: Timing for setup: 0.641 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 15: Minor cycle 0, peak [0.14342289] at [157, 786, 0]
+mmclean cycle 1, facet 13: Minor cycle 100, peak [0.07537494] at [682, 54, 0]
+mmclean cycle 1, facet 11: At iteration 10, absolute value of peak 0.070058 is below stopping threshold 0.073170
+mmclean cycle 1, facet 11: End of minor cycles
+mmclean cycle 1, facet 11: Scale counts [11]
+mmclean cycle 1, facet 11: Scale flux [1.33407647]
+mmclean cycle 1, facet 11: Timing for clean: 0.163 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 11 iterations, time per clean 14.786 (ms)
+mmclean cycle 1, facet 13: At iteration 101, absolute value of peak 0.072520 is below stopping threshold 0.073170
+mmclean cycle 1, facet 13: End of minor cycles
+mmclean cycle 1, facet 13: Scale counts [102]
+mmclean cycle 1, facet 13: Scale flux [15.27863808]
+mmclean cycle 1, facet 13: Timing for clean: 1.217 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 102 iterations, time per clean 11.935 (ms)
+deconvolve_cube cycle 1, facet 11: calculating spectral cubes
+deconvolve_cube cycle 1, facet 13: calculating spectral cubes
+mmclean cycle 1, facet 5: At iteration 10, absolute value of peak 0.073126 is below stopping threshold 0.073170
+mmclean cycle 1, facet 5: End of minor cycles
+mmclean cycle 1, facet 5: Scale counts [11]
+mmclean cycle 1, facet 5: Scale flux [1.12711621]
+mmclean cycle 1, facet 5: Timing for clean: 0.181 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 11 iterations, time per clean 16.478 (ms)
+mmclean cycle 1, facet 15: At iteration 8, absolute value of peak 0.072736 is below stopping threshold 0.073170
+mmclean cycle 1, facet 15: End of minor cycles
+mmclean cycle 1, facet 15: Scale counts [9]
+mmclean cycle 1, facet 15: Scale flux [0.90286377]
+mmclean cycle 1, facet 15: Timing for clean: 0.135 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 9 iterations, time per clean 14.946 (ms)
+deconvolve_cube cycle 1, facet 5: calculating spectral cubes
+deconvolve_cube cycle 1, facet 15: calculating spectral cubes
+mmclean cycle 1, facet 26: Max abs in dirty Image = 0.193993 Jy/beam
+mmclean cycle 1, facet 26: Start of minor cycle
+mmclean cycle 1, facet 26: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 26: Timing for setup: 0.272 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 2: At iteration 21, absolute value of peak 0.072640 is below stopping threshold 0.073170
+mmclean cycle 1, facet 2: End of minor cycles
+mmclean cycle 1, facet 2: Scale counts [22]
+mmclean cycle 1, facet 2: Scale flux [2.62441844]
+mmclean cycle 1, facet 2: Timing for clean: 0.275 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 22 iterations, time per clean 12.508 (ms)
+mmclean cycle 1, facet 26: Minor cycle 0, peak [0.19399292] at [673, 854, 0]
+mmclean cycle 1, facet 33: Max abs in dirty Image = 0.146385 Jy/beam
+deconvolve_cube cycle 1, facet 2: calculating spectral cubes
+mmclean cycle 1, facet 33: Start of minor cycle
+mmclean cycle 1, facet 33: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 33: Timing for setup: 0.272 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 33: Minor cycle 0, peak [0.14638538] at [337, 591, 0]
+mmclean cycle 1, facet 33: At iteration 11, absolute value of peak 0.071622 is below stopping threshold 0.073170
+mmclean cycle 1, facet 33: End of minor cycles
+mmclean cycle 1, facet 33: Scale counts [12]
+mmclean cycle 1, facet 33: Scale flux [1.208047]
+mmclean cycle 1, facet 33: Timing for clean: 0.156 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 12 iterations, time per clean 12.998 (ms)
+deconvolve_cube cycle 1, facet 33: calculating spectral cubes
+mmclean cycle 1, facet 26: At iteration 25, absolute value of peak 0.072490 is below stopping threshold 0.073170
+mmclean cycle 1, facet 26: End of minor cycles
+mmclean cycle 1, facet 26: Scale counts [26]
+mmclean cycle 1, facet 26: Scale flux [2.96202483]
+mmclean cycle 1, facet 26: Timing for clean: 0.285 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 26 iterations, time per clean 10.949 (ms)
+deconvolve_cube cycle 1, facet 26: calculating spectral cubes
+deconvolve_cube cycle 1, facet 30: Cleaning entire image
+deconvolve_cube cycle 1, facet 30: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 30: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 30: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 35: Cleaning entire image
+deconvolve_cube cycle 1, facet 35: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 35: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 35: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 30: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 30: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 35: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 35: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 30: Processing pol 0
+mmclean cycle 1, facet 30: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 1, facet 35: Processing pol 0
+mmclean cycle 1, facet 30: Peak of Dirty = 0.118879 Jy/beam at (0, 683, 505) 
+mmclean cycle 1, facet 35: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 35: Peak of Dirty = 0.155995 Jy/beam at (0, 292, 122) 
+deconvolve_cube cycle 1, facet 12: Cleaning entire image
+deconvolve_cube cycle 1, facet 12: PSF support = +/- 256 pixels
+deconvolve_cube cycle 1, facet 12: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 1, facet 12: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 1, facet 12: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 1, facet 12: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 1, facet 12: Processing pol 0
+mmclean cycle 1, facet 12: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 1, facet 12: Peak of Dirty = 0.172615 Jy/beam at (0, 978, 355) 
+mmclean cycle 1, facet 35: Max abs in dirty Image = 0.155995 Jy/beam
+mmclean cycle 1, facet 30: Max abs in dirty Image = 0.118879 Jy/beam
+mmclean cycle 1, facet 35: Start of minor cycle
+mmclean cycle 1, facet 35: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 35: Timing for setup: 0.240 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 30: Start of minor cycle
+mmclean cycle 1, facet 30: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 30: Timing for setup: 0.246 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 35: Minor cycle 0, peak [0.15599536] at [292, 122, 0]
+mmclean cycle 1, facet 30: Minor cycle 0, peak [0.11887928] at [683, 505, 0]
+mmclean cycle 1, facet 12: Max abs in dirty Image = 0.172615 Jy/beam
+mmclean cycle 1, facet 12: Start of minor cycle
+mmclean cycle 1, facet 12: This minor cycle will stop at 1000 iterations or peak < 0.073170 (Jy/beam)
+mmclean cycle 1, facet 12: Timing for setup: 0.212 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 1, facet 12: Minor cycle 0, peak [0.17261481] at [978, 355, 0]
+mmclean cycle 1, facet 35: At iteration 8, absolute value of peak 0.067151 is below stopping threshold 0.073170
+mmclean cycle 1, facet 35: End of minor cycles
+mmclean cycle 1, facet 35: Scale counts [9]
+mmclean cycle 1, facet 35: Scale flux [0.95559562]
+mmclean cycle 1, facet 35: Timing for clean: 0.099 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 9 iterations, time per clean 11.044 (ms)
+deconvolve_cube cycle 1, facet 35: calculating spectral cubes
+mmclean cycle 1, facet 30: At iteration 10, absolute value of peak 0.071543 is below stopping threshold 0.073170
+mmclean cycle 1, facet 30: End of minor cycles
+mmclean cycle 1, facet 30: Scale counts [11]
+mmclean cycle 1, facet 30: Scale flux [0.97936179]
+mmclean cycle 1, facet 30: Timing for clean: 0.116 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 11 iterations, time per clean 10.530 (ms)
+deconvolve_cube cycle 1, facet 30: calculating spectral cubes
+mmclean cycle 1, facet 12: At iteration 9, absolute value of peak 0.066875 is below stopping threshold 0.073170
+mmclean cycle 1, facet 12: End of minor cycles
+mmclean cycle 1, facet 12: Scale counts [10]
+mmclean cycle 1, facet 12: Scale flux [1.12427746]
+mmclean cycle 1, facet 12: Timing for clean: 0.086 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 10 iterations, time per clean 8.648 (ms)
+deconvolve_cube cycle 1, facet 12: calculating spectral cubes
+threshold_list: using moment 0, sub_image 0, peak = 0.048879,
+threshold_list: using moment 0, sub_image 1, peak = 0.093280,
+threshold_list: using moment 0, sub_image 2, peak = 0.166598,
+threshold_list: using moment 0, sub_image 3, peak = 0.097854,
+threshold_list: using moment 0, sub_image 4, peak = 0.091234,
+threshold_list: using moment 0, sub_image 5, peak = 0.132024,
+threshold_list: using moment 0, sub_image 6, peak = 0.226464,
+threshold_list: using moment 0, sub_image 7, peak = 0.087042,
+threshold_list: using moment 0, sub_image 8, peak = 0.093419,
+threshold_list: using moment 0, sub_image 9, peak = 0.118702,
+threshold_list: using moment 0, sub_image 10, peak = 0.095355,
+threshold_list: using moment 0, sub_image 11, peak = 0.150041,
+threshold_list: using moment 0, sub_image 12, peak = 0.148146,
+threshold_list: using moment 0, sub_image 13, peak = 0.143445,
+threshold_list: using moment 0, sub_image 14, peak = 0.075976,
+threshold_list: using moment 0, sub_image 15, peak = 0.075830,
+threshold_list: using moment 0, sub_image 16, peak = 0.083530,
+threshold_list: using moment 0, sub_image 17, peak = 0.215298,
+threshold_list: using moment 0, sub_image 18, peak = 0.108153,
+threshold_list: using moment 0, sub_image 19, peak = 0.182064,
+threshold_list: using moment 0, sub_image 20, peak = 0.078913,
+threshold_list: using moment 0, sub_image 21, peak = 0.075803,
+threshold_list: using moment 0, sub_image 22, peak = 0.080405,
+threshold_list: using moment 0, sub_image 23, peak = 0.079244,
+threshold_list: using moment 0, sub_image 24, peak = 0.086909,
+threshold_list: using moment 0, sub_image 25, peak = 0.097405,
+threshold_list: using moment 0, sub_image 26, peak = 0.106238,
+threshold_list: using moment 0, sub_image 27, peak = 0.088499,
+threshold_list: using moment 0, sub_image 28, peak = 0.141367,
+threshold_list: using moment 0, sub_image 29, peak = 0.004910,
+threshold_list: using moment 0, sub_image 30, peak = 0.112231,
+threshold_list: using moment 0, sub_image 31, peak = 0.248517,
+threshold_list: using moment 0, sub_image 32, peak = 0.026609,
+threshold_list: using moment 0, sub_image 33, peak = 0.130972,
+threshold_list: using moment 0, sub_image 34, peak = 0.141367,
+threshold_list: using moment 0, sub_image 35, peak = 0.131119,
+threshold_list cycle 2: Global peak in moment 0 = 0.248517, sub-image clean threshold will be 0.049703
+deconvolve_cube cycle 2, facet 7: Cleaning entire image
+deconvolve_cube cycle 2, facet 7: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 7: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 7: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 27: Cleaning entire image
+deconvolve_cube cycle 2, facet 21: Cleaning entire image
+deconvolve_cube cycle 2, facet 27: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 21: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 27: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 21: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 27: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 21: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 22: Cleaning entire image
+deconvolve_cube cycle 2, facet 22: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 22: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 22: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 7: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 7: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 27: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 27: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 7: Processing pol 0
+deconvolve_cube cycle 2, facet 21: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 21: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 27: Processing pol 0
+mmclean cycle 2, facet 7: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 2, facet 21: Processing pol 0
+mmclean cycle 2, facet 27: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 2, facet 22: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 22: Shape of PSF moments image (1, 1, 512, 512)
+mmclean cycle 2, facet 7: Peak of Dirty = 0.087041 Jy/beam at (0, 465, 889) 
+mmclean cycle 2, facet 27: Peak of Dirty = 0.088498 Jy/beam at (0, 596, 426) 
+mmclean cycle 2, facet 21: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 2, facet 22: Processing pol 0
+mmclean cycle 2, facet 21: Peak of Dirty = 0.075803 Jy/beam at (0, 787, 866) 
+mmclean cycle 2, facet 22: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 22: Peak of Dirty = 0.080404 Jy/beam at (0, 340, 882) 
+mmclean cycle 2, facet 27: Max abs in dirty Image = 0.088498 Jy/beam
+mmclean cycle 2, facet 27: Start of minor cycle
+mmclean cycle 2, facet 27: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 27: Timing for setup: 0.293 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 21: Max abs in dirty Image = 0.075803 Jy/beam
+mmclean cycle 2, facet 21: Start of minor cycle
+mmclean cycle 2, facet 7: Max abs in dirty Image = 0.087041 Jy/beam
+mmclean cycle 2, facet 21: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 21: Timing for setup: 0.301 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 27: Minor cycle 0, peak [0.08849777] at [596, 426, 0]
+mmclean cycle 2, facet 7: Start of minor cycle
+mmclean cycle 2, facet 7: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 7: Timing for setup: 0.311 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 21: Minor cycle 0, peak [0.07580254] at [787, 866, 0]
+mmclean cycle 2, facet 22: Max abs in dirty Image = 0.080404 Jy/beam
+mmclean cycle 2, facet 22: Start of minor cycle
+mmclean cycle 2, facet 22: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 22: Timing for setup: 0.314 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 7: Minor cycle 0, peak [0.08704133] at [465, 889, 0]
+mmclean cycle 2, facet 22: Minor cycle 0, peak [0.08040382] at [340, 882, 0]
+mmclean cycle 2, facet 27: At iteration 6, absolute value of peak 0.048670 is below stopping threshold 0.049703
+mmclean cycle 2, facet 27: End of minor cycles
+mmclean cycle 2, facet 27: Scale counts [7]
+mmclean cycle 2, facet 27: Scale flux [0.46749883]
+mmclean cycle 2, facet 27: Timing for clean: 0.107 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 7 iterations, time per clean 15.348 (ms)
+deconvolve_cube cycle 2, facet 27: calculating spectral cubes
+mmclean cycle 2, facet 21: At iteration 10, absolute value of peak 0.048944 is below stopping threshold 0.049703
+mmclean cycle 2, facet 21: End of minor cycles
+mmclean cycle 2, facet 21: Scale counts [11]
+mmclean cycle 2, facet 21: Scale flux [0.66207976]
+mmclean cycle 2, facet 21: Timing for clean: 0.197 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 11 iterations, time per clean 17.952 (ms)
+deconvolve_cube cycle 2, facet 21: calculating spectral cubes
+mmclean cycle 2, facet 22: At iteration 18, absolute value of peak 0.049439 is below stopping threshold 0.049703
+mmclean cycle 2, facet 22: End of minor cycles
+mmclean cycle 2, facet 22: Scale counts [19]
+mmclean cycle 2, facet 22: Scale flux [1.20935612]
+mmclean cycle 2, facet 22: Timing for clean: 0.343 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 19 iterations, time per clean 18.053 (ms)
+deconvolve_cube cycle 2, facet 22: calculating spectral cubes
+mmclean cycle 2, facet 7: At iteration 23, absolute value of peak 0.048903 is below stopping threshold 0.049703
+mmclean cycle 2, facet 7: End of minor cycles
+mmclean cycle 2, facet 7: Scale counts [24]
+mmclean cycle 2, facet 7: Scale flux [1.53360923]
+mmclean cycle 2, facet 7: Timing for clean: 0.432 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 24 iterations, time per clean 18.015 (ms)
+deconvolve_cube cycle 2, facet 7: calculating spectral cubes
+deconvolve_cube cycle 2, facet 31: Cleaning entire image
+deconvolve_cube cycle 2, facet 18: Cleaning entire image
+deconvolve_cube cycle 2, facet 31: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 18: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 31: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 18: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 31: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 18: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 19: Cleaning entire image
+deconvolve_cube cycle 2, facet 19: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 19: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 19: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 31: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 31: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 18: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 18: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 31: Processing pol 0
+deconvolve_cube cycle 2, facet 19: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 19: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 18: Processing pol 0
+mmclean cycle 2, facet 31: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 2, facet 19: Processing pol 0
+mmclean cycle 2, facet 31: Peak of Dirty = 0.248514 Jy/beam at (0, 683, 1028) 
+mmclean cycle 2, facet 18: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 18: Peak of Dirty = 0.108151 Jy/beam at (0, 686, 279) 
+mmclean cycle 2, facet 19: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 19: Peak of Dirty = 0.182061 Jy/beam at (0, 777, 253) 
+deconvolve_cube cycle 2, facet 8: Cleaning entire image
+deconvolve_cube cycle 2, facet 8: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 8: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 8: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 8: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 8: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 8: Processing pol 0
+mmclean cycle 2, facet 8: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 8: Peak of Dirty = 0.093418 Jy/beam at (0, 466, 715) 
+deconvolve_cube cycle 2, facet 17: Cleaning entire image
+deconvolve_cube cycle 2, facet 17: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 17: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 17: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 25: Cleaning entire image
+deconvolve_cube cycle 2, facet 25: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 25: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 25: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 17: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 17: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 17: Processing pol 0
+deconvolve_cube cycle 2, facet 25: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 25: Shape of PSF moments image (1, 1, 512, 512)
+mmclean cycle 2, facet 17: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 2, facet 25: Processing pol 0
+mmclean cycle 2, facet 17: Peak of Dirty = 0.215295 Jy/beam at (0, 565, 964) 
+mmclean cycle 2, facet 25: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 2, facet 2: Cleaning entire image
+deconvolve_cube cycle 2, facet 2: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 2: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 2: Multi-scale multi-frequency clean of each polarisation separately
+mmclean cycle 2, facet 25: Peak of Dirty = 0.097404 Jy/beam at (0, 581, 428) 
+mmclean cycle 2, facet 18: Max abs in dirty Image = 0.108151 Jy/beam
+mmclean cycle 2, facet 31: Max abs in dirty Image = 0.248514 Jy/beam
+mmclean cycle 2, facet 18: Start of minor cycle
+mmclean cycle 2, facet 18: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 18: Timing for setup: 0.390 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 31: Start of minor cycle
+mmclean cycle 2, facet 31: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 31: Timing for setup: 0.393 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 19: Max abs in dirty Image = 0.182061 Jy/beam
+mmclean cycle 2, facet 19: Start of minor cycle
+mmclean cycle 2, facet 19: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 19: Timing for setup: 0.394 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 31: Minor cycle 0, peak [0.24851354] at [683, 1028, 0]
+mmclean cycle 2, facet 18: Minor cycle 0, peak [0.10815136] at [686, 279, 0]
+deconvolve_cube cycle 2, facet 3: Cleaning entire image
+deconvolve_cube cycle 2, facet 12: Cleaning entire image
+deconvolve_cube cycle 2, facet 3: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 12: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 3: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 12: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 3: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 12: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 16: Cleaning entire image
+mmclean cycle 2, facet 19: Minor cycle 0, peak [0.18206149] at [777, 253, 0]
+deconvolve_cube cycle 2, facet 16: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 16: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 16: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 2: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 2: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 2: Processing pol 0
+mmclean cycle 2, facet 2: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 2: Peak of Dirty = 0.166596 Jy/beam at (0, 223, 29) 
+deconvolve_cube cycle 2, facet 12: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 3: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 12: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 3: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 3: Processing pol 0
+deconvolve_cube cycle 2, facet 12: Processing pol 0
+deconvolve_cube cycle 2, facet 16: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 16: Shape of PSF moments image (1, 1, 512, 512)
+mmclean cycle 2, facet 3: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 12: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 2, facet 16: Processing pol 0
+mmclean cycle 2, facet 3: Peak of Dirty = 0.097852 Jy/beam at (0, 937, 308) 
+mmclean cycle 2, facet 12: Peak of Dirty = 0.148144 Jy/beam at (0, 978, 355) 
+mmclean cycle 2, facet 16: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 16: Peak of Dirty = 0.083529 Jy/beam at (0, 354, 596) 
+mmclean cycle 2, facet 8: Max abs in dirty Image = 0.093418 Jy/beam
+mmclean cycle 2, facet 8: Start of minor cycle
+mmclean cycle 2, facet 8: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 8: Timing for setup: 0.279 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 8: Minor cycle 0, peak [0.09341768] at [466, 715, 0]
+mmclean cycle 2, facet 17: Max abs in dirty Image = 0.215295 Jy/beam
+mmclean cycle 2, facet 17: Start of minor cycle
+mmclean cycle 2, facet 17: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 17: Timing for setup: 0.264 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 25: Max abs in dirty Image = 0.097404 Jy/beam
+mmclean cycle 2, facet 25: Start of minor cycle
+mmclean cycle 2, facet 25: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 25: Timing for setup: 0.269 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 17: Minor cycle 0, peak [0.21529506] at [565, 964, 0]
+mmclean cycle 2, facet 25: Minor cycle 0, peak [0.09740423] at [581, 428, 0]
+mmclean cycle 2, facet 2: Max abs in dirty Image = 0.166596 Jy/beam
+mmclean cycle 2, facet 2: Start of minor cycle
+mmclean cycle 2, facet 2: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 2: Timing for setup: 0.264 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 2: Minor cycle 0, peak [0.16659576] at [223, 29, 0]
+mmclean cycle 2, facet 31: At iteration 21, absolute value of peak 0.049384 is below stopping threshold 0.049703
+mmclean cycle 2, facet 31: End of minor cycles
+mmclean cycle 2, facet 31: Scale counts [22]
+mmclean cycle 2, facet 31: Scale flux [2.4867971]
+mmclean cycle 2, facet 31: Timing for clean: 0.317 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 22 iterations, time per clean 14.390 (ms)
+deconvolve_cube cycle 2, facet 31: calculating spectral cubes
+mmclean cycle 2, facet 18: At iteration 20, absolute value of peak 0.049672 is below stopping threshold 0.049703
+mmclean cycle 2, facet 18: End of minor cycles
+mmclean cycle 2, facet 18: Scale counts [21]
+mmclean cycle 2, facet 18: Scale flux [1.49422523]
+mmclean cycle 2, facet 18: Timing for clean: 0.356 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 21 iterations, time per clean 16.954 (ms)
+deconvolve_cube cycle 2, facet 18: calculating spectral cubes
+mmclean cycle 2, facet 3: Max abs in dirty Image = 0.097852 Jy/beam
+mmclean cycle 2, facet 3: Start of minor cycle
+mmclean cycle 2, facet 3: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 3: Timing for setup: 0.328 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 12: Max abs in dirty Image = 0.148144 Jy/beam
+mmclean cycle 2, facet 12: Start of minor cycle
+mmclean cycle 2, facet 12: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 12: Timing for setup: 0.337 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 3: Minor cycle 0, peak [0.09785242] at [937, 308, 0]
+mmclean cycle 2, facet 16: Max abs in dirty Image = 0.083529 Jy/beam
+mmclean cycle 2, facet 16: Start of minor cycle
+mmclean cycle 2, facet 16: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 16: Timing for setup: 0.345 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 12: Minor cycle 0, peak [0.14814419] at [978, 355, 0]
+mmclean cycle 2, facet 16: Minor cycle 0, peak [0.08352933] at [354, 596, 0]
+mmclean cycle 2, facet 8: At iteration 18, absolute value of peak 0.049607 is below stopping threshold 0.049703
+mmclean cycle 2, facet 8: End of minor cycles
+mmclean cycle 2, facet 8: Scale counts [19]
+mmclean cycle 2, facet 8: Scale flux [1.27436869]
+mmclean cycle 2, facet 8: Timing for clean: 0.283 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 19 iterations, time per clean 14.910 (ms)
+deconvolve_cube cycle 2, facet 8: calculating spectral cubes
+mmclean cycle 2, facet 17: At iteration 17, absolute value of peak 0.049629 is below stopping threshold 0.049703
+mmclean cycle 2, facet 17: End of minor cycles
+mmclean cycle 2, facet 17: Scale counts [18]
+mmclean cycle 2, facet 17: Scale flux [1.91890185]
+mmclean cycle 2, facet 17: Timing for clean: 0.234 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 18 iterations, time per clean 13.017 (ms)
+deconvolve_cube cycle 2, facet 17: calculating spectral cubes
+mmclean cycle 2, facet 19: At iteration 36, absolute value of peak 0.048274 is below stopping threshold 0.049703
+mmclean cycle 2, facet 19: End of minor cycles
+mmclean cycle 2, facet 19: Scale counts [37]
+mmclean cycle 2, facet 19: Scale flux [2.98550257]
+mmclean cycle 2, facet 19: Timing for clean: 0.584 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 37 iterations, time per clean 15.777 (ms)
+mmclean cycle 2, facet 12: At iteration 11, absolute value of peak 0.047205 is below stopping threshold 0.049703
+mmclean cycle 2, facet 12: End of minor cycles
+mmclean cycle 2, facet 12: Scale counts [12]
+mmclean cycle 2, facet 12: Scale flux [1.06457888]
+mmclean cycle 2, facet 12: Timing for clean: 0.182 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 12 iterations, time per clean 15.160 (ms)
+deconvolve_cube cycle 2, facet 19: calculating spectral cubes
+deconvolve_cube cycle 2, facet 12: calculating spectral cubes
+mmclean cycle 2, facet 3: At iteration 15, absolute value of peak 0.048186 is below stopping threshold 0.049703
+mmclean cycle 2, facet 3: End of minor cycles
+mmclean cycle 2, facet 3: Scale counts [16]
+mmclean cycle 2, facet 3: Scale flux [1.0714458]
+mmclean cycle 2, facet 3: Timing for clean: 0.218 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 16 iterations, time per clean 13.598 (ms)
+deconvolve_cube cycle 2, facet 3: calculating spectral cubes
+deconvolve_cube cycle 2, facet 6: Cleaning entire image
+deconvolve_cube cycle 2, facet 6: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 6: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 6: Multi-scale multi-frequency clean of each polarisation separately
+mmclean cycle 2, facet 25: At iteration 17, absolute value of peak 0.048153 is below stopping threshold 0.049703
+mmclean cycle 2, facet 25: End of minor cycles
+mmclean cycle 2, facet 25: Scale counts [18]
+mmclean cycle 2, facet 25: Scale flux [1.22254207]
+mmclean cycle 2, facet 25: Timing for clean: 0.443 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 18 iterations, time per clean 24.623 (ms)
+deconvolve_cube cycle 2, facet 25: calculating spectral cubes
+deconvolve_cube cycle 2, facet 35: Cleaning entire image
+deconvolve_cube cycle 2, facet 26: Cleaning entire image
+deconvolve_cube cycle 2, facet 35: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 26: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 35: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 26: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 35: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 26: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 20: Cleaning entire image
+deconvolve_cube cycle 2, facet 20: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 20: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 4: Cleaning entire image
+deconvolve_cube cycle 2, facet 20: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 4: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 4: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 4: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 26: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 35: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 26: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 35: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 35: Processing pol 0
+deconvolve_cube cycle 2, facet 26: Processing pol 0
+mmclean cycle 2, facet 35: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 26: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 35: Peak of Dirty = 0.131117 Jy/beam at (0, 292, 122) 
+mmclean cycle 2, facet 26: Peak of Dirty = 0.106237 Jy/beam at (0, 876, 1006) 
+mmclean cycle 2, facet 16: At iteration 16, absolute value of peak 0.049399 is below stopping threshold 0.049703
+mmclean cycle 2, facet 16: End of minor cycles
+mmclean cycle 2, facet 16: Scale counts [17]
+mmclean cycle 2, facet 16: Scale flux [1.06677184]
+mmclean cycle 2, facet 16: Timing for clean: 0.380 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 17 iterations, time per clean 22.335 (ms)
+deconvolve_cube cycle 2, facet 20: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 4: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 20: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 4: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 16: calculating spectral cubes
+deconvolve_cube cycle 2, facet 4: Processing pol 0
+deconvolve_cube cycle 2, facet 20: Processing pol 0
+mmclean cycle 2, facet 4: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 20: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 4: Peak of Dirty = 0.091233 Jy/beam at (0, 867, 86) 
+mmclean cycle 2, facet 20: Peak of Dirty = 0.078912 Jy/beam at (0, 862, 55) 
+deconvolve_cube cycle 2, facet 30: Cleaning entire image
+deconvolve_cube cycle 2, facet 30: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 30: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 30: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 30: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 30: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 30: Processing pol 0
+mmclean cycle 2, facet 30: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 30: Peak of Dirty = 0.112230 Jy/beam at (0, 683, 505) 
+deconvolve_cube cycle 2, facet 13: Cleaning entire image
+deconvolve_cube cycle 2, facet 13: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 34: Cleaning entire image
+deconvolve_cube cycle 2, facet 13: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 34: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 13: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 34: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 34: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 34: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 34: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 13: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 13: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 34: Processing pol 0
+deconvolve_cube cycle 2, facet 13: Processing pol 0
+mmclean cycle 2, facet 34: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 13: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 34: Peak of Dirty = 0.141366 Jy/beam at (0, 1, 818) 
+mmclean cycle 2, facet 13: Peak of Dirty = 0.143443 Jy/beam at (0, 134, 533) 
+mmclean cycle 2, facet 2: At iteration 34, absolute value of peak 0.048949 is below stopping threshold 0.049703
+mmclean cycle 2, facet 2: End of minor cycles
+mmclean cycle 2, facet 2: Scale counts [35]
+mmclean cycle 2, facet 2: Scale flux [3.00570388]
+mmclean cycle 2, facet 2: Timing for clean: 0.728 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 35 iterations, time per clean 20.797 (ms)
+deconvolve_cube cycle 2, facet 2: calculating spectral cubes
+mmclean cycle 2, facet 35: Max abs in dirty Image = 0.131117 Jy/beam
+mmclean cycle 2, facet 26: Max abs in dirty Image = 0.106237 Jy/beam
+mmclean cycle 2, facet 35: Start of minor cycle
+mmclean cycle 2, facet 35: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 35: Timing for setup: 0.288 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 26: Start of minor cycle
+mmclean cycle 2, facet 26: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 26: Timing for setup: 0.292 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 35: Minor cycle 0, peak [0.13111703] at [292, 122, 0]
+mmclean cycle 2, facet 26: Minor cycle 0, peak [0.106237] at [876, 1006, 0]
+mmclean cycle 2, facet 20: Max abs in dirty Image = 0.078912 Jy/beam
+mmclean cycle 2, facet 4: Max abs in dirty Image = 0.091233 Jy/beam
+mmclean cycle 2, facet 20: Start of minor cycle
+mmclean cycle 2, facet 20: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 20: Timing for setup: 0.266 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 4: Start of minor cycle
+mmclean cycle 2, facet 4: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 4: Timing for setup: 0.269 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 20: Minor cycle 0, peak [0.07891241] at [862, 55, 0]
+deconvolve_cube cycle 2, facet 6: Shape of Dirty moments image (1, 1, 1056, 1056)
+mmclean cycle 2, facet 4: Minor cycle 0, peak [0.09123281] at [867, 86, 0]
+mmclean cycle 2, facet 30: Max abs in dirty Image = 0.112230 Jy/beam
+mmclean cycle 2, facet 30: Start of minor cycle
+mmclean cycle 2, facet 30: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 30: Timing for setup: 0.262 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 30: Minor cycle 0, peak [0.11222996] at [683, 505, 0]
+mmclean cycle 2, facet 35: At iteration 10, absolute value of peak 0.045718 is below stopping threshold 0.049703
+mmclean cycle 2, facet 35: End of minor cycles
+mmclean cycle 2, facet 35: Scale counts [11]
+mmclean cycle 2, facet 35: Scale flux [0.89971115]
+mmclean cycle 2, facet 35: Timing for clean: 0.149 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 11 iterations, time per clean 13.588 (ms)
+deconvolve_cube cycle 2, facet 35: calculating spectral cubes
+deconvolve_cube cycle 2, facet 6: Shape of PSF moments image (1, 1, 512, 512)
+mmclean cycle 2, facet 34: Max abs in dirty Image = 0.141366 Jy/beam
+mmclean cycle 2, facet 34: Start of minor cycle
+mmclean cycle 2, facet 34: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 34: Timing for setup: 0.246 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 34: Minor cycle 0, peak [0.1413657] at [1, 818, 0]
+mmclean cycle 2, facet 13: Max abs in dirty Image = 0.143443 Jy/beam
+mmclean cycle 2, facet 13: Start of minor cycle
+mmclean cycle 2, facet 13: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 13: Timing for setup: 0.258 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 13: Minor cycle 0, peak [0.14344284] at [134, 533, 0]
+mmclean cycle 2, facet 20: At iteration 13, absolute value of peak 0.049466 is below stopping threshold 0.049703
+mmclean cycle 2, facet 20: End of minor cycles
+mmclean cycle 2, facet 20: Scale counts [14]
+mmclean cycle 2, facet 20: Scale flux [0.86999084]
+mmclean cycle 2, facet 20: Timing for clean: 0.205 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 14 iterations, time per clean 14.641 (ms)
+deconvolve_cube cycle 2, facet 20: calculating spectral cubes
+deconvolve_cube cycle 2, facet 6: Processing pol 0
+mmclean cycle 2, facet 34: At iteration 11, absolute value of peak 0.049514 is below stopping threshold 0.049703
+mmclean cycle 2, facet 34: End of minor cycles
+mmclean cycle 2, facet 34: Scale counts [12]
+mmclean cycle 2, facet 34: Scale flux [1.05402355]
+mmclean cycle 2, facet 34: Timing for clean: 0.130 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 12 iterations, time per clean 10.798 (ms)
+mmclean cycle 2, facet 6: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 6: Peak of Dirty = 0.226462 Jy/beam at (0, 59, 427) 
+deconvolve_cube cycle 2, facet 34: calculating spectral cubes
+mmclean cycle 2, facet 4: At iteration 22, absolute value of peak 0.048341 is below stopping threshold 0.049703
+mmclean cycle 2, facet 4: End of minor cycles
+mmclean cycle 2, facet 4: Scale counts [23]
+mmclean cycle 2, facet 4: Scale flux [1.44222731]
+mmclean cycle 2, facet 4: Timing for clean: 0.331 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 23 iterations, time per clean 14.394 (ms)
+deconvolve_cube cycle 2, facet 4: calculating spectral cubes
+mmclean cycle 2, facet 30: At iteration 29, absolute value of peak 0.048253 is below stopping threshold 0.049703
+mmclean cycle 2, facet 30: End of minor cycles
+mmclean cycle 2, facet 30: Scale counts [30]
+mmclean cycle 2, facet 30: Scale flux [2.14619128]
+mmclean cycle 2, facet 30: Timing for clean: 0.344 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 30 iterations, time per clean 11.476 (ms)
+deconvolve_cube cycle 2, facet 30: calculating spectral cubes
+deconvolve_cube cycle 2, facet 10: Cleaning entire image
+deconvolve_cube cycle 2, facet 10: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 10: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 10: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 10: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 10: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 10: Processing pol 0
+mmclean cycle 2, facet 10: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 10: Peak of Dirty = 0.095354 Jy/beam at (0, 992, 1030) 
+mmclean cycle 2, facet 26: At iteration 40, absolute value of peak 0.048921 is below stopping threshold 0.049703
+mmclean cycle 2, facet 26: End of minor cycles
+mmclean cycle 2, facet 26: Scale counts [41]
+mmclean cycle 2, facet 26: Scale flux [2.8254261]
+mmclean cycle 2, facet 26: Timing for clean: 0.709 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 41 iterations, time per clean 17.294 (ms)
+deconvolve_cube cycle 2, facet 26: calculating spectral cubes
+mmclean cycle 2, facet 10: Max abs in dirty Image = 0.095354 Jy/beam
+mmclean cycle 2, facet 10: Start of minor cycle
+mmclean cycle 2, facet 10: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 10: Timing for setup: 0.270 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 10: Minor cycle 0, peak [0.09535397] at [992, 1030, 0]
+deconvolve_cube cycle 2, facet 28: Cleaning entire image
+deconvolve_cube cycle 2, facet 28: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 28: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 28: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 23: Cleaning entire image
+deconvolve_cube cycle 2, facet 23: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 23: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 23: Multi-scale multi-frequency clean of each polarisation separately
+mmclean cycle 2, facet 6: Max abs in dirty Image = 0.226462 Jy/beam
+mmclean cycle 2, facet 13: At iteration 75, absolute value of peak 0.048976 is below stopping threshold 0.049703
+mmclean cycle 2, facet 13: End of minor cycles
+mmclean cycle 2, facet 13: Scale counts [76]
+mmclean cycle 2, facet 13: Scale flux [6.06234459]
+mmclean cycle 2, facet 13: Timing for clean: 0.810 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 76 iterations, time per clean 10.654 (ms)
+deconvolve_cube cycle 2, facet 33: Cleaning entire image
+deconvolve_cube cycle 2, facet 33: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 33: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 33: Multi-scale multi-frequency clean of each polarisation separately
+mmclean cycle 2, facet 6: Start of minor cycle
+mmclean cycle 2, facet 6: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 6: Timing for setup: 0.716 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+deconvolve_cube cycle 2, facet 13: calculating spectral cubes
+mmclean cycle 2, facet 6: Minor cycle 0, peak [0.2264617] at [59, 427, 0]
+deconvolve_cube cycle 2, facet 28: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 28: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 28: Processing pol 0
+mmclean cycle 2, facet 28: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 2, facet 23: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 23: Shape of PSF moments image (1, 1, 512, 512)
+mmclean cycle 2, facet 28: Peak of Dirty = 0.141366 Jy/beam at (0, 1041, 818) 
+deconvolve_cube cycle 2, facet 23: Processing pol 0
+mmclean cycle 2, facet 23: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 2, facet 33: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 33: Shape of PSF moments image (1, 1, 512, 512)
+mmclean cycle 2, facet 23: Peak of Dirty = 0.079243 Jy/beam at (0, 611, 51) 
+deconvolve_cube cycle 2, facet 33: Processing pol 0
+mmclean cycle 2, facet 33: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 33: Peak of Dirty = 0.130971 Jy/beam at (0, 337, 591) 
+deconvolve_cube cycle 2, facet 5: Cleaning entire image
+deconvolve_cube cycle 2, facet 5: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 5: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 5: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 9: Cleaning entire image
+deconvolve_cube cycle 2, facet 9: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 9: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 9: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 5: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 5: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 5: Processing pol 0
+mmclean cycle 2, facet 5: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 5: Peak of Dirty = 0.132023 Jy/beam at (0, 492, 49) 
+deconvolve_cube cycle 2, facet 9: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 9: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 9: Processing pol 0
+mmclean cycle 2, facet 9: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 10: At iteration 17, absolute value of peak 0.049558 is below stopping threshold 0.049703
+mmclean cycle 2, facet 10: End of minor cycles
+mmclean cycle 2, facet 10: Scale counts [18]
+mmclean cycle 2, facet 10: Scale flux [1.21158267]
+mmclean cycle 2, facet 10: Timing for clean: 0.262 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 18 iterations, time per clean 14.550 (ms)
+mmclean cycle 2, facet 9: Peak of Dirty = 0.118700 Jy/beam at (0, 598, 698) 
+deconvolve_cube cycle 2, facet 10: calculating spectral cubes
+mmclean cycle 2, facet 28: Max abs in dirty Image = 0.141366 Jy/beam
+mmclean cycle 2, facet 28: Start of minor cycle
+mmclean cycle 2, facet 28: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 28: Timing for setup: 0.274 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 33: Max abs in dirty Image = 0.130971 Jy/beam
+mmclean cycle 2, facet 28: Minor cycle 0, peak [0.1413657] at [1041, 818, 0]
+mmclean cycle 2, facet 33: Start of minor cycle
+mmclean cycle 2, facet 33: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 33: Timing for setup: 0.272 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 23: Max abs in dirty Image = 0.079243 Jy/beam
+mmclean cycle 2, facet 23: Start of minor cycle
+mmclean cycle 2, facet 23: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 23: Timing for setup: 0.291 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 33: Minor cycle 0, peak [0.13097072] at [337, 591, 0]
+mmclean cycle 2, facet 5: Max abs in dirty Image = 0.132023 Jy/beam
+mmclean cycle 2, facet 5: Start of minor cycle
+mmclean cycle 2, facet 5: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 5: Timing for setup: 0.211 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 23: Minor cycle 0, peak [0.07924263] at [611, 51, 0]
+mmclean cycle 2, facet 5: Minor cycle 0, peak [0.13202256] at [492, 49, 0]
+mmclean cycle 2, facet 6: At iteration 28, absolute value of peak 0.046323 is below stopping threshold 0.049703
+mmclean cycle 2, facet 6: End of minor cycles
+mmclean cycle 2, facet 6: Scale counts [29]
+mmclean cycle 2, facet 6: Scale flux [2.82743631]
+mmclean cycle 2, facet 6: Timing for clean: 0.386 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 29 iterations, time per clean 13.306 (ms)
+deconvolve_cube cycle 2, facet 6: calculating spectral cubes
+mmclean cycle 2, facet 9: Max abs in dirty Image = 0.118700 Jy/beam
+mmclean cycle 2, facet 9: Start of minor cycle
+mmclean cycle 2, facet 9: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 9: Timing for setup: 0.270 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 9: Minor cycle 0, peak [0.11870014] at [598, 698, 0]
+mmclean cycle 2, facet 28: At iteration 13, absolute value of peak 0.049514 is below stopping threshold 0.049703
+mmclean cycle 2, facet 28: End of minor cycles
+mmclean cycle 2, facet 28: Scale counts [14]
+mmclean cycle 2, facet 28: Scale flux [1.16970374]
+mmclean cycle 2, facet 28: Timing for clean: 0.211 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 14 iterations, time per clean 15.073 (ms)
+mmclean cycle 2, facet 23: At iteration 12, absolute value of peak 0.049419 is below stopping threshold 0.049703
+mmclean cycle 2, facet 23: End of minor cycles
+mmclean cycle 2, facet 23: Scale counts [13]
+mmclean cycle 2, facet 23: Scale flux [0.79111581]
+mmclean cycle 2, facet 23: Timing for clean: 0.186 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 13 iterations, time per clean 14.326 (ms)
+deconvolve_cube cycle 2, facet 28: calculating spectral cubes
+deconvolve_cube cycle 2, facet 23: calculating spectral cubes
+mmclean cycle 2, facet 5: At iteration 24, absolute value of peak 0.048954 is below stopping threshold 0.049703
+mmclean cycle 2, facet 5: End of minor cycles
+mmclean cycle 2, facet 5: Scale counts [25]
+mmclean cycle 2, facet 5: Scale flux [1.86559557]
+mmclean cycle 2, facet 5: Timing for clean: 0.226 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 25 iterations, time per clean 9.053 (ms)
+deconvolve_cube cycle 2, facet 5: calculating spectral cubes
+mmclean cycle 2, facet 33: At iteration 18, absolute value of peak 0.048241 is below stopping threshold 0.049703
+mmclean cycle 2, facet 33: End of minor cycles
+mmclean cycle 2, facet 33: Scale counts [19]
+mmclean cycle 2, facet 33: Scale flux [1.53402053]
+mmclean cycle 2, facet 33: Timing for clean: 0.279 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 19 iterations, time per clean 14.680 (ms)
+deconvolve_cube cycle 2, facet 33: calculating spectral cubes
+mmclean cycle 2, facet 9: At iteration 25, absolute value of peak 0.047378 is below stopping threshold 0.049703
+mmclean cycle 2, facet 9: End of minor cycles
+mmclean cycle 2, facet 9: Scale counts [26]
+mmclean cycle 2, facet 9: Scale flux [1.80431373]
+mmclean cycle 2, facet 9: Timing for clean: 0.320 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 26 iterations, time per clean 12.315 (ms)
+deconvolve_cube cycle 2, facet 9: calculating spectral cubes
+deconvolve_cube cycle 2, facet 1: Cleaning entire image
+deconvolve_cube cycle 2, facet 1: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 1: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 1: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 14: Cleaning entire image
+deconvolve_cube cycle 2, facet 14: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 14: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 14: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 14: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 14: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 1: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 1: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 14: Processing pol 0
+deconvolve_cube cycle 2, facet 1: Processing pol 0
+mmclean cycle 2, facet 14: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 14: Peak of Dirty = 0.075975 Jy/beam at (0, 269, 704) 
+mmclean cycle 2, facet 1: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 1: Peak of Dirty = 0.093279 Jy/beam at (0, 695, 1004) 
+deconvolve_cube cycle 2, facet 11: Cleaning entire image
+deconvolve_cube cycle 2, facet 11: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 11: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 11: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 11: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 11: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 11: Processing pol 0
+mmclean cycle 2, facet 11: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 11: Peak of Dirty = 0.150039 Jy/beam at (0, 585, 1016) 
+deconvolve_cube cycle 2, facet 15: Cleaning entire image
+deconvolve_cube cycle 2, facet 15: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 15: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 15: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 2, facet 15: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 15: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 2, facet 15: Processing pol 0
+mmclean cycle 2, facet 15: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 15: Peak of Dirty = 0.075829 Jy/beam at (0, 157, 786) 
+deconvolve_cube cycle 2, facet 24: Cleaning entire image
+deconvolve_cube cycle 2, facet 24: PSF support = +/- 256 pixels
+deconvolve_cube cycle 2, facet 24: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 2, facet 24: Multi-scale multi-frequency clean of each polarisation separately
+mmclean cycle 2, facet 14: Max abs in dirty Image = 0.075975 Jy/beam
+mmclean cycle 2, facet 14: Start of minor cycle
+mmclean cycle 2, facet 14: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 14: Timing for setup: 0.355 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 14: Minor cycle 0, peak [0.07597461] at [269, 704, 0]
+deconvolve_cube cycle 2, facet 24: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 2, facet 24: Shape of PSF moments image (1, 1, 512, 512)
+mmclean cycle 2, facet 1: Max abs in dirty Image = 0.093279 Jy/beam
+deconvolve_cube cycle 2, facet 24: Processing pol 0
+mmclean cycle 2, facet 24: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 2, facet 1: Start of minor cycle
+mmclean cycle 2, facet 1: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 1: Timing for setup: 0.384 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 24: Peak of Dirty = 0.086908 Jy/beam at (0, 328, 705) 
+mmclean cycle 2, facet 1: Minor cycle 0, peak [0.09327933] at [695, 1004, 0]
+mmclean cycle 2, facet 11: Max abs in dirty Image = 0.150039 Jy/beam
+mmclean cycle 2, facet 11: Start of minor cycle
+mmclean cycle 2, facet 11: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 11: Timing for setup: 0.278 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 11: Minor cycle 0, peak [0.15003949] at [585, 1016, 0]
+mmclean cycle 2, facet 1: At iteration 8, absolute value of peak 0.046753 is below stopping threshold 0.049703
+mmclean cycle 2, facet 1: End of minor cycles
+mmclean cycle 2, facet 1: Scale counts [9]
+mmclean cycle 2, facet 1: Scale flux [0.5907085]
+mmclean cycle 2, facet 1: Timing for clean: 0.111 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 9 iterations, time per clean 12.324 (ms)
+deconvolve_cube cycle 2, facet 1: calculating spectral cubes
+mmclean cycle 2, facet 15: Max abs in dirty Image = 0.075829 Jy/beam
+mmclean cycle 2, facet 15: Start of minor cycle
+mmclean cycle 2, facet 15: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 15: Timing for setup: 0.267 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 15: Minor cycle 0, peak [0.0758294] at [157, 786, 0]
+mmclean cycle 2, facet 14: At iteration 13, absolute value of peak 0.049451 is below stopping threshold 0.049703
+mmclean cycle 2, facet 14: End of minor cycles
+mmclean cycle 2, facet 14: Scale counts [14]
+mmclean cycle 2, facet 14: Scale flux [0.85465959]
+mmclean cycle 2, facet 14: Timing for clean: 0.186 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 14 iterations, time per clean 13.300 (ms)
+deconvolve_cube cycle 2, facet 14: calculating spectral cubes
+mmclean cycle 2, facet 24: Max abs in dirty Image = 0.086908 Jy/beam
+mmclean cycle 2, facet 24: Start of minor cycle
+mmclean cycle 2, facet 24: This minor cycle will stop at 1000 iterations or peak < 0.049703 (Jy/beam)
+mmclean cycle 2, facet 24: Timing for setup: 0.278 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 2, facet 15: At iteration 10, absolute value of peak 0.046084 is below stopping threshold 0.049703
+mmclean cycle 2, facet 15: End of minor cycles
+mmclean cycle 2, facet 15: Scale counts [11]
+mmclean cycle 2, facet 15: Scale flux [0.66501228]
+mmclean cycle 2, facet 15: Timing for clean: 0.142 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 11 iterations, time per clean 12.875 (ms)
+mmclean cycle 2, facet 24: Minor cycle 0, peak [0.08690818] at [328, 705, 0]
+deconvolve_cube cycle 2, facet 15: calculating spectral cubes
+mmclean cycle 2, facet 11: At iteration 26, absolute value of peak 0.048420 is below stopping threshold 0.049703
+mmclean cycle 2, facet 11: End of minor cycles
+mmclean cycle 2, facet 11: Scale counts [27]
+mmclean cycle 2, facet 11: Scale flux [2.05888246]
+mmclean cycle 2, facet 11: Timing for clean: 0.392 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 27 iterations, time per clean 14.503 (ms)
+deconvolve_cube cycle 2, facet 11: calculating spectral cubes
+mmclean cycle 2, facet 24: At iteration 22, absolute value of peak 0.049478 is below stopping threshold 0.049703
+mmclean cycle 2, facet 24: End of minor cycles
+mmclean cycle 2, facet 24: Scale counts [23]
+mmclean cycle 2, facet 24: Scale flux [1.43426548]
+mmclean cycle 2, facet 24: Timing for clean: 0.286 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 23 iterations, time per clean 12.420 (ms)
+deconvolve_cube cycle 2, facet 24: calculating spectral cubes
+threshold_list: using moment 0, sub_image 0, peak = 0.049522,
+threshold_list: using moment 0, sub_image 1, peak = 0.063125,
+threshold_list: using moment 0, sub_image 2, peak = 0.089861,
+threshold_list: using moment 0, sub_image 3, peak = 0.062111,
+threshold_list: using moment 0, sub_image 4, peak = 0.062370,
+threshold_list: using moment 0, sub_image 5, peak = 0.074615,
+threshold_list: using moment 0, sub_image 6, peak = 0.109328,
+threshold_list: using moment 0, sub_image 7, peak = 0.056359,
+threshold_list: using moment 0, sub_image 8, peak = 0.057465,
+threshold_list: using moment 0, sub_image 9, peak = 0.058837,
+threshold_list: using moment 0, sub_image 10, peak = 0.064484,
+threshold_list: using moment 0, sub_image 11, peak = 0.078900,
+threshold_list: using moment 0, sub_image 12, peak = 0.084784,
+threshold_list: using moment 0, sub_image 13, peak = 0.072651,
+threshold_list: using moment 0, sub_image 14, peak = 0.050181,
+threshold_list: using moment 0, sub_image 15, peak = 0.047338,
+threshold_list: using moment 0, sub_image 16, peak = 0.054630,
+threshold_list: using moment 0, sub_image 17, peak = 0.104577,
+threshold_list: using moment 0, sub_image 18, peak = 0.068089,
+threshold_list: using moment 0, sub_image 19, peak = 0.091993,
+threshold_list: using moment 0, sub_image 20, peak = 0.051726,
+threshold_list: using moment 0, sub_image 21, peak = 0.048921,
+threshold_list: using moment 0, sub_image 22, peak = 0.055032,
+threshold_list: using moment 0, sub_image 23, peak = 0.056865,
+threshold_list: using moment 0, sub_image 24, peak = 0.061790,
+threshold_list: using moment 0, sub_image 25, peak = 0.063910,
+threshold_list: using moment 0, sub_image 26, peak = 0.059669,
+threshold_list: using moment 0, sub_image 27, peak = 0.054550,
+threshold_list: using moment 0, sub_image 28, peak = 0.084624,
+threshold_list: using moment 0, sub_image 29, peak = 0.004244,
+threshold_list: using moment 0, sub_image 30, peak = 0.072010,
+threshold_list: using moment 0, sub_image 31, peak = 0.137198,
+threshold_list: using moment 0, sub_image 32, peak = 0.022685,
+threshold_list: using moment 0, sub_image 33, peak = 0.079366,
+threshold_list: using moment 0, sub_image 34, peak = 0.084624,
+threshold_list: using moment 0, sub_image 35, peak = 0.073397,
+threshold_list cycle 3: Global peak in moment 0 = 0.137198, sub-image clean threshold will be 0.027440
+deconvolve_cube cycle 3, facet 19: Cleaning entire image
+deconvolve_cube cycle 3, facet 19: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 19: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 19: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 1: Cleaning entire image
+deconvolve_cube cycle 3, facet 1: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 1: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 1: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 19: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 19: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 19: Processing pol 0
+mmclean cycle 3, facet 19: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 3, facet 1: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 1: Shape of PSF moments image (1, 1, 512, 512)
+mmclean cycle 3, facet 19: Peak of Dirty = 0.091992 Jy/beam at (0, 777, 253) 
+deconvolve_cube cycle 3, facet 1: Processing pol 0
+mmclean cycle 3, facet 1: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 1: Peak of Dirty = 0.063124 Jy/beam at (0, 695, 1004) 
+mmclean cycle 3, facet 19: Max abs in dirty Image = 0.091992 Jy/beam
+mmclean cycle 3, facet 1: Max abs in dirty Image = 0.063124 Jy/beam
+mmclean cycle 3, facet 19: Start of minor cycle
+mmclean cycle 3, facet 19: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 19: Timing for setup: 0.300 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 1: Start of minor cycle
+mmclean cycle 3, facet 1: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 1: Timing for setup: 0.292 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 19: Minor cycle 0, peak [0.09199194] at [777, 253, 0]
+mmclean cycle 3, facet 1: Minor cycle 0, peak [0.06312422] at [695, 1004, 0]
+mmclean cycle 3, facet 1: At iteration 15, absolute value of peak 0.026418 is below stopping threshold 0.027440
+mmclean cycle 3, facet 1: End of minor cycles
+mmclean cycle 3, facet 1: Scale counts [16]
+mmclean cycle 3, facet 1: Scale flux [0.64842279]
+mmclean cycle 3, facet 1: Timing for clean: 0.231 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 16 iterations, time per clean 14.452 (ms)
+deconvolve_cube cycle 3, facet 1: calculating spectral cubes
+mmclean cycle 3, facet 19: At iteration 41, absolute value of peak 0.026602 is below stopping threshold 0.027440
+mmclean cycle 3, facet 19: End of minor cycles
+mmclean cycle 3, facet 19: Scale counts [42]
+mmclean cycle 3, facet 19: Scale flux [1.83813923]
+mmclean cycle 3, facet 19: Timing for clean: 0.805 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 42 iterations, time per clean 19.157 (ms)
+deconvolve_cube cycle 3, facet 19: calculating spectral cubes
+deconvolve_cube cycle 3, facet 33: Cleaning entire image
+deconvolve_cube cycle 3, facet 33: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 33: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 16: Cleaning entire image
+deconvolve_cube cycle 3, facet 33: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 16: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 16: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 16: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 33: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 33: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 16: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 16: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 33: Processing pol 0
+deconvolve_cube cycle 3, facet 16: Processing pol 0
+mmclean cycle 3, facet 33: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 33: Peak of Dirty = 0.079365 Jy/beam at (0, 337, 591) 
+mmclean cycle 3, facet 16: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 16: Peak of Dirty = 0.054629 Jy/beam at (0, 354, 596) 
+mmclean cycle 3, facet 16: Max abs in dirty Image = 0.054629 Jy/beam
+mmclean cycle 3, facet 33: Max abs in dirty Image = 0.079365 Jy/beam
+mmclean cycle 3, facet 16: Start of minor cycle
+mmclean cycle 3, facet 16: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 16: Timing for setup: 0.273 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 33: Start of minor cycle
+mmclean cycle 3, facet 33: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 33: Timing for setup: 0.278 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 33: Minor cycle 0, peak [0.07936517] at [337, 591, 0]
+mmclean cycle 3, facet 16: Minor cycle 0, peak [0.05462884] at [354, 596, 0]
+mmclean cycle 3, facet 33: At iteration 27, absolute value of peak 0.026620 is below stopping threshold 0.027440
+mmclean cycle 3, facet 33: End of minor cycles
+mmclean cycle 3, facet 33: Scale counts [28]
+mmclean cycle 3, facet 33: Scale flux [1.26035399]
+mmclean cycle 3, facet 33: Timing for clean: 0.418 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 28 iterations, time per clean 14.921 (ms)
+deconvolve_cube cycle 3, facet 33: calculating spectral cubes
+mmclean cycle 3, facet 16: At iteration 34, absolute value of peak 0.026744 is below stopping threshold 0.027440
+mmclean cycle 3, facet 16: End of minor cycles
+mmclean cycle 3, facet 16: Scale counts [35]
+mmclean cycle 3, facet 16: Scale flux [1.35096307]
+mmclean cycle 3, facet 16: Timing for clean: 0.605 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 35 iterations, time per clean 17.290 (ms)
+deconvolve_cube cycle 3, facet 16: calculating spectral cubes
+deconvolve_cube cycle 3, facet 12: Cleaning entire image
+deconvolve_cube cycle 3, facet 12: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 12: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 12: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 23: Cleaning entire image
+deconvolve_cube cycle 3, facet 23: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 23: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 23: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 2: Cleaning entire image
+deconvolve_cube cycle 3, facet 2: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 2: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 2: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 28: Cleaning entire image
+deconvolve_cube cycle 3, facet 28: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 28: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 28: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 23: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 23: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 12: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 12: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 12: Processing pol 0
+deconvolve_cube cycle 3, facet 23: Processing pol 0
+mmclean cycle 3, facet 12: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 3, facet 2: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 2: Shape of PSF moments image (1, 1, 512, 512)
+mmclean cycle 3, facet 23: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 12: Peak of Dirty = 0.084783 Jy/beam at (0, 978, 355) 
+mmclean cycle 3, facet 23: Peak of Dirty = 0.056864 Jy/beam at (0, 611, 51) 
+deconvolve_cube cycle 3, facet 28: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 28: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 28: Processing pol 0
+deconvolve_cube cycle 3, facet 2: Processing pol 0
+mmclean cycle 3, facet 28: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 28: Peak of Dirty = 0.084623 Jy/beam at (0, 1041, 818) 
+mmclean cycle 3, facet 2: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 2: Peak of Dirty = 0.089860 Jy/beam at (0, 223, 29) 
+mmclean cycle 3, facet 23: Max abs in dirty Image = 0.056864 Jy/beam
+mmclean cycle 3, facet 12: Max abs in dirty Image = 0.084783 Jy/beam
+mmclean cycle 3, facet 23: Start of minor cycle
+mmclean cycle 3, facet 23: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 23: Timing for setup: 0.284 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 12: Start of minor cycle
+mmclean cycle 3, facet 12: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 12: Timing for setup: 0.287 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 28: Max abs in dirty Image = 0.084623 Jy/beam
+mmclean cycle 3, facet 23: Minor cycle 0, peak [0.05686385] at [611, 51, 0]
+mmclean cycle 3, facet 28: Start of minor cycle
+mmclean cycle 3, facet 28: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 28: Timing for setup: 0.285 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 12: Minor cycle 0, peak [0.08478337] at [978, 355, 0]
+mmclean cycle 3, facet 28: Minor cycle 0, peak [0.08462333] at [1041, 818, 0]
+mmclean cycle 3, facet 2: Max abs in dirty Image = 0.089860 Jy/beam
+mmclean cycle 3, facet 2: Start of minor cycle
+mmclean cycle 3, facet 2: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 2: Timing for setup: 0.304 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 2: Minor cycle 0, peak [0.08986004] at [223, 29, 0]
+deconvolve_cube cycle 3, facet 0: Cleaning entire image
+deconvolve_cube cycle 3, facet 8: Cleaning entire image
+deconvolve_cube cycle 3, facet 0: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 6: Cleaning entire image
+deconvolve_cube cycle 3, facet 8: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 0: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 6: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 8: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 0: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 6: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 8: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 6: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 8: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 0: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 8: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 0: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 6: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 6: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 8: Processing pol 0
+deconvolve_cube cycle 3, facet 0: Processing pol 0
+mmclean cycle 3, facet 0: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 3, facet 6: Processing pol 0
+mmclean cycle 3, facet 8: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 0: Peak of Dirty = 0.049521 Jy/beam at (0, 517, 474) 
+mmclean cycle 3, facet 6: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 8: Peak of Dirty = 0.057465 Jy/beam at (0, 27, 884) 
+mmclean cycle 3, facet 6: Peak of Dirty = 0.109326 Jy/beam at (0, 59, 427) 
+mmclean cycle 3, facet 12: At iteration 12, absolute value of peak 0.025445 is below stopping threshold 0.027440
+mmclean cycle 3, facet 12: End of minor cycles
+mmclean cycle 3, facet 12: Scale counts [13]
+mmclean cycle 3, facet 12: Scale flux [0.6390834]
+mmclean cycle 3, facet 12: Timing for clean: 0.226 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 13 iterations, time per clean 17.362 (ms)
+deconvolve_cube cycle 3, facet 12: calculating spectral cubes
+mmclean cycle 3, facet 28: At iteration 18, absolute value of peak 0.027439 is below stopping threshold 0.027440
+mmclean cycle 3, facet 28: End of minor cycles
+mmclean cycle 3, facet 28: Scale counts [19]
+mmclean cycle 3, facet 28: Scale flux [0.89814332]
+mmclean cycle 3, facet 28: Timing for clean: 0.327 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 19 iterations, time per clean 17.189 (ms)
+deconvolve_cube cycle 3, facet 28: calculating spectral cubes
+mmclean cycle 3, facet 0: Max abs in dirty Image = 0.049521 Jy/beam
+mmclean cycle 3, facet 0: Start of minor cycle
+mmclean cycle 3, facet 0: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 0: Timing for setup: 0.271 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 0: Minor cycle 0, peak [0.04952101] at [517, 474, 0]
+mmclean cycle 3, facet 6: Max abs in dirty Image = 0.109326 Jy/beam
+mmclean cycle 3, facet 6: Start of minor cycle
+mmclean cycle 3, facet 6: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 6: Timing for setup: 0.297 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 8: Max abs in dirty Image = 0.057465 Jy/beam
+mmclean cycle 3, facet 6: Minor cycle 0, peak [0.1093263] at [59, 427, 0]
+mmclean cycle 3, facet 8: Start of minor cycle
+mmclean cycle 3, facet 8: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 8: Timing for setup: 0.316 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 8: Minor cycle 0, peak [0.05746473] at [27, 884, 0]
+deconvolve_cube cycle 3, facet 34: Cleaning entire image
+deconvolve_cube cycle 3, facet 34: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 34: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 34: Multi-scale multi-frequency clean of each polarisation separately
+mmclean cycle 3, facet 0: At iteration 9, absolute value of peak 0.027182 is below stopping threshold 0.027440
+mmclean cycle 3, facet 0: End of minor cycles
+mmclean cycle 3, facet 0: Scale counts [10]
+mmclean cycle 3, facet 0: Scale flux [0.36175764]
+mmclean cycle 3, facet 0: Timing for clean: 0.117 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 10 iterations, time per clean 11.666 (ms)
+deconvolve_cube cycle 3, facet 0: calculating spectral cubes
+deconvolve_cube cycle 3, facet 34: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 34: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 34: Processing pol 0
+mmclean cycle 3, facet 34: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 34: Peak of Dirty = 0.084623 Jy/beam at (0, 1, 818) 
+mmclean cycle 3, facet 23: At iteration 36, absolute value of peak 0.027136 is below stopping threshold 0.027440
+mmclean cycle 3, facet 23: End of minor cycles
+mmclean cycle 3, facet 23: Scale counts [37]
+mmclean cycle 3, facet 23: Scale flux [1.39528737]
+mmclean cycle 3, facet 23: Timing for clean: 0.679 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 37 iterations, time per clean 18.342 (ms)
+deconvolve_cube cycle 3, facet 23: calculating spectral cubes
+mmclean cycle 3, facet 2: At iteration 40, absolute value of peak 0.026706 is below stopping threshold 0.027440
+mmclean cycle 3, facet 2: End of minor cycles
+mmclean cycle 3, facet 2: Scale counts [41]
+mmclean cycle 3, facet 2: Scale flux [1.97336318]
+mmclean cycle 3, facet 2: Timing for clean: 0.706 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 41 iterations, time per clean 17.216 (ms)
+deconvolve_cube cycle 3, facet 2: calculating spectral cubes
+mmclean cycle 3, facet 34: Max abs in dirty Image = 0.084623 Jy/beam
+mmclean cycle 3, facet 34: Start of minor cycle
+mmclean cycle 3, facet 34: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 34: Timing for setup: 0.289 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 34: Minor cycle 0, peak [0.08462333] at [1, 818, 0]
+mmclean cycle 3, facet 8: At iteration 30, absolute value of peak 0.026398 is below stopping threshold 0.027440
+mmclean cycle 3, facet 8: End of minor cycles
+mmclean cycle 3, facet 8: Scale counts [31]
+mmclean cycle 3, facet 8: Scale flux [1.22265456]
+mmclean cycle 3, facet 8: Timing for clean: 0.509 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 31 iterations, time per clean 16.423 (ms)
+deconvolve_cube cycle 3, facet 8: calculating spectral cubes
+mmclean cycle 3, facet 6: At iteration 34, absolute value of peak 0.027280 is below stopping threshold 0.027440
+mmclean cycle 3, facet 6: End of minor cycles
+mmclean cycle 3, facet 6: Scale counts [35]
+mmclean cycle 3, facet 6: Scale flux [1.6871336]
+mmclean cycle 3, facet 6: Timing for clean: 0.547 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 35 iterations, time per clean 15.624 (ms)
+deconvolve_cube cycle 3, facet 6: calculating spectral cubes
+mmclean cycle 3, facet 34: At iteration 15, absolute value of peak 0.026701 is below stopping threshold 0.027440
+mmclean cycle 3, facet 34: End of minor cycles
+mmclean cycle 3, facet 34: Scale counts [16]
+mmclean cycle 3, facet 34: Scale flux [0.75025765]
+mmclean cycle 3, facet 34: Timing for clean: 0.164 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 16 iterations, time per clean 10.272 (ms)
+deconvolve_cube cycle 3, facet 34: calculating spectral cubes
+deconvolve_cube cycle 3, facet 7: Cleaning entire image
+deconvolve_cube cycle 3, facet 7: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 7: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 7: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 30: Cleaning entire image
+deconvolve_cube cycle 3, facet 30: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 30: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 30: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 11: Cleaning entire image
+deconvolve_cube cycle 3, facet 11: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 11: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 11: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 18: Cleaning entire image
+deconvolve_cube cycle 3, facet 18: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 18: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 18: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 7: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 7: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 7: Processing pol 0
+deconvolve_cube cycle 3, facet 30: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 30: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 11: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 11: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 30: Processing pol 0
+mmclean cycle 3, facet 7: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 3, facet 18: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 18: Shape of PSF moments image (1, 1, 512, 512)
+mmclean cycle 3, facet 7: Peak of Dirty = 0.056359 Jy/beam at (0, 465, 889) 
+mmclean cycle 3, facet 30: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 3, facet 11: Processing pol 0
+mmclean cycle 3, facet 30: Peak of Dirty = 0.072009 Jy/beam at (0, 683, 505) 
+deconvolve_cube cycle 3, facet 18: Processing pol 0
+mmclean cycle 3, facet 11: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 11: Peak of Dirty = 0.078899 Jy/beam at (0, 585, 1016) 
+mmclean cycle 3, facet 18: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 18: Peak of Dirty = 0.068088 Jy/beam at (0, 686, 279) 
+deconvolve_cube cycle 3, facet 27: Cleaning entire image
+deconvolve_cube cycle 3, facet 27: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 27: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 27: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 27: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 27: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 27: Processing pol 0
+mmclean cycle 3, facet 27: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 27: Peak of Dirty = 0.054550 Jy/beam at (0, 596, 426) 
+deconvolve_cube cycle 3, facet 25: Cleaning entire image
+deconvolve_cube cycle 3, facet 25: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 25: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 25: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 25: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 25: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 25: Processing pol 0
+mmclean cycle 3, facet 25: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 25: Peak of Dirty = 0.063910 Jy/beam at (0, 581, 428) 
+mmclean cycle 3, facet 7: Max abs in dirty Image = 0.056359 Jy/beam
+mmclean cycle 3, facet 30: Max abs in dirty Image = 0.072009 Jy/beam
+mmclean cycle 3, facet 7: Start of minor cycle
+mmclean cycle 3, facet 7: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 7: Timing for setup: 0.264 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 30: Start of minor cycle
+mmclean cycle 3, facet 30: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 30: Timing for setup: 0.264 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 11: Max abs in dirty Image = 0.078899 Jy/beam
+mmclean cycle 3, facet 7: Minor cycle 0, peak [0.0563588] at [465, 889, 0]
+mmclean cycle 3, facet 11: Start of minor cycle
+mmclean cycle 3, facet 11: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 30: Minor cycle 0, peak [0.07200921] at [683, 505, 0]
+mmclean cycle 3, facet 11: Timing for setup: 0.269 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 18: Max abs in dirty Image = 0.068088 Jy/beam
+mmclean cycle 3, facet 18: Start of minor cycle
+mmclean cycle 3, facet 18: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 18: Timing for setup: 0.276 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 11: Minor cycle 0, peak [0.07889916] at [585, 1016, 0]
+mmclean cycle 3, facet 18: Minor cycle 0, peak [0.06808834] at [686, 279, 0]
+mmclean cycle 3, facet 27: Max abs in dirty Image = 0.054550 Jy/beam
+mmclean cycle 3, facet 27: Start of minor cycle
+mmclean cycle 3, facet 27: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 27: Timing for setup: 0.251 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 27: Minor cycle 0, peak [0.05454963] at [596, 426, 0]
+mmclean cycle 3, facet 27: At iteration 7, absolute value of peak 0.026982 is below stopping threshold 0.027440
+mmclean cycle 3, facet 27: End of minor cycles
+mmclean cycle 3, facet 27: Scale counts [8]
+mmclean cycle 3, facet 27: Scale flux [0.31447774]
+mmclean cycle 3, facet 27: Timing for clean: 0.077 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 8 iterations, time per clean 9.623 (ms)
+deconvolve_cube cycle 3, facet 27: calculating spectral cubes
+mmclean cycle 3, facet 25: Max abs in dirty Image = 0.063910 Jy/beam
+mmclean cycle 3, facet 25: Start of minor cycle
+mmclean cycle 3, facet 25: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 25: Timing for setup: 0.278 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 25: Minor cycle 0, peak [0.06390954] at [581, 428, 0]
+mmclean cycle 3, facet 18: At iteration 33, absolute value of peak 0.027353 is below stopping threshold 0.027440
+mmclean cycle 3, facet 18: End of minor cycles
+mmclean cycle 3, facet 18: Scale counts [34]
+mmclean cycle 3, facet 18: Scale flux [1.44102227]
+mmclean cycle 3, facet 18: Timing for clean: 0.440 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 34 iterations, time per clean 12.928 (ms)
+mmclean cycle 3, facet 7: At iteration 34, absolute value of peak 0.026900 is below stopping threshold 0.027440
+mmclean cycle 3, facet 7: End of minor cycles
+mmclean cycle 3, facet 7: Scale counts [35]
+mmclean cycle 3, facet 7: Scale flux [1.35666322]
+mmclean cycle 3, facet 7: Timing for clean: 0.465 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 35 iterations, time per clean 13.288 (ms)
+deconvolve_cube cycle 3, facet 18: calculating spectral cubes
+deconvolve_cube cycle 3, facet 7: calculating spectral cubes
+mmclean cycle 3, facet 30: At iteration 37, absolute value of peak 0.027302 is below stopping threshold 0.027440
+mmclean cycle 3, facet 30: End of minor cycles
+mmclean cycle 3, facet 30: Scale counts [38]
+mmclean cycle 3, facet 30: Scale flux [1.70804941]
+mmclean cycle 3, facet 30: Timing for clean: 0.483 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 38 iterations, time per clean 12.717 (ms)
+deconvolve_cube cycle 3, facet 30: calculating spectral cubes
+mmclean cycle 3, facet 25: At iteration 24, absolute value of peak 0.027382 is below stopping threshold 0.027440
+mmclean cycle 3, facet 25: End of minor cycles
+mmclean cycle 3, facet 25: Scale counts [25]
+mmclean cycle 3, facet 25: Scale flux [1.03925138]
+mmclean cycle 3, facet 25: Timing for clean: 0.405 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 25 iterations, time per clean 16.211 (ms)
+deconvolve_cube cycle 3, facet 25: calculating spectral cubes
+mmclean cycle 3, facet 11: At iteration 44, absolute value of peak 0.027124 is below stopping threshold 0.027440
+mmclean cycle 3, facet 11: End of minor cycles
+mmclean cycle 3, facet 11: Scale counts [45]
+mmclean cycle 3, facet 11: Scale flux [1.86627071]
+mmclean cycle 3, facet 11: Timing for clean: 0.594 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 45 iterations, time per clean 13.205 (ms)
+deconvolve_cube cycle 3, facet 11: calculating spectral cubes
+deconvolve_cube cycle 3, facet 3: Cleaning entire image
+deconvolve_cube cycle 3, facet 5: Cleaning entire image
+deconvolve_cube cycle 3, facet 3: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 5: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 17: Cleaning entire image
+deconvolve_cube cycle 3, facet 3: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 5: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 17: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 3: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 5: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 17: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 14: Cleaning entire image
+deconvolve_cube cycle 3, facet 17: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 14: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 14: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 14: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 17: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 17: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 14: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 14: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 3: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 3: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 5: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 5: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 3: Processing pol 0
+deconvolve_cube cycle 3, facet 17: Processing pol 0
+deconvolve_cube cycle 3, facet 14: Processing pol 0
+deconvolve_cube cycle 3, facet 5: Processing pol 0
+mmclean cycle 3, facet 3: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 5: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 14: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 17: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 3: Peak of Dirty = 0.062110 Jy/beam at (0, 937, 308) 
+mmclean cycle 3, facet 5: Peak of Dirty = 0.074615 Jy/beam at (0, 492, 49) 
+mmclean cycle 3, facet 14: Peak of Dirty = 0.050180 Jy/beam at (0, 188, 902) 
+mmclean cycle 3, facet 17: Peak of Dirty = 0.104576 Jy/beam at (0, 565, 964) 
+deconvolve_cube cycle 3, facet 9: Cleaning entire image
+deconvolve_cube cycle 3, facet 9: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 9: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 9: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 15: Cleaning entire image
+deconvolve_cube cycle 3, facet 15: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 15: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 15: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 20: Cleaning entire image
+deconvolve_cube cycle 3, facet 20: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 20: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 20: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 24: Cleaning entire image
+deconvolve_cube cycle 3, facet 24: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 24: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 24: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 10: Cleaning entire image
+deconvolve_cube cycle 3, facet 10: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 10: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 10: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 9: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 9: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 20: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 20: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 20: Processing pol 0
+deconvolve_cube cycle 3, facet 24: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 24: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 15: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 15: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 9: Processing pol 0
+mmclean cycle 3, facet 20: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 3, facet 24: Processing pol 0
+mmclean cycle 3, facet 9: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 20: Peak of Dirty = 0.051725 Jy/beam at (0, 861, 55) 
+mmclean cycle 3, facet 24: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 3, facet 15: Processing pol 0
+mmclean cycle 3, facet 9: Peak of Dirty = 0.058836 Jy/beam at (0, 598, 698) 
+mmclean cycle 3, facet 24: Peak of Dirty = 0.061789 Jy/beam at (0, 328, 705) 
+mmclean cycle 3, facet 15: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 15: Peak of Dirty = 0.047338 Jy/beam at (0, 157, 787) 
+deconvolve_cube cycle 3, facet 10: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 10: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 10: Processing pol 0
+mmclean cycle 3, facet 10: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 10: Peak of Dirty = 0.064483 Jy/beam at (0, 992, 1030) 
+deconvolve_cube cycle 3, facet 21: Cleaning entire image
+deconvolve_cube cycle 3, facet 21: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 21: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 21: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 21: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 21: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 21: Processing pol 0
+mmclean cycle 3, facet 21: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 21: Peak of Dirty = 0.048921 Jy/beam at (0, 271, 422) 
+mmclean cycle 3, facet 14: Max abs in dirty Image = 0.050180 Jy/beam
+mmclean cycle 3, facet 14: Start of minor cycle
+mmclean cycle 3, facet 14: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 14: Timing for setup: 0.347 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 3: Max abs in dirty Image = 0.062110 Jy/beam
+mmclean cycle 3, facet 17: Max abs in dirty Image = 0.104576 Jy/beam
+mmclean cycle 3, facet 3: Start of minor cycle
+mmclean cycle 3, facet 3: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 3: Timing for setup: 0.356 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 17: Start of minor cycle
+mmclean cycle 3, facet 14: Minor cycle 0, peak [0.05018029] at [188, 902, 0]
+mmclean cycle 3, facet 17: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 17: Timing for setup: 0.361 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 3: Minor cycle 0, peak [0.06210989] at [937, 308, 0]
+mmclean cycle 3, facet 17: Minor cycle 0, peak [0.10457571] at [565, 964, 0]
+mmclean cycle 3, facet 5: Max abs in dirty Image = 0.074615 Jy/beam
+mmclean cycle 3, facet 5: Start of minor cycle
+mmclean cycle 3, facet 5: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 5: Timing for setup: 0.426 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 5: Minor cycle 0, peak [0.07461459] at [492, 49, 0]
+mmclean cycle 3, facet 9: Max abs in dirty Image = 0.058836 Jy/beam
+mmclean cycle 3, facet 9: Start of minor cycle
+mmclean cycle 3, facet 9: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 9: Timing for setup: 0.369 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+deconvolve_cube cycle 3, facet 13: Cleaning entire image
+deconvolve_cube cycle 3, facet 13: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 13: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 13: Multi-scale multi-frequency clean of each polarisation separately
+mmclean cycle 3, facet 24: Max abs in dirty Image = 0.061789 Jy/beam
+mmclean cycle 3, facet 21: Max abs in dirty Image = 0.048921 Jy/beam
+mmclean cycle 3, facet 9: Minor cycle 0, peak [0.05883606] at [598, 698, 0]
+mmclean cycle 3, facet 21: Start of minor cycle
+mmclean cycle 3, facet 21: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 21: Timing for setup: 0.279 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 24: Start of minor cycle
+mmclean cycle 3, facet 24: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 24: Timing for setup: 0.389 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 20: Max abs in dirty Image = 0.051725 Jy/beam
+mmclean cycle 3, facet 15: Max abs in dirty Image = 0.047338 Jy/beam
+mmclean cycle 3, facet 20: Start of minor cycle
+mmclean cycle 3, facet 20: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 20: Timing for setup: 0.410 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 21: Minor cycle 0, peak [0.04892087] at [271, 422, 0]
+deconvolve_cube cycle 3, facet 31: Cleaning entire image
+deconvolve_cube cycle 3, facet 31: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 31: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 31: Multi-scale multi-frequency clean of each polarisation separately
+mmclean cycle 3, facet 15: Start of minor cycle
+mmclean cycle 3, facet 15: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 15: Timing for setup: 0.403 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 10: Max abs in dirty Image = 0.064483 Jy/beam
+mmclean cycle 3, facet 24: Minor cycle 0, peak [0.06178896] at [328, 705, 0]
+mmclean cycle 3, facet 10: Start of minor cycle
+mmclean cycle 3, facet 10: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 10: Timing for setup: 0.384 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 20: Minor cycle 0, peak [0.0517252] at [861, 55, 0]
+deconvolve_cube cycle 3, facet 26: Cleaning entire image
+deconvolve_cube cycle 3, facet 26: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 26: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 26: Multi-scale multi-frequency clean of each polarisation separately
+mmclean cycle 3, facet 15: Minor cycle 0, peak [0.04733782] at [157, 787, 0]
+mmclean cycle 3, facet 10: Minor cycle 0, peak [0.06448295] at [992, 1030, 0]
+deconvolve_cube cycle 3, facet 31: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 31: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 31: Processing pol 0
+deconvolve_cube cycle 3, facet 13: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 13: Shape of PSF moments image (1, 1, 512, 512)
+mmclean cycle 3, facet 31: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 3, facet 13: Processing pol 0
+mmclean cycle 3, facet 31: Peak of Dirty = 0.137196 Jy/beam at (0, 683, 1028) 
+mmclean cycle 3, facet 13: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 13: Peak of Dirty = 0.072650 Jy/beam at (0, 682, 54) 
+deconvolve_cube cycle 3, facet 26: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 26: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 26: Processing pol 0
+mmclean cycle 3, facet 26: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 26: Peak of Dirty = 0.059668 Jy/beam at (0, 876, 1006) 
+mmclean cycle 3, facet 14: At iteration 20, absolute value of peak 0.026379 is below stopping threshold 0.027440
+mmclean cycle 3, facet 14: End of minor cycles
+mmclean cycle 3, facet 14: Scale counts [21]
+mmclean cycle 3, facet 14: Scale flux [0.7248984]
+mmclean cycle 3, facet 14: Timing for clean: 0.491 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 21 iterations, time per clean 23.392 (ms)
+deconvolve_cube cycle 3, facet 14: calculating spectral cubes
+mmclean cycle 3, facet 17: At iteration 21, absolute value of peak 0.027344 is below stopping threshold 0.027440
+mmclean cycle 3, facet 17: End of minor cycles
+mmclean cycle 3, facet 17: Scale counts [22]
+mmclean cycle 3, facet 17: Scale flux [1.12194306]
+mmclean cycle 3, facet 17: Timing for clean: 0.542 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 22 iterations, time per clean 24.634 (ms)
+deconvolve_cube cycle 3, facet 17: calculating spectral cubes
+mmclean cycle 3, facet 15: At iteration 12, absolute value of peak 0.026271 is below stopping threshold 0.027440
+mmclean cycle 3, facet 15: End of minor cycles
+mmclean cycle 3, facet 15: Scale counts [13]
+mmclean cycle 3, facet 15: Scale flux [0.47286133]
+mmclean cycle 3, facet 15: Timing for clean: 0.341 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 13 iterations, time per clean 26.262 (ms)
+deconvolve_cube cycle 3, facet 15: calculating spectral cubes
+mmclean cycle 3, facet 21: At iteration 18, absolute value of peak 0.027298 is below stopping threshold 0.027440
+mmclean cycle 3, facet 21: End of minor cycles
+mmclean cycle 3, facet 21: Scale counts [19]
+mmclean cycle 3, facet 21: Scale flux [0.71189158]
+mmclean cycle 3, facet 21: Timing for clean: 0.450 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 19 iterations, time per clean 23.680 (ms)
+deconvolve_cube cycle 3, facet 21: calculating spectral cubes
+mmclean cycle 3, facet 3: At iteration 26, absolute value of peak 0.027169 is below stopping threshold 0.027440
+mmclean cycle 3, facet 3: End of minor cycles
+mmclean cycle 3, facet 3: Scale counts [27]
+mmclean cycle 3, facet 3: Scale flux [1.07695168]
+mmclean cycle 3, facet 3: Timing for clean: 0.757 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 27 iterations, time per clean 28.023 (ms)
+deconvolve_cube cycle 3, facet 3: calculating spectral cubes
+mmclean cycle 3, facet 31: Max abs in dirty Image = 0.137196 Jy/beam
+mmclean cycle 3, facet 31: Start of minor cycle
+mmclean cycle 3, facet 31: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 31: Timing for setup: 0.420 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 31: Minor cycle 0, peak [0.13719594] at [683, 1028, 0]
+mmclean cycle 3, facet 13: Max abs in dirty Image = 0.072650 Jy/beam
+mmclean cycle 3, facet 13: Start of minor cycle
+mmclean cycle 3, facet 13: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 13: Timing for setup: 0.437 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 26: Max abs in dirty Image = 0.059668 Jy/beam
+mmclean cycle 3, facet 26: Start of minor cycle
+mmclean cycle 3, facet 26: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 26: Timing for setup: 0.428 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 20: At iteration 20, absolute value of peak 0.026924 is below stopping threshold 0.027440
+mmclean cycle 3, facet 20: End of minor cycles
+mmclean cycle 3, facet 20: Scale counts [21]
+mmclean cycle 3, facet 20: Scale flux [0.79896149]
+mmclean cycle 3, facet 20: Timing for clean: 0.558 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 21 iterations, time per clean 26.581 (ms)
+mmclean cycle 3, facet 13: Minor cycle 0, peak [0.07264974] at [682, 54, 0]
+deconvolve_cube cycle 3, facet 20: calculating spectral cubes
+mmclean cycle 3, facet 26: Minor cycle 0, peak [0.05966808] at [876, 1006, 0]
+deconvolve_cube cycle 3, facet 35: Cleaning entire image
+deconvolve_cube cycle 3, facet 35: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 35: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 35: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 22: Cleaning entire image
+deconvolve_cube cycle 3, facet 22: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 22: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 22: Multi-scale multi-frequency clean of each polarisation separately
+deconvolve_cube cycle 3, facet 4: Cleaning entire image
+deconvolve_cube cycle 3, facet 4: PSF support = +/- 256 pixels
+deconvolve_cube cycle 3, facet 4: PSF shape (8, 1, 512, 512)
+deconvolve_cube cycle 3, facet 4: Multi-scale multi-frequency clean of each polarisation separately
+mmclean cycle 3, facet 9: At iteration 29, absolute value of peak 0.027169 is below stopping threshold 0.027440
+mmclean cycle 3, facet 9: End of minor cycles
+mmclean cycle 3, facet 9: Scale counts [30]
+mmclean cycle 3, facet 9: Scale flux [1.20398997]
+mmclean cycle 3, facet 9: Timing for clean: 0.714 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 30 iterations, time per clean 23.809 (ms)
+deconvolve_cube cycle 3, facet 9: calculating spectral cubes
+deconvolve_cube cycle 3, facet 35: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 35: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 22: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 22: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 35: Processing pol 0
+deconvolve_cube cycle 3, facet 4: Shape of Dirty moments image (1, 1, 1056, 1056)
+deconvolve_cube cycle 3, facet 4: Shape of PSF moments image (1, 1, 512, 512)
+deconvolve_cube cycle 3, facet 22: Processing pol 0
+mmclean cycle 3, facet 35: Peak of PSF = 1.0 at (0, 256, 256)
+deconvolve_cube cycle 3, facet 4: Processing pol 0
+mmclean cycle 3, facet 22: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 35: Peak of Dirty = 0.073396 Jy/beam at (0, 292, 122) 
+mmclean cycle 3, facet 4: Peak of PSF = 1.0 at (0, 256, 256)
+mmclean cycle 3, facet 22: Peak of Dirty = 0.055032 Jy/beam at (0, 175, 1052) 
+mmclean cycle 3, facet 4: Peak of Dirty = 0.062369 Jy/beam at (0, 868, 86) 
+mmclean cycle 3, facet 10: At iteration 31, absolute value of peak 0.027301 is below stopping threshold 0.027440
+mmclean cycle 3, facet 10: End of minor cycles
+mmclean cycle 3, facet 10: Scale counts [32]
+mmclean cycle 3, facet 10: Scale flux [1.31512382]
+mmclean cycle 3, facet 10: Timing for clean: 0.790 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 32 iterations, time per clean 24.677 (ms)
+deconvolve_cube cycle 3, facet 10: calculating spectral cubes
+mmclean cycle 3, facet 5: At iteration 41, absolute value of peak 0.027028 is below stopping threshold 0.027440
+mmclean cycle 3, facet 5: End of minor cycles
+mmclean cycle 3, facet 5: Scale counts [42]
+mmclean cycle 3, facet 5: Scale flux [1.79647928]
+mmclean cycle 3, facet 5: Timing for clean: 1.044 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 42 iterations, time per clean 24.856 (ms)
+deconvolve_cube cycle 3, facet 5: calculating spectral cubes
+mmclean cycle 3, facet 31: At iteration 24, absolute value of peak 0.027382 is below stopping threshold 0.027440
+mmclean cycle 3, facet 31: End of minor cycles
+mmclean cycle 3, facet 31: Scale counts [25]
+mmclean cycle 3, facet 31: Scale flux [1.51292928]
+mmclean cycle 3, facet 31: Timing for clean: 0.410 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 25 iterations, time per clean 16.406 (ms)
+deconvolve_cube cycle 3, facet 31: calculating spectral cubes
+mmclean cycle 3, facet 24: At iteration 47, absolute value of peak 0.027372 is below stopping threshold 0.027440
+mmclean cycle 3, facet 24: End of minor cycles
+mmclean cycle 3, facet 24: Scale counts [48]
+mmclean cycle 3, facet 24: Scale flux [1.92938247]
+mmclean cycle 3, facet 24: Timing for clean: 1.076 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 48 iterations, time per clean 22.416 (ms)
+mmclean cycle 3, facet 22: Max abs in dirty Image = 0.055032 Jy/beam
+mmclean cycle 3, facet 4: Max abs in dirty Image = 0.062369 Jy/beam
+deconvolve_cube cycle 3, facet 24: calculating spectral cubes
+mmclean cycle 3, facet 22: Start of minor cycle
+mmclean cycle 3, facet 22: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 22: Timing for setup: 0.324 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 35: Max abs in dirty Image = 0.073396 Jy/beam
+mmclean cycle 3, facet 4: Start of minor cycle
+mmclean cycle 3, facet 4: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 4: Timing for setup: 0.323 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 35: Start of minor cycle
+mmclean cycle 3, facet 35: This minor cycle will stop at 1000 iterations or peak < 0.027440 (Jy/beam)
+mmclean cycle 3, facet 35: Timing for setup: 0.335 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments
+mmclean cycle 3, facet 22: Minor cycle 0, peak [0.0550316] at [175, 1052, 0]
+mmclean cycle 3, facet 4: Minor cycle 0, peak [0.06236941] at [868, 86, 0]
+mmclean cycle 3, facet 35: Minor cycle 0, peak [0.0733962] at [292, 122, 0]
+mmclean cycle 3, facet 35: At iteration 14, absolute value of peak 0.027195 is below stopping threshold 0.027440
+mmclean cycle 3, facet 35: End of minor cycles
+mmclean cycle 3, facet 35: Scale counts [15]
+mmclean cycle 3, facet 35: Scale flux [0.63509503]
+mmclean cycle 3, facet 35: Timing for clean: 0.239 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 15 iterations, time per clean 15.900 (ms)
+deconvolve_cube cycle 3, facet 35: calculating spectral cubes
+mmclean cycle 3, facet 26: At iteration 52, absolute value of peak 0.027089 is below stopping threshold 0.027440
+mmclean cycle 3, facet 26: End of minor cycles
+mmclean cycle 3, facet 26: Scale counts [53]
+mmclean cycle 3, facet 26: Scale flux [2.13733319]
+mmclean cycle 3, facet 26: Timing for clean: 0.841 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 53 iterations, time per clean 15.861 (ms)
+deconvolve_cube cycle 3, facet 26: calculating spectral cubes
+mmclean cycle 3, facet 22: At iteration 37, absolute value of peak 0.027117 is below stopping threshold 0.027440
+mmclean cycle 3, facet 22: End of minor cycles
+mmclean cycle 3, facet 22: Scale counts [38]
+mmclean cycle 3, facet 22: Scale flux [1.44942314]
+mmclean cycle 3, facet 22: Timing for clean: 0.524 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 38 iterations, time per clean 13.783 (ms)
+deconvolve_cube cycle 3, facet 22: calculating spectral cubes
+mmclean cycle 3, facet 13: At iteration 75, absolute value of peak 0.027229 is below stopping threshold 0.027440
+mmclean cycle 3, facet 13: End of minor cycles
+mmclean cycle 3, facet 13: Scale counts [76]
+mmclean cycle 3, facet 13: Scale flux [3.26189855]
+mmclean cycle 3, facet 13: Timing for clean: 1.119 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 76 iterations, time per clean 14.721 (ms)
+deconvolve_cube cycle 3, facet 13: calculating spectral cubes
+mmclean cycle 3, facet 4: At iteration 50, absolute value of peak 0.027393 is below stopping threshold 0.027440
+mmclean cycle 3, facet 4: End of minor cycles
+mmclean cycle 3, facet 4: Scale counts [51]
+mmclean cycle 3, facet 4: Scale flux [1.99543459]
+mmclean cycle 3, facet 4: Timing for clean: 0.676 (s) for dirty shape (1, 1056, 1056), PSF shape (1, 512, 512) , scales [0], 0 moments, 51 iterations, time per clean 13.264 (ms)
+deconvolve_cube cycle 3, facet 4: calculating spectral cubes
+Creating LocalCluster and Dask Client
+Diagnostic dashboard pages available on port http://127.0.0.1:8787
+<Client: 'tcp://127.0.0.1:41656' processes=8 threads=32, memory=1.10 TB>
+Will use distributed invert
+Will use distributed predict
+
+Setup of visibility ingest
+[[131, 131], [132, 132], [133, 133], [134, 134], [135, 135], [136, 136], [137, 137], [138, 138]]
+
+Setup of images
+Image shape is 8192 by 8192 pixels
+
+Setup of wide field imaging
+Will do hybrid w stack/w projection, 15 w slabs, 64 w planes, support 14, w step 71.0
+
+Setup of weighting
+Will apply uniform weighting
+
+Running pipeline
+Processing took 3929.07 (s)
+Quality assessment:
+	Origin: qa_image
+	Context: 
+	Data:
+		shape: '(1, 1, 8192, 8192)'
+		max: '1.8562253912717739'
+		min: '-0.03776897165890928'
+		maxabs: '1.8562253912717739'
+		rms: '0.0027586245636208695'
+		sum: '635.5402695588094'
+		medianabs: '0.001513346016833433'
+		medianabsdevmedian: '0.001513185338283839'
+		median: '-1.6219273460705342e-05'
+
+Writing restored image to EoR0_20deg_24_restored.fits
+>>> Processor time used in each function
+>>> read_convert 243.537 (s) 0.6 % 8 (calls)
+>>> advise_wide_field 1.795 (s) 0.0 % 8 (calls)
+>>> create_image_from_visibility 1.502 (s) 0.0 % 8 (calls)
+>>> create_pswf_convolutionfunction 1.741 (s) 0.0 % 1 (calls)
+>>> create_awterm_convolutionfunction 30.500 (s) 0.1 % 8 (calls)
+>>> image_gather_channels 33.988 (s) 0.1 % 152 (calls)
+>>> image_scatter_facets 0.333 (s) 0.0 % 36 (calls)
+>>> getitem 0.021 (s) 0.0 % 2696 (calls)
+>>> grid_wt 114.865 (s) 0.3 % 8 (calls)
+>>> griddata_merge_weights 7.268 (s) 0.0 % 1 (calls)
+>>> re_weight 232.459 (s) 0.5 % 8 (calls)
+>>> zero 3.862 (s) 0.0 % 16 (calls)
+>>> visibility_scatter 504.872 (s) 1.2 % 88 (calls)
+>>> invert_ignore_none 16210.012 (s) 37.1 % 720 (calls)
+>>> predict_ignore_none 21300.873 (s) 48.7 % 600 (calls)
+>>> sum_invert_results 3889.617 (s) 8.9 % 720 (calls)
+>>> visibility_gather 537.003 (s) 1.2 % 40 (calls)
+>>> subtract_vis 309.011 (s) 0.7 % 40 (calls)
+>>> remove_sumwt 22.301 (s) 0.1 % 10 (calls)
+>>> threshold_list 2.933 (s) 0.0 % 4 (calls)
+>>> deconvolve 218.121 (s) 0.5 % 144 (calls)
+>>> image_gather_facets 6.428 (s) 0.0 % 4 (calls)
+>>> image_scatter_channels 0.008 (s) 0.0 % 4 (calls)
+>>> restore_cube 50.509 (s) 0.1 % 8 (calls)
+>>> Total processor time 43723.559 (s)
+>>> Total wallclock time 3940.203 (s)
+>>> Speedup = 11.10
+
+SKA LOW imaging using ARL
+Started at  Mon Oct 28 11:31:55 2019
+Finished at Mon Oct 28 12:38:41 2019
