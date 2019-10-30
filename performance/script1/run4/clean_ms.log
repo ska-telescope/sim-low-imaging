@@ -1,0 +1,110 @@
+
+SKA LOW imaging using ARL
+Started at Wed Oct 30 11:51:21 2019
+
+{'amplitude_loss': 0.25,
+ 'cellsize': None,
+ 'channels': [131, 139],
+ 'context': 'wprojectwstack',
+ 'deconvolve_facets': 8,
+ 'deconvolve_overlap': 16,
+ 'deconvolve_taper': 'tukey',
+ 'facets': 1,
+ 'fov': 1.4,
+ 'fractional_threshold': 0.2,
+ 'frequency_coal': 0.0,
+ 'local_directory': 'dask-workspace',
+ 'memory': 128,
+ 'mode': 'pipeline',
+ 'msname': '/mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS',
+ 'ngroup': 1,
+ 'niter': 1000,
+ 'nmajor': 3,
+ 'nmoment': 1,
+ 'npixel': None,
+ 'nworkers': 0,
+ 'nwplanes': None,
+ 'nwslabs': 15,
+ 'oversampling': 16,
+ 'plot': 'False',
+ 'restore_facets': 4,
+ 'serial': 'False',
+ 'single': 'False',
+ 'threads_per_worker': 1,
+ 'threshold': 0.01,
+ 'time_coal': 0.0,
+ 'use_serial_invert': 'True',
+ 'use_serial_predict': 'True',
+ 'weighting': 'uniform',
+ 'window_edge': None,
+ 'window_shape': None,
+ 'wstep': None}
+Target MS is /mnt/storage-ssd/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS
+[131 132 133 134 135 136 137 138 139]
+
+Setup of processing mode
+Will use dask processing
+Creating Dask Client using externally defined scheduler
+Diagnostic pages available on port http://10.60.253.23:8787
+<Client: 'tcp://10.60.253.23:8786' processes=8 threads=8, memory=1.08 TB>
+Will use serial invert
+Will use serial predict
+
+Setup of visibility ingest
+[[131, 131], [132, 132], [133, 133], [134, 134], [135, 135], [136, 136], [137, 137], [138, 138]]
+
+Setup of images
+Image shape is 7776 by 7776 pixels
+
+Setup of wide field imaging
+Will do hybrid w stack/w projection, 15 w slabs, 64 w planes, support 14, w step 71.0
+
+Setup of weighting
+Will apply uniform weighting
+
+Running pipeline
+Processing took 2841.90 (s)
+Quality assessment:
+	Origin: qa_image
+	Context: 
+	Data:
+		shape: '(1, 1, 7776, 7776)'
+		max: '1.8553415498709644'
+		min: '-0.03853544423734931'
+		maxabs: '1.8553415498709644'
+		rms: '0.002879426053752057'
+		sum: '661.4316627858817'
+		medianabs: '0.001579977104126225'
+		medianabsdevmedian: '0.0015798648007894832'
+		median: '-1.574176580729256e-05'
+
+Writing restored image to EoR0_20deg_24_restored.fits
+>>> Processor time used in each function
+>>> read_convert 56.775 (s) 0.6 % 8 (calls)
+>>> advise_wide_field 1.631 (s) 0.0 % 8 (calls)
+>>> create_image_from_visibility 1.210 (s) 0.0 % 8 (calls)
+>>> create_pswf_convolutionfunction 1.495 (s) 0.0 % 1 (calls)
+>>> create_awterm_convolutionfunction 28.140 (s) 0.3 % 8 (calls)
+>>> grid_wt 73.562 (s) 0.7 % 8 (calls)
+>>> image_gather_channels 20.500 (s) 0.2 % 152 (calls)
+>>> image_scatter_facets 0.192 (s) 0.0 % 36 (calls)
+>>> getitem 0.014 (s) 0.0 % 1464 (calls)
+>>> griddata_merge_weights 7.000 (s) 0.1 % 1 (calls)
+>>> re_weight 86.094 (s) 0.8 % 8 (calls)
+>>> zero 3.720 (s) 0.0 % 8 (calls)
+>>> predict_list_serial_workflow 2420.610 (s) 23.7 % 40 (calls)
+>>> subtract_vis 24.798 (s) 0.2 % 40 (calls)
+>>> invert_list_serial_workflow 7226.693 (s) 70.7 % 48 (calls)
+>>> remove_sumwt 40.457 (s) 0.4 % 10 (calls)
+>>> threshold_list 2.158 (s) 0.0 % 4 (calls)
+>>> deconvolve 187.797 (s) 1.8 % 144 (calls)
+>>> image_gather_facets 3.387 (s) 0.0 % 4 (calls)
+>>> image_scatter_channels 0.006 (s) 0.0 % 4 (calls)
+>>> restore_cube 36.249 (s) 0.4 % 8 (calls)
+>>> Total processor time 10222.487 (s)
+>>> Total wallclock time 2857.173 (s)
+>>> Speedup = 3.58
+
+SKA LOW imaging using ARL
+Started at  Wed Oct 30 11:51:21 2019
+Finished at Wed Oct 30 12:40:00 2019

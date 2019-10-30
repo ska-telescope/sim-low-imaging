@@ -5,7 +5,8 @@
 
 pip freeze | tee pip.txt
 
-python ../clean_ms.py --msname ../data/EoR0_20deg_24.MS --channels 131 132 --ngroup 1 \
---weighting uniform --context 2d --nwslabs 15 --use_serial_invert False \
+python ../clean_ms.py --msname ../data/EoR0_20deg_24.MS --channels 131 135 --ngroup 1 \
+--weighting uniform --context wprojectwstack --nwslabs 15 --use_serial_invert False \
 --use_serial_predict False --plot False --fov 0.1 --single True --serial False --time_coal 0.0 \
---frequency_coal 0.0 --nmajor 5 --niter 1000 --fractional_threshold 0.2 --threshold 0.1 --mode invert| tee clean_ms.log
+--frequency_coal 0.0 --nmajor 5 --niter 1000 --fractional_threshold 0.2 --threshold 0.1 \
+--mode pipeline | tee small_clean_ms.log

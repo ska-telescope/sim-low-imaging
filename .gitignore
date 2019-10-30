@@ -1,8 +1,6 @@
 /data
 .idea
 *.fits
-*.png
 hostfile.*
-*.out
-*.log
-*.jpg
+dask-workspace
+dask-worker-space
