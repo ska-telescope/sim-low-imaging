@@ -109,7 +109,7 @@ if __name__ == "__main__":
     
     parser.add_argument('--serial', type=str, default='False', help='Use serial processing?')
     parser.add_argument('--nworkers', type=int, default=4, help='Number of workers')
-    parser.add_argument('--threads_per_worker', type=int, default=4, help='Number of threads per worker')
+    parser.add_argument('--threads_per_worker', type=int, default=1, help='Number of threads per worker')
     parser.add_argument('--memory', type=int, default=64, help='Memory of each worker')
     
     parser.add_argument('--use_serial_invert', type=str, default='False', help='Use serial invert?')
