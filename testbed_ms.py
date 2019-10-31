@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 import astropy.units as u
 from astropy.coordinates import SkyCoord, EarthLocation
 
-from data_models.polarisation import ReceptorFrame
+from data_models.polarisation import ReceptorFrame, PolarisationFrame
 from processing_components.image.operations import qa_image, export_image_to_fits, show_image
 from processing_components.imaging.base import advise_wide_field, create_image_from_visibility
 from processing_components.visibility.base import create_blockvisibility_from_ms
@@ -153,8 +153,11 @@ if __name__ == "__main__":
     if weighting == 'uniform':
         print("Will apply uniform weighting")
         vis_list = weight_visibility(vis, model)
-    
-    dirty, sumwt = invert_2d(vis, model, context=actual_context, vis_slices=nwplanes)
+
+    polmodel = create_image_from_visibility(vis, npixel=npixel, cellsize=cellsize,
+                                         polarisation_frame=PolarisationFrame("linear"))
+
+    dirty, sumwt = invert_2d(vis, polmodel, context=actual_context, vis_slices=nwplanes)
     print(qa_image(dirty))
     
     show_image(dirty)
