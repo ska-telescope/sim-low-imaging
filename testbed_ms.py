@@ -21,6 +21,7 @@ from data_models.polarisation import ReceptorFrame, PolarisationFrame
 from processing_components.image.operations import qa_image, export_image_to_fits, show_image
 from processing_components.imaging.base import advise_wide_field, create_image_from_visibility
 from processing_components.visibility.base import create_blockvisibility_from_ms
+from processing_components.visibility.operations import convert_visibility_to_stokes
 from processing_components.visibility.coalesce import convert_blockvisibility_to_visibility
 from processing_components.imaging.base import invert_2d
 from processing_components.imaging.weighting import weight_visibility
@@ -81,11 +82,11 @@ if __name__ == "__main__":
     # Read an MS and convert to Visibility format. This might need to be changed for another MS
     print("\nSetup of visibility ingest")
     msname = args.msname
-    bvis = create_blockvisibility_from_ms(msname, start_chan=131, end_chan=131)[0]
+    bvis = create_blockvisibility_from_ms(msname, start_chan=131, end_chan=131)[-1]
     bvis.configuration.location = EarthLocation(lon="116.76444824", lat="-26.824722084", height=300.0)
     bvis.configuration.frame = ""
     bvis.configuration.receptor_frame = ReceptorFrame("linear")
-    bvis.configuration.data['diameter'][...] = 35.0
+    bvis.configuration.data['diameter'][...] = 15.0
     vis = convert_blockvisibility_to_visibility(bvis)
     ####################################################################################################################
     
@@ -146,7 +147,8 @@ if __name__ == "__main__":
         wstep = 1e15
         nwplanes = 1
     
-    model = create_image_from_visibility(vis, npixel=npixel, cellsize=cellsize)
+    model = create_image_from_visibility(vis, npixel=npixel, cellsize=cellsize,
+                                         polarisation_frame=PolarisationFrame("stokesIQUV"))
     
     # Perform weighting. This is a collective computation, requiring all visibilities :(
     print("\nSetup of weighting")
@@ -154,9 +156,12 @@ if __name__ == "__main__":
         print("Will apply uniform weighting")
         vis_list = weight_visibility(vis, model)
 
+    vis = convert_visibility_to_stokes(vis)
+    
     polmodel = create_image_from_visibility(vis, npixel=npixel, cellsize=cellsize,
-                                         polarisation_frame=PolarisationFrame("linear"))
+                                         polarisation_frame=PolarisationFrame("stokesIQUV"))
 
+    
     dirty, sumwt = invert_2d(vis, polmodel, context=actual_context, vis_slices=nwplanes)
     print(qa_image(dirty))
     
