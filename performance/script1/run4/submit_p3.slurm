@@ -16,7 +16,7 @@
 #! How many whole nodes should be allocated?
 #SBATCH --nodes=8
 #! How many (MPI) tasks will there be in total? (<= nodes*16)
-#SBATCH --ntasks=8
+#SBATCH --ntasks=16
 #! Memory limit: P3 has roughly 107GB per node
 #SBATCH --mem 100000
 #! How much wallclock time will be required?
@@ -30,9 +30,8 @@
 ##SBATCH --no-requeue
 #! Do not change:
 #SBATCH -p compute
-#! Uncomment this to prevent the job from being requeued (e.g. if
-#! interrupted by node failure or system downtime):
-##SBATCH --no-requeue
+
+#SBATCH --exclusive
 
 #! Modify the settings below to specify the application's environment, location
 #! and launch method:
@@ -68,7 +67,7 @@ for host in `cat hostfile.$JOBID`; do
         sleep 5
     fi
     echo "run dask-worker"
-    ssh $host dask-worker --nprocs 1 --nthreads 1 --interface ib0 \
+    ssh $host dask-worker --nprocs 2 --nthreads 1 --interface ib0 \
     --memory-limit 200GB --local-directory /mnt/storage-ssd/tim/dask-workspace/${host} $scheduler:8786  &
         sleep 1
     hostIndex="1"
