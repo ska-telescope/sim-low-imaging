@@ -9,6 +9,8 @@ import pprint
 import sys
 import time
 
+import numpy
+
 import matplotlib as mpl
 
 #mpl.use('Agg')
@@ -82,12 +84,16 @@ if __name__ == "__main__":
     # Read an MS and convert to Visibility format. This might need to be changed for another MS
     print("\nSetup of visibility ingest")
     msname = args.msname
-    bvis = create_blockvisibility_from_ms(msname, start_chan=131, end_chan=131)[-1]
+    bvis = create_blockvisibility_from_ms(msname, start_chan=131, end_chan=134)[-1]
     bvis.configuration.location = EarthLocation(lon="116.76444824", lat="-26.824722084", height=300.0)
     bvis.configuration.frame = ""
     bvis.configuration.receptor_frame = ReceptorFrame("linear")
     bvis.configuration.data['diameter'][...] = 15.0
+    print(bvis)
     vis = convert_blockvisibility_to_visibility(bvis)
+    
+    frequency = numpy.array([numpy.average(vis.frequency)])
+    channel_bandwidth = numpy.array([numpy.sum(vis.frequency)])
     ####################################################################################################################
     
     print("\nSetup of images")
@@ -147,18 +153,22 @@ if __name__ == "__main__":
         wstep = 1e15
         nwplanes = 1
     
-    model = create_image_from_visibility(vis, npixel=npixel, cellsize=cellsize,
+    model = create_image_from_visibility(vis, npixel=npixel, cellsize=cellsize, nchan=1,
+                                         frequency=frequency, channel_bandwidth=channel_bandwidth,
                                          polarisation_frame=PolarisationFrame("stokesIQUV"))
     
+    print(model)
+    
     # Perform weighting. This is a collective computation, requiring all visibilities :(
-    print("\nSetup of weighting")
     if weighting == 'uniform':
+        print("\nSetup of weighting")
         print("Will apply uniform weighting")
         vis_list = weight_visibility(vis, model)
 
     vis = convert_visibility_to_stokes(vis)
     
-    polmodel = create_image_from_visibility(vis, npixel=npixel, cellsize=cellsize,
+    polmodel = create_image_from_visibility(vis, npixel=npixel, cellsize=cellsize, nchan=1,
+                                            frequency=frequency, channel_bandwidth=channel_bandwidth,
                                          polarisation_frame=PolarisationFrame("stokesIQUV"))
 
     
