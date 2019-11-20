@@ -1,0 +1,137 @@
+Logging to /mnt/storage-ssd/tim/Code/sim-low-imaging/noniso/script8/clean_ms_dask.log
+
+SKA LOW imaging using ARL
+Started at Tue Nov 19 15:54:38 2019
+
+{'amplitude_loss': 0.2,
+ 'cellsize': None,
+ 'channels': [0, 1],
+ 'context': 'ng',
+ 'deconvolve_facets': 8,
+ 'deconvolve_overlap': 16,
+ 'deconvolve_taper': 'tukey',
+ 'epsilon': 0.001,
+ 'facets': 1,
+ 'fov': 2.5,
+ 'fractional_threshold': 0.2,
+ 'frequency_coal': 0.0,
+ 'local_directory': 'dask-workspace',
+ 'memory': 64,
+ 'mode': 'pipeline',
+ 'model_image': None,
+ 'msname': '/mnt/storage-ssd/tim/Code/sim-low-imaging/data/noniso/GLEAM_A-team_EoR1_160_MHz_no_errors.ms',
+ 'ngroup': 1,
+ 'niter': 1000,
+ 'nmajor': 3,
+ 'nmoment': 1,
+ 'npixel': None,
+ 'nworkers': 0,
+ 'nwplanes': None,
+ 'nwslabs': None,
+ 'oversampling': 16,
+ 'plot': 'False',
+ 'restore_facets': 4,
+ 'serial': 'False',
+ 'single': 'False',
+ 'threads': 32,
+ 'threads_per_worker': 1,
+ 'threshold': 0.01,
+ 'time_coal': 0.0,
+ 'use_serial_invert': 'True',
+ 'use_serial_predict': 'True',
+ 'weighting': 'uniform',
+ 'window_edge': None,
+ 'window_shape': None,
+ 'wstep': None}
+Target MS is /mnt/storage-ssd/tim/Code/sim-low-imaging/data/noniso/GLEAM_A-team_EoR1_160_MHz_no_errors.ms
+MS extension is .ms
+[0 1]
+
+Setup of processing mode
+Creating Dask Client using externally defined scheduler
+<Client: 'tcp://10.60.253.14:8786' processes=8 threads=8, memory=1.08 TB>
+Will use serial invert
+Will use serial predict
+
+Setup of visibility ingest
+[[0, 0]]
+
+Setup of images
+Image shape is 14000 by 14000 pixels
+
+Setup of wide field imaging
+Will use nifty gridder
+Image:
+	Shape: (1, 1, 14000, 14000)
+	WCS: WCS Keywords
+
+Number of WCS axes: 4
+CTYPE : 'RA---SIN'  'DEC--SIN'  'STOKES'  'FREQ'  
+CRVAL : 60.0  -30.0  1.0  160000000.0  
+CRPIX : 7001.0  7001.0  1.0  1.0  
+PC1_1 PC1_2 PC1_3 PC1_4  : 1.0  0.0  0.0  0.0  
+PC2_1 PC2_2 PC2_3 PC2_4  : 0.0  1.0  0.0  0.0  
+PC3_1 PC3_2 PC3_3 PC3_4  : 0.0  0.0  1.0  0.0  
+PC4_1 PC4_2 PC4_3 PC4_4  : 0.0  0.0  0.0  1.0  
+CDELT : -0.00055217021674433  0.00055217021674433  1.0  99999.999999  
+NAXIS : 0  0
+	Polarisation frame: stokesI
+
+
+Setup of weighting
+Will apply uniform weighting
+
+Running pipeline
+Processing took 20213.78 (s)
+[[<data_models.memory_data_models.Image object at 0x2b5e411e60d0>],
+ [(<data_models.memory_data_models.Image object at 0x2b5e38edab10>,
+   array([[5061488.]]))],
+ [<data_models.memory_data_models.Image object at 0x2b5e411e61d0>]]
+Quality assessment:
+	Origin: qa_image
+	Context: 
+	Data:
+		shape: '(1, 1, 14000, 14000)'
+		max: '1.1130299138380835'
+		min: '-0.0059720915742218494'
+		maxabs: '1.1130299138380835'
+		rms: '0.0005436102867727065'
+		sum: '412.14441765474663'
+		medianabs: '0.00010765053593786433'
+		medianabsdevmedian: '0.00010764095713966526'
+		median: '-1.490698593897851e-06'
+
+Writing restored image to GLEAM_A-team_EoR1_160_MHz_no_errors_cip_restored.fits
+Writing cip deconvolved image to GLEAM_A-team_EoR1_160_MHz_no_errors_cip_deconvolved.fits
+Writing residual image to GLEAM_A-team_EoR1_160_MHz_no_errors_cip_residual.fits
+>>> Processor time used in each function
+>>> read_convert 4.566 (s) 0.1 % 1 (calls)
+>>> advise_wide_field 0.992 (s) 0.0 % 1 (calls)
+>>> create_image_from_visibility 0.652 (s) 0.0 % 2 (calls)
+>>> create_pswf_convolutionfunction 12.906 (s) 0.1 % 2 (calls)
+>>> image_gather_channels 42.985 (s) 0.5 % 152 (calls)
+>>> image_scatter_facets 0.043 (s) 0.0 % 8 (calls)
+>>> getitem 0.003 (s) 0.0 % 309 (calls)
+>>> to_vis 5.563 (s) 0.1 % 1 (calls)
+>>> grid_wt 23.233 (s) 0.3 % 1 (calls)
+>>> griddata_merge_weights 1.188 (s) 0.0 % 1 (calls)
+>>> re_weight 272.940 (s) 3.0 % 1 (calls)
+>>> to_bvis 1.495 (s) 0.0 % 1 (calls)
+>>> zero 1.467 (s) 0.0 % 1 (calls)
+>>> invert_list_serial_workflow 8498.672 (s) 93.7 % 6 (calls)
+>>> remove_sumwt 0.000 (s) 0.0 % 10 (calls)
+>>> predict_list_serial_workflow 28.536 (s) 0.3 % 5 (calls)
+>>> subtract_vis 9.929 (s) 0.1 % 5 (calls)
+>>> threshold_list 1.354 (s) 0.0 % 4 (calls)
+>>> deconvolve 154.039 (s) 1.7 % 144 (calls)
+>>> image_gather_facets 0.648 (s) 0.0 % 4 (calls)
+>>> image_scatter_channels 0.004 (s) 0.0 % 4 (calls)
+>>> list 0.000 (s) 0.0 % 2 (calls)
+>>> restore_cube 4.990 (s) 0.1 % 1 (calls)
+>>> Total processor time 9066.206 (s)
+>>> Total wallclock time 20244.683 (s)
+>>> Speedup = 0.45
+
+SKA LOW imaging using ARL
+Started at  Tue Nov 19 15:54:38 2019
+Finished at Tue Nov 19 21:36:32 2019

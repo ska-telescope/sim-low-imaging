@@ -1,0 +1,371 @@
+PYTHONPATH is /alaska/tim/Code/algorithm-reference-library/::/alaska/tim/Code/algorithm-reference-library/
+Running python: /alaska/tim/anaconda3/envs/arlenv/bin/python
+Running dask-scheduler: /alaska/tim/anaconda3/envs/arlenv/bin/dask-scheduler
+Changed directory to /mnt/storage-ssd/tim/Code/sim-low-imaging/noniso/script9.
+
+openhpc-compute-[0-7]
+Working on openhpc-compute-0 ....
+run dask-scheduler
+run dask-worker
+Working on openhpc-compute-1 ....
+run dask-worker
+Working on openhpc-compute-2 ....
+run dask-worker
+Working on openhpc-compute-3 ....
+run dask-worker
+Working on openhpc-compute-4 ....
+run dask-worker
+Working on openhpc-compute-5 ....
+run dask-worker
+Working on openhpc-compute-6 ....
+run dask-worker
+Working on openhpc-compute-7 ....
+run dask-worker
+Scheduler and workers now running
+Scheduler is running at openhpc-compute-0
+distributed.scheduler - INFO - -----------------------------------------------
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.3.0.14:37430'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.3.0.22:35354'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.3.0.5:35754'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.3.0.6:37127'
+distributed.diskutils - INFO - Found stale lock file and directory '/mnt/storage-ssd/tim/dask-workspace/openhpc-compute-2/worker-th8z77s2', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/mnt/storage-ssd/tim/dask-workspace/openhpc-compute-1/worker-4d7o3a0c', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/mnt/storage-ssd/tim/dask-workspace/openhpc-compute-3/worker-27c9i54m', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/mnt/storage-ssd/tim/dask-workspace/openhpc-compute-0/worker-ywd8oq5l', purging
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.3.0.10:37480'
+distributed.diskutils - INFO - Found stale lock file and directory '/mnt/storage-ssd/tim/dask-workspace/openhpc-compute-4/worker-_3xi5pac', purging
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.3.0.1:43050'
+distributed.diskutils - INFO - Found stale lock file and directory '/mnt/storage-ssd/tim/dask-workspace/openhpc-compute-5/worker-hgbyjvcz', purging
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.3.0.15:41028'
+distributed.nanny - INFO -         Start Nanny at: 'tcp://10.3.0.8:38634'
+distributed.diskutils - INFO - Found stale lock file and directory '/mnt/storage-ssd/tim/dask-workspace/openhpc-compute-6/worker-zxa6395b', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/mnt/storage-ssd/tim/dask-workspace/openhpc-compute-7/worker-iohbl7q6', purging
+distributed.scheduler - INFO - Local Directory:    /tmp/scheduler-_e25kh9q
+distributed.scheduler - INFO - -----------------------------------------------
+distributed.scheduler - INFO - Clear task state
+distributed.worker - INFO -       Start worker at:       tcp://10.3.0.5:39581
+distributed.worker - INFO -          Listening to:       tcp://10.3.0.5:39581
+distributed.worker - INFO -       Start worker at:      tcp://10.3.0.10:35469
+distributed.worker - INFO -          Listening to:      tcp://10.3.0.10:35469
+distributed.worker - INFO -          dashboard at:             10.3.0.5:45268
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  134.92 GB
+distributed.worker - INFO -       Local Directory: /mnt/storage-ssd/tim/dask-workspace/openhpc-compute-3/worker-dyzrtve6
+distributed.worker - INFO -       Start worker at:      tcp://10.3.0.14:38459
+distributed.worker - INFO -          Listening to:      tcp://10.3.0.14:38459
+distributed.worker - INFO -          dashboard at:            10.3.0.10:42719
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  134.92 GB
+distributed.worker - INFO -       Local Directory: /mnt/storage-ssd/tim/dask-workspace/openhpc-compute-4/worker-0y8i3wa_
+distributed.worker - INFO -       Start worker at:       tcp://10.3.0.6:33382
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -       Start worker at:       tcp://10.3.0.1:35157
+distributed.worker - INFO -          dashboard at:            10.3.0.14:36752
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  134.92 GB
+distributed.worker - INFO -       Local Directory: /mnt/storage-ssd/tim/dask-workspace/openhpc-compute-2/worker-6mh8qj3p
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -          Listening to:       tcp://10.3.0.6:33382
+distributed.worker - INFO -          dashboard at:             10.3.0.6:34300
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  134.92 GB
+distributed.worker - INFO -       Local Directory: /mnt/storage-ssd/tim/dask-workspace/openhpc-compute-0/worker-uvrvfr9v
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -          Listening to:       tcp://10.3.0.1:35157
+distributed.worker - INFO -          dashboard at:             10.3.0.1:41950
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  134.92 GB
+distributed.worker - INFO -       Local Directory: /mnt/storage-ssd/tim/dask-workspace/openhpc-compute-5/worker-wpma6a9l
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -       Start worker at:      tcp://10.3.0.22:37325
+distributed.worker - INFO -          Listening to:      tcp://10.3.0.22:37325
+distributed.worker - INFO -          dashboard at:            10.3.0.22:43424
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  134.92 GB
+distributed.worker - INFO -       Local Directory: /mnt/storage-ssd/tim/dask-workspace/openhpc-compute-1/worker-466imbky
+distributed.worker - INFO - -------------------------------------------------
+distributed.scheduler - INFO -   Scheduler at:   tcp://10.60.253.14:8786
+distributed.scheduler - INFO -   dashboard at:                     :8787
+distributed.scheduler - INFO - Register tcp://10.3.0.5:39581
+distributed.scheduler - INFO - Register tcp://10.3.0.10:35469
+distributed.scheduler - INFO - Register tcp://10.3.0.14:38459
+distributed.scheduler - INFO - Register tcp://10.3.0.1:35157
+distributed.scheduler - INFO - Register tcp://10.3.0.6:33382
+distributed.scheduler - INFO - Register tcp://10.3.0.22:37325
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.3.0.5:39581
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.3.0.10:35469
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.3.0.14:38459
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.3.0.1:35157
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.3.0.6:33382
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO - -------------------------------------------------
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.3.0.22:37325
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO -       Start worker at:      tcp://10.3.0.15:44926
+distributed.worker - INFO -          Listening to:      tcp://10.3.0.15:44926
+distributed.worker - INFO -       Start worker at:       tcp://10.3.0.8:44969
+distributed.worker - INFO -          Listening to:       tcp://10.3.0.8:44969
+distributed.worker - INFO -          dashboard at:            10.3.0.15:36834
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  134.92 GB
+distributed.worker - INFO -       Local Directory: /mnt/storage-ssd/tim/dask-workspace/openhpc-compute-6/worker-68tvhv0a
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -          dashboard at:             10.3.0.8:44683
+distributed.worker - INFO - Waiting to connect to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.worker - INFO -               Threads:                          1
+distributed.worker - INFO -                Memory:                  134.92 GB
+distributed.worker - INFO -       Local Directory: /mnt/storage-ssd/tim/dask-workspace/openhpc-compute-7/worker-5b0kdla1
+distributed.worker - INFO - -------------------------------------------------
+distributed.scheduler - INFO - Register tcp://10.3.0.8:44969
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.3.0.8:44969
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+distributed.scheduler - INFO - Register tcp://10.3.0.15:44926
+distributed.scheduler - INFO - Starting worker compute stream, tcp://10.3.0.15:44926
+distributed.core - INFO - Starting established connection
+distributed.core - INFO - Starting established connection
+distributed.worker - INFO -         Registered to: tcp://openhpc-compute-0:8786
+distributed.worker - INFO - -------------------------------------------------
+distributed.core - INFO - Starting established connection
+Logging to /mnt/storage-ssd/tim/Code/sim-low-imaging/noniso/script9/clean_ms_dask.log
+Logging to /mnt/storage-ssd/tim/Code/sim-low-imaging/noniso/script9/clean_ms_dask.log
+
+SKA LOW imaging using ARL
+Started at Tue Nov 19 21:50:44 2019
+
+
+SKA LOW imaging using ARL
+Started at Tue Nov 19 21:50:44 2019
+
+{'amplitude_loss': 0.2,
+ 'cellsize': None,
+ 'channels': [0, 1],
+ 'context': 'wprojectwstack',
+ 'deconvolve_facets': 8,
+ 'deconvolve_overlap': 16,
+ 'deconvolve_taper': 'tukey',
+ 'epsilon': 1e-06,
+ 'facets': 1,
+ 'fov': 2.5,
+ 'fractional_threshold': 0.2,
+ 'frequency_coal': 0.0,
+ 'local_directory': 'dask-workspace',
+ 'memory': 64,
+ 'mode': 'pipeline',
+ 'model_image': None,
+ 'msname': '/mnt/storage-ssd/tim/Code/sim-low-imaging/data/noniso/GLEAM_A-team_EoR1_160_MHz_no_errors.ms',
+ 'ngroup': 1,
+ 'niter': 1000,
+ 'nmajor': 3,
+ 'nmoment': 1,
+ 'npixel': None,
+ 'nworkers': 0,
+ 'nwplanes': None,
+ 'nwslabs': 101,
+ 'oversampling': 16,
+ 'plot': 'False',
+ 'restore_facets': 4,
+ 'serial': 'False',
+ 'single': 'False',
+ 'threads': 4,
+ 'threads_per_worker': 1,
+ 'threshold': 0.01,
+ 'time_coal': 0.0,
+ 'use_serial_invert': 'True',
+ 'use_serial_predict': 'True',
+ 'weighting': 'uniform',
+ 'window_edge': None,
+ 'window_shape': None,
+ 'wstep': None}
+Target MS is /mnt/storage-ssd/tim/Code/sim-low-imaging/data/noniso/GLEAM_A-team_EoR1_160_MHz_no_errors.ms
+Target MS is /mnt/storage-ssd/tim/Code/sim-low-imaging/data/noniso/GLEAM_A-team_EoR1_160_MHz_no_errors.ms
+MS extension is .ms
+MS extension is .ms
+[0 1]
+
+Setup of processing mode
+
+Setup of processing mode
+Creating Dask Client using externally defined scheduler
+Creating Dask Client using externally defined scheduler
+distributed.scheduler - INFO - Receive client connection: Client-a361b838-0b16-11ea-a8c3-246e964883a8
+distributed.core - INFO - Starting established connection
+<Client: 'tcp://10.60.253.14:8786' processes=8 threads=8, memory=1.08 TB>
+Will use serial invert
+Will use serial invert
+Will use serial predict
+Will use serial predict
+distributed.worker - INFO - Run out-of-band function 'init_logging'
+distributed.worker - INFO - Run out-of-band function 'init_logging'
+distributed.worker - INFO - Run out-of-band function 'init_logging'
+distributed.worker - INFO - Run out-of-band function 'init_logging'
+distributed.worker - INFO - Run out-of-band function 'init_logging'
+distributed.worker - INFO - Run out-of-band function 'init_logging'
+distributed.worker - INFO - Run out-of-band function 'init_logging'
+distributed.worker - INFO - Run out-of-band function 'init_logging'
+
+Setup of visibility ingest
+
+Setup of visibility ingest
+distributed.comm.tcp - WARNING - Closing dangling stream in <TCP  local=tcp://10.60.253.14:51130 remote=tcp://openhpc-compute-0:8786>
+[[0, 0]]
+
+Setup of images
+
+Setup of images
+Image shape is 14000 by 14000 pixels
+Image shape is 14000 by 14000 pixels
+
+Setup of wide field imaging
+
+Setup of wide field imaging
+Will do hybrid w stack/w projection, 101 w slabs, 6 w planes, support 14, w step 77.3
+Will do hybrid w stack/w projection, 101 w slabs, 6 w planes, support 14, w step 77.3
+Image:
+	Shape: (1, 1, 14000, 14000)
+	WCS: WCS Keywords
+
+Number of WCS axes: 4
+CTYPE : 'RA---SIN'  'DEC--SIN'  'STOKES'  'FREQ'  
+CRVAL : 60.0  -30.0  1.0  160000000.0  
+CRPIX : 7001.0  7001.0  1.0  1.0  
+PC1_1 PC1_2 PC1_3 PC1_4  : 1.0  0.0  0.0  0.0  
+PC2_1 PC2_2 PC2_3 PC2_4  : 0.0  1.0  0.0  0.0  
+PC3_1 PC3_2 PC3_3 PC3_4  : 0.0  0.0  1.0  0.0  
+PC4_1 PC4_2 PC4_3 PC4_4  : 0.0  0.0  0.0  1.0  
+CDELT : -0.00055217021674433  0.00055217021674433  1.0  99999.999999  
+NAXIS : 0  0
+	Polarisation frame: stokesI
+
+
+Setup of weighting
+
+Setup of weighting
+Will apply uniform weighting
+Will apply uniform weighting
+
+Running pipeline
+/alaska/tim/anaconda3/envs/arlenv/lib/python3.7/site-packages/distributed/worker.py:3254: UserWarning: Large object of size 7.54 GB detected in task graph: 
+  (<data_models.memory_data_models.Visibility object ... 2b9aa79df890>,)
+Consider scattering large objects ahead of time
+with client.scatter to reduce scheduler burden and 
+keep data on workers
+
+    future = client.submit(func, big_data)    # bad
+
+    big_future = client.scatter(big_data)     # good
+    future = client.submit(func, big_future)  # good
+  % (format_bytes(len(b)), s)
+
+Running pipeline
+distributed.comm.tcp - WARNING - Closing dangling stream in <TCP  local=tcp://10.3.0.10:43822 remote=tcp://10.3.0.1:35157>
+distributed.comm.tcp - WARNING - Closing dangling stream in <TCP  local=tcp://10.3.0.15:54662 remote=tcp://10.3.0.14:38459>
+distributed.comm.tcp - WARNING - Closing dangling stream in <TCP  local=tcp://10.3.0.15:54696 remote=tcp://10.3.0.14:38459>
+Processing took 41116.52 (s)
+Processing took 41116.52 (s)
+Writing restored image to GLEAM_A-team_EoR1_160_MHz_no_errors_cip_restored.fits
+[[<data_models.memory_data_models.Image object at 0x2b9aa9b15050>],
+ [(<data_models.memory_data_models.Image object at 0x2b9bc98d9ad0>,
+   array([[5061492.00000353]]))],
+ [<data_models.memory_data_models.Image object at 0x2b9aa9aa36d0>]]
+Quality assessment:
+	Origin: qa_image
+	Context: 
+	Data:
+		shape: '(1, 1, 14000, 14000)'
+		max: '1.1127166465866862'
+		min: '-0.010074383359220326'
+		maxabs: '1.1127166465866862'
+		rms: '0.0005435685783052199'
+		sum: '410.0974399557228'
+		medianabs: '0.00011118686595766311'
+		medianabsdevmedian: '0.0001111773856874737'
+		median: '-1.3610179190990561e-06'
+
+Writing restored image to GLEAM_A-team_EoR1_160_MHz_no_errors_cip_restored.fits
+Writing cip deconvolved image to GLEAM_A-team_EoR1_160_MHz_no_errors_cip_deconvolved.fits
+Writing cip deconvolved image to GLEAM_A-team_EoR1_160_MHz_no_errors_cip_deconvolved.fits
+Writing residual image to GLEAM_A-team_EoR1_160_MHz_no_errors_cip_residual.fits
+Writing residual image to GLEAM_A-team_EoR1_160_MHz_no_errors_cip_residual.fits
+BokehDeprecationWarning: 'legend' keyword is deprecated, use explicit 'legend_label', 'legend_field', or 'legend_group' keywords instead
+BokehDeprecationWarning: 'legend' keyword is deprecated, use explicit 'legend_label', 'legend_field', or 'legend_group' keywords instead
+BokehDeprecationWarning: 'legend' keyword is deprecated, use explicit 'legend_label', 'legend_field', or 'legend_group' keywords instead
+distributed.scheduler - INFO - Remove client Client-a361b838-0b16-11ea-a8c3-246e964883a8
+distributed.scheduler - INFO - Remove client Client-a361b838-0b16-11ea-a8c3-246e964883a8
+distributed.scheduler - INFO - Close client connection: Client-a361b838-0b16-11ea-a8c3-246e964883a8
+>>> Processor time used in each function
+>>> read_convert 3.213 (s) 0.0 % 1 (calls)
+>>> advise_wide_field 2.726 (s) 0.0 % 1 (calls)
+>>> create_image_from_visibility 2.949 (s) 0.0 % 2 (calls)
+>>> to_vis 7.454 (s) 0.0 % 1 (calls)
+>>> create_pswf_convolutionfunction 5.525 (s) 0.0 % 1 (calls)
+>>> create_awterm_convolutionfunction 4.687 (s) 0.0 % 1 (calls)
+>>> image_gather_channels 44.410 (s) 0.2 % 152 (calls)
+>>> image_scatter_facets 0.043 (s) 0.0 % 8 (calls)
+>>> getitem 0.002 (s) 0.0 % 309 (calls)
+>>> grid_wt 24.393 (s) 0.1 % 1 (calls)
+>>> griddata_merge_weights 1.186 (s) 0.0 % 1 (calls)
+>>> re_weight 334.076 (s) 1.8 % 1 (calls)
+>>> to_bvis 2.893 (s) 0.0 % 1 (calls)
+>>> zero 1.735 (s) 0.0 % 1 (calls)
+>>> invert_list_serial_workflow 17911.216 (s) 96.8 % 6 (calls)
+>>> remove_sumwt 0.000 (s) 0.0 % 10 (calls)
+>>> predict_list_serial_workflow 26.403 (s) 0.1 % 5 (calls)
+>>> subtract_vis 11.779 (s) 0.1 % 5 (calls)
+>>> threshold_list 0.460 (s) 0.0 % 4 (calls)
+>>> deconvolve 115.401 (s) 0.6 % 144 (calls)
+>>> image_gather_facets 0.783 (s) 0.0 % 4 (calls)
+>>> image_scatter_channels 0.004 (s) 0.0 % 4 (calls)
+>>> list 0.000 (s) 0.0 % 2 (calls)
+>>> restore_cube 4.743 (s) 0.0 % 1 (calls)
+>>> Total processor time 18506.083 (s)
+>>> Total wallclock time 41152.103 (s)
+>>> Speedup = 0.45
+
+SKA LOW imaging using ARL
+/alaska/tim/anaconda3/envs/arlenv/lib/python3.7/site-packages/bokeh/io/saving.py:126: UserWarning: save() called but no resources were supplied and output_file(...) was never called, defaulting to resources.CDN
+  warn("save() called but no resources were supplied and output_file(...) was never called, defaulting to resources.CDN")
+
+SKA LOW imaging using ARL
+Started at  Tue Nov 19 21:50:44 2019
+Started at  Tue Nov 19 21:50:44 2019
+Finished at Wed Nov 20 09:24:01 2019
+Finished at Wed Nov 20 09:24:01 2019
