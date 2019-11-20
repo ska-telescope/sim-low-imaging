@@ -1,6 +1,0 @@
-/data
-.idea
-*.fits
-hostfile.*
-dask-workspace
-dask-worker-space

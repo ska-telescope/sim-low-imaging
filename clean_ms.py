@@ -1,10 +1,12 @@
 import argparse
 import logging
+import os
 import pprint
 import sys
 import time
 
 import matplotlib as mpl
+
 mpl.use('Agg')
 
 import astropy.units as u
@@ -12,29 +14,44 @@ import matplotlib.pyplot as plt
 import numpy
 from astropy.coordinates import SkyCoord, EarthLocation
 
-from data_models.polarisation import ReceptorFrame
+from data_models.polarisation import ReceptorFrame, PolarisationFrame
 from processing_components.griddata.kernels import create_awterm_convolutionfunction
-from processing_components.image.operations import qa_image, export_image_to_fits, show_image
+from processing_components.image.operations import qa_image, export_image_to_fits, show_image, import_image_from_fits
 from processing_components.imaging.base import advise_wide_field, create_image_from_visibility
 from processing_components.visibility.base import create_blockvisibility_from_ms, vis_summary
 from processing_components.visibility.coalesce import convert_blockvisibility_to_visibility, coalesce_visibility
 from workflows.arlexecute.imaging.imaging_arlexecute import weight_list_arlexecute_workflow, \
     invert_list_arlexecute_workflow, sum_invert_results_arlexecute
 from processing_components.griddata.convolution_functions import convert_convolutionfunction_to_image
-from workflows.arlexecute.pipelines.pipeline_arlexecute import continuum_imaging_list_arlexecute_workflow
+from workflows.arlexecute.pipelines.pipeline_arlexecute import continuum_imaging_list_arlexecute_workflow, \
+    ical_list_arlexecute_workflow
 from wrappers.arlexecute.execution_support.arlexecute import arlexecute
-from wrappers.arlexecute.execution_support.dask_init import get_dask_Client
+from processing_components.visibility.operations import convert_blockvisibility_to_stokesI
+
+from processing_components.calibration.calibration_control import create_calibration_controls
 
 pp = pprint.PrettyPrinter()
+cwd = os.getcwd()
 
-log = logging.getLogger()
-log.setLevel(logging.INFO)
-log.addHandler(logging.StreamHandler(sys.stdout))
-mpl_logger = logging.getLogger("matplotlib")
-mpl_logger.setLevel(logging.WARNING)
+
+def init_logging():
+    log.info("Logging to %s/clean_ms_dask.log" % cwd)
+    logging.basicConfig(filename='%s/clean_ms_dask.log' % cwd,
+                        filemode='a',
+                        format='%(thread)s %(asctime)s.%(msecs)d %(name)s %(levelname)s %(message)s',
+                        datefmt='%H:%M:%S',
+                        level=logging.DEBUG)
 
 
 if __name__ == "__main__":
+    
+    log = logging.getLogger()
+    log.setLevel(logging.INFO)
+    log.addHandler(logging.StreamHandler(sys.stdout))
+    log.addHandler(logging.StreamHandler(sys.stderr))
+    mpl_logger = logging.getLogger("matplotlib")
+    mpl_logger.setLevel(logging.WARNING)
+    init_logging()
     
     # 116G	/mnt/storage-ssd/tim/data/GLEAM_A-team_EoR0_0.270_dB.ms
     # 116G	/mnt/storage-ssd/tim/data/GLEAM_A-team_EoR0_no_errors.ms
@@ -61,7 +78,7 @@ if __name__ == "__main__":
         '/alaska/tim/Code/sim-low-imaging/data/EoR0_20deg_720.MS']
     
     start_epoch = time.asctime()
-    print("\nSKA LOW imaging using ARL\nStarted at %s\n" % start_epoch)
+    log.info("\nSKA LOW imaging using ARL\nStarted at %s\n" % start_epoch)
     
     ########################################################################################################################
     
@@ -70,6 +87,7 @@ if __name__ == "__main__":
     parser.add_argument('--mode', type=str, default='pipeline', help='Imaging mode')
     parser.add_argument('--msname', type=str, default='../data/EoR0_20deg_24.MS',
                         help='MS to process')
+    parser.add_argument('--model_image', type=str, default=None, help='Initial model image')
     parser.add_argument('--local_directory', type=str, default='dask-workspace',
                         help='Local directory for Dask files')
     
@@ -92,7 +110,8 @@ if __name__ == "__main__":
     parser.add_argument('--amplitude_loss', type=float, default=0.02, help='Amplitude loss due to w sampling')
     parser.add_argument('--facets', type=int, default=1, help='Number of facets in imaging')
     parser.add_argument('--oversampling', type=int, default=16, help='Oversampling in w projection kernel')
-
+    parser.add_argument('--epsilon', type=float, default=1e-12, help='Accuracy in nifty gridder')
+    
     parser.add_argument('--weighting', type=str, default='natural', help='Type of weighting')
     
     parser.add_argument('--nmajor', type=int, default=1, help='Number of major cycles')
@@ -110,6 +129,7 @@ if __name__ == "__main__":
     parser.add_argument('--serial', type=str, default='False', help='Use serial processing?')
     parser.add_argument('--nworkers', type=int, default=4, help='Number of workers')
     parser.add_argument('--threads_per_worker', type=int, default=1, help='Number of threads per worker')
+    parser.add_argument('--threads', type=int, default=4, help='Number of threads for nifty gridder')
     parser.add_argument('--memory', type=int, default=64, help='Memory of each worker')
     
     parser.add_argument('--use_serial_invert', type=str, default='False', help='Use serial invert?')
@@ -121,11 +141,14 @@ if __name__ == "__main__":
     pp.pprint(vars(args))
     
     target_ms = args.msname
-    print("Target MS is %s" % target_ms)
+    log.info("Target MS is %s" % target_ms)
+    msext = '.' + (target_ms.split('.')[-1])
+    log.info("MS extension is %s" % msext)
+    
+    initial_model = args.model_image
     
     ochannels = numpy.arange(args.channels[0], args.channels[1] + 1)
     nmoment = args.nmoment
-    print(ochannels)
     ngroup = args.ngroup
     weighting = args.weighting
     nwplanes = args.nwplanes
@@ -152,39 +175,51 @@ if __name__ == "__main__":
     window_shape = args.window_shape
     dela = args.amplitude_loss
     
+    if context == 'ng':
+        use_block = True
+    else:
+        use_block = False
+    
     ####################################################################################################################
     
-    print("\nSetup of processing mode")
+    log.info("\nSetup of processing mode")
     if serial:
-        print("Will use serial processing")
+        log.info("Will use serial processing")
         use_serial_invert = True
         use_serial_predict = True
         arlexecute.set_client(use_dask=False)
         print(arlexecute.client)
     else:
-        print("Will use dask processing")
-        if nworkers > 0:
-            client = get_dask_Client(n_workers=nworkers, memory_limit=memory * 1024 * 1024 * 1024,
-                                     local_dir=local_directory, threads_per_worker=threads_per_worker)
-            arlexecute.set_client(client=client)
+        
+        from dask.distributed import Client
+        
+        scheduler = os.getenv('ARL_DASK_SCHEDULER', None)
+        if scheduler is not None:
+            log.info("Creating Dask Client using externally defined scheduler")
+            client = Client(scheduler)
         else:
-            client = get_dask_Client()
-            arlexecute.set_client(client=client)
+            log.info("Using Dask on this computer")
+            client = Client(threads_per_worker=threads_per_worker, n_workers=nworkers,
+                            memory_limit=128 * 1024 * 1024 * 1024)
+        
+        arlexecute.set_client(client=client)
         
         print(arlexecute.client)
         if use_serial_invert:
-            print("Will use serial invert")
+            log.info("Will use serial invert")
         else:
-            print("Will use distributed invert")
+            log.info("Will use distributed invert")
         if use_serial_predict:
-            print("Will use serial predict")
+            log.info("Will use serial predict")
         else:
-            print("Will use distributed predict")
-
+            log.info("Will use distributed predict")
+        
+        arlexecute.client.run(init_logging)
+    
     ####################################################################################################################
     
     # Read an MS and convert to Visibility format
-    print("\nSetup of visibility ingest")
+    log.info("\nSetup of visibility ingest")
     
     
     def read_convert(ms, ch):
@@ -196,16 +231,28 @@ if __name__ == "__main__":
         bvis.configuration.receptor_frame = ReceptorFrame("linear")
         bvis.configuration.data['diameter'][...] = 35.0
         
-        if time_coal > 0.0 or frequency_coal > 0.0:
-            vis = coalesce_visibility(bvis, time_coal=time_coal, frequency_coal=frequency_coal)
-            print("Time to read and convert %s, channels %d to %d = %.1f s" % (ms, ch[0], ch[1], time.time() - start))
-            print('Size of visibility before compression %s, after %s' % (vis_summary(bvis), vis_summary(vis)))
+        print(bvis)
+        if bvis.polarisation_frame != PolarisationFrame('stokesI'):
+            log.info("Converting visibility to stokesI")
+            bvis = convert_blockvisibility_to_stokesI(bvis)
+        print(bvis)
+        
+        if use_block:
+            log.info("Working with BlockVisibility's")
+            return bvis
         else:
-            vis = convert_blockvisibility_to_visibility(bvis)
-            print("Time to read and convert %s, channels %d to %d = %.1f s" % (ms, ch[0], ch[1], time.time() - start))
-            print('Size of visibility before conversion %s, after %s' % (vis_summary(bvis), vis_summary(vis)))
-        del bvis
-        return vis
+            if time_coal > 0.0 or frequency_coal > 0.0:
+                vis = coalesce_visibility(bvis, time_coal=time_coal, frequency_coal=frequency_coal)
+                log.info(
+                    "Time to read and convert %s, channels %d to %d = %.1f s" % (ms, ch[0], ch[1], time.time() - start))
+                print('Size of visibility before compression %s, after %s' % (vis_summary(bvis), vis_summary(vis)))
+            else:
+                vis = convert_blockvisibility_to_visibility(bvis)
+                log.info(
+                    "Time to read and convert %s, channels %d to %d = %.1f s" % (ms, ch[0], ch[1], time.time() - start))
+                print('Size of visibility before conversion %s, after %s' % (vis_summary(bvis), vis_summary(vis)))
+            del bvis
+            return vis
     
     
     channels = []
@@ -215,15 +262,14 @@ if __name__ == "__main__":
     
     if single:
         channels = [channels[0]]
-        print("Will read single range of channels %s" % channels)
-
-
+        log.info("Will read single range of channels %s" % channels)
+    
     vis_list = [arlexecute.execute(read_convert)(target_ms, group_chan) for group_chan in channels]
     vis_list = arlexecute.persist(vis_list)
     
     ####################################################################################################################
     
-    print("\nSetup of images")
+    log.info("\nSetup of images")
     phasecentre = SkyCoord(ra=0.0 * u.deg, dec=-27.0 * u.deg)
     
     advice = [arlexecute.execute(advise_wide_field)(v, guard_band_image=fov, delA=dela, verbose=(iv == 0))
@@ -242,13 +288,11 @@ if __name__ == "__main__":
     if cellsize is None:
         cellsize = advice[-1]['cellsize']
     
-    cellsize = 1.7578125 * numpy.pi / (180.0 * 3600.0)
-    
-    print('Image shape is %d by %d pixels' % (npixel, npixel))
+    log.info('Image shape is %d by %d pixels' % (npixel, npixel))
     
     ####################################################################################################################
     
-    print("\nSetup of wide field imaging")
+    log.info("\nSetup of wide field imaging")
     vis_slices = 1
     actual_context = '2d'
     support = 1
@@ -257,12 +301,18 @@ if __name__ == "__main__":
         vis_slices = 1
         support = advice[0]['nwpixels']
         actual_context = '2d'
-        print("Will do w projection, %d planes, support %d, step %.1f" %
-              (nwplanes, support, wstep))
+        log.info("Will do w projection, %d planes, support %d, step %.1f" %
+                 (nwplanes, support, wstep))
+    
+    
+    elif context == 'ng':
+        # nifty gridder
+        log.info("Will use nifty gridder")
+        actual_context = 'ng'
     
     elif context == 'wstack':
         # w stacking
-        print("Will do w stack, %d planes, step %.1f" % (nwplanes, wstep))
+        log.info("Will do w stack, %d planes, step %.1f" % (nwplanes, wstep))
         actual_context = 'wstack'
     
     elif context == 'wprojectwstack':
@@ -273,23 +323,29 @@ if __name__ == "__main__":
         support -= support % 2
         vis_slices = nwslabs
         actual_context = 'wstack'
-        print("Will do hybrid w stack/w projection, %d w slabs, %d w planes, support %d, w step %.1f" %
-              (nwslabs, nwplanes, support, wstep))
+        log.info("Will do hybrid w stack/w projection, %d w slabs, %d w planes, support %d, w step %.1f" %
+                 (nwslabs, nwplanes, support, wstep))
     else:
-        print("Will do 2d processing")
+        log.info("Will do 2d processing")
         # Simple 2D
         actual_context = '2d'
         vis_slices = 1
         wstep = 1e15
         nwplanes = 1
     
-    model_list = [arlexecute.execute(create_image_from_visibility)(v, npixel=npixel, cellsize=cellsize)
-                  for v in vis_list]
+    if initial_model is None:
+        model_list = [arlexecute.execute(create_image_from_visibility)(v, npixel=npixel, cellsize=cellsize)
+                      for v in vis_list]
+    else:
+        model_list = [arlexecute.execute(import_image_from_fits)(initial_model)
+                      for v in vis_list]
+    
+    model = arlexecute.compute(model_list[0], sync=True)
     
     # Perform weighting. This is a collective computation, requiring all visibilities :(
-    print("\nSetup of weighting")
+    log.info("\nSetup of weighting")
     if weighting == 'uniform':
-        print("Will apply uniform weighting")
+        log.info("Will apply uniform weighting")
         vis_list = weight_list_arlexecute_workflow(vis_list, model_list)
     
     if context == 'wprojection' or context == 'wprojectwstack':
@@ -307,59 +363,140 @@ if __name__ == "__main__":
         gcfcf_list = None
     
     ####################################################################################################################
-
-    from dask.distributed import get_task_stream
+    
     arlexecute.init_statistics()
     
     if mode == 'pipeline':
-        print("\nRunning pipeline")
-        result = continuum_imaging_list_arlexecute_workflow(vis_list, model_list, context=actual_context,
-                                                            vis_slices=vis_slices,
-                                                            facets=facets, use_serial_invert=use_serial_invert,
-                                                            use_serial_predict=use_serial_predict,
-                                                            niter=args.niter,
-                                                            fractional_threshold=args.fractional_threshold,
-                                                            threshold=args.threshold,
-                                                            nmajor=args.nmajor, gain=0.1,
-                                                            algorithm='mmclean',
-                                                            nmoment=nmoment, findpeak='ARL',
-                                                            scales=[0],
-                                                            restore_facets=args.restore_facets,
-                                                            psfwidth=1.0,
-                                                            deconvolve_facets=args.deconvolve_facets,
-                                                            deconvolve_overlap=args.deconvolve_overlap,
-                                                            deconvolve_taper=args.deconvolve_taper,
-                                                            timeslice='auto',
-                                                            psf_support=256,
-                                                            window_shape=window_shape,
-                                                            window_edge=window_edge,
-                                                            gcfcf=gcfcf_list,
-                                                            return_moments=False)
-        result = arlexecute.persist(result[2])
-        restored = result[0]
+        log.info("\nRunning pipeline")
+        cip_result = continuum_imaging_list_arlexecute_workflow(vis_list, model_list, context=actual_context,
+                                                                vis_slices=vis_slices,
+                                                                facets=facets, use_serial_invert=use_serial_invert,
+                                                                use_serial_predict=use_serial_predict,
+                                                                niter=args.niter,
+                                                                fractional_threshold=args.fractional_threshold,
+                                                                threshold=args.threshold,
+                                                                nmajor=args.nmajor, gain=0.1,
+                                                                algorithm='mmclean',
+                                                                nmoment=nmoment, findpeak='ARL',
+                                                                scales=[0],
+                                                                restore_facets=args.restore_facets,
+                                                                psfwidth=1.0,
+                                                                deconvolve_facets=args.deconvolve_facets,
+                                                                deconvolve_overlap=args.deconvolve_overlap,
+                                                                deconvolve_taper=args.deconvolve_taper,
+                                                                timeslice='auto',
+                                                                psf_support=256,
+                                                                window_shape=window_shape,
+                                                                window_edge=window_edge,
+                                                                gcfcf=gcfcf_list,
+                                                                return_moments=False,
+                                                                threads=args.threads,
+                                                                epsilon=args.epsilon)
         
         start = time.time()
-        restored = arlexecute.compute(restored, sync=True)
+        result = arlexecute.compute(cip_result, sync=True)
         run_time = time.time() - start
-        print("Processing took %.2f (s)" % run_time)
+        log.info("Processing took %.2f (s)" % run_time)
+        
+        pp.pprint(result)
+        deconvolved = result[0][0]
+        residual = result[1][0][0]
+        restored = result[2][0]
         
         print(qa_image(restored))
         
-        title = target_ms.split('/')[-1].replace('.MS', ' restored image')
+        restored_name = target_ms.split('/')[-1].replace(msext, '_cip_restored.fits')
+        log.info("Writing restored image to %s" % restored_name)
+        export_image_to_fits(restored, restored_name)
+        
+        title = target_ms.split('/')[-1].replace(msext, ' cip restored image')
         show_image(restored, vmax=0.03, vmin=-0.003, title=title)
-        plot_name = target_ms.split('/')[-1].replace('.MS', '_restored.jpg')
+        plot_name = target_ms.split('/')[-1].replace(msext, '_cip_restored.jpg')
         plt.savefig(plot_name)
         plt.show(block=False)
         
-        restored_name = target_ms.split('/')[-1].replace('.MS', '_restored.fits')
-        print("Writing restored image to %s" % restored_name)
+        deconvolved_name = target_ms.split('/')[-1].replace(msext, '_cip_deconvolved.fits')
+        log.info("Writing cip deconvolved image to %s" % deconvolved_name)
+        export_image_to_fits(deconvolved, deconvolved_name)
+        
+        residual_name = target_ms.split('/')[-1].replace(msext, '_cip_residual.fits')
+        log.info("Writing residual image to %s" % residual_name)
+        export_image_to_fits(residual, residual_name)
+    
+    elif mode == 'ical':
+        
+        controls = create_calibration_controls()
+        
+        controls['T']['first_selfcal'] = 0
+        
+        controls['T']['timescale'] = 'auto'
+        controls['T']['phase_only'] = True
+        
+        log.info("\nRunning ical pipeline")
+        ical_result = ical_list_arlexecute_workflow(vis_list, model_list, context=actual_context,
+                                                    vis_slices=vis_slices,
+                                                    facets=facets, use_serial_invert=use_serial_invert,
+                                                    use_serial_predict=use_serial_predict,
+                                                    niter=args.niter,
+                                                    fractional_threshold=args.fractional_threshold,
+                                                    threshold=args.threshold,
+                                                    nmajor=args.nmajor, gain=0.1,
+                                                    algorithm='mmclean',
+                                                    nmoment=nmoment, findpeak='ARL',
+                                                    scales=[0],
+                                                    restore_facets=args.restore_facets,
+                                                    psfwidth=1.0,
+                                                    deconvolve_facets=args.deconvolve_facets,
+                                                    deconvolve_overlap=args.deconvolve_overlap,
+                                                    deconvolve_taper=args.deconvolve_taper,
+                                                    timeslice='auto',
+                                                    psf_support=256,
+                                                    window_shape=window_shape,
+                                                    window_edge=window_edge,
+                                                    gcfcf=gcfcf_list,
+                                                    return_moments=False,
+                                                    calibration_context='T',
+                                                    controls=controls,
+                                                    threads=args.threads,
+                                                    epsilon=args.epsilon)
+        
+        start = time.time()
+        result = arlexecute.compute(ical_result, sync=True)
+        run_time = time.time() - start
+        log.info("Processing took %.2f (s)" % run_time)
+        
+        pp.pprint(result)
+        deconvolved = result[0][0]
+        residual = result[1][0][0]
+        restored = result[2][0]
+        
+        print(qa_image(restored))
+        
+        restored_name = target_ms.split('/')[-1].replace(msext, '_ical_restored.fits')
+        log.info("Writing restored image to %s" % restored_name)
         export_image_to_fits(restored, restored_name)
+        
+        title = target_ms.split('/')[-1].replace(msext, ' ical restored image')
+        show_image(restored, vmax=0.03, vmin=-0.003, title=title)
+        plot_name = target_ms.split('/')[-1].replace(msext, '_ical_restored.jpg')
+        plt.savefig(plot_name)
+        plt.show(block=False)
+        
+        deconvolved_name = target_ms.split('/')[-1].replace(msext, '_ical_deconvolved.fits')
+        log.info("Writing deconvolved image to %s" % deconvolved_name)
+        export_image_to_fits(deconvolved, deconvolved_name)
+        
+        residual_name = target_ms.split('/')[-1].replace(msext, '_ical_residual.fits')
+        log.info("Writing residual image to %s" % residual_name)
+        export_image_to_fits(residual, residual_name)
     
     else:
-        print("\nRunning invert")
+        log.info("\nRunning invert")
         result = invert_list_arlexecute_workflow(vis_list, model_list, context=actual_context, vis_slices=nwplanes,
                                                  facets=facets, use_serial_invert=use_serial_invert,
-                                                 gcfcf=gcfcf_list)
+                                                 gcfcf=gcfcf_list,
+                                                 threads=args.threads,
+                                                 epsilon=args.epsilon)
         result = sum_invert_results_arlexecute(result)
         result = arlexecute.persist(result)
         dirty = result[0]
@@ -367,25 +504,25 @@ if __name__ == "__main__":
         start = time.time()
         dirty = arlexecute.compute(dirty, sync=True)
         run_time = time.time() - start
-        print("Processing took %.2f (s)" % run_time)
+        log.info("Processing took %.2f (s)" % run_time)
         
         print(qa_image(dirty))
         
-        title = target_ms.split('/')[-1].replace('.MS', ' dirty image')
+        title = target_ms.split('/')[-1].replace(msext, ' dirty image')
         show_image(dirty, vmax=0.03, vmin=-0.003, title=title)
-        plot_name = target_ms.split('/')[-1].replace('.MS', '_dirty.jpg')
+        plot_name = target_ms.split('/')[-1].replace(msext, '_dirty.jpg')
         plt.savefig(plot_name)
         plt.show(block=False)
         
-        dirty_name = target_ms.split('/')[-1].replace('.MS', '_dirty.fits')
-        print("Writing dirty image to %s" % dirty_name)
+        dirty_name = target_ms.split('/')[-1].replace(msext, '_dirty.fits')
+        log.info("Writing dirty image to %s" % dirty_name)
         export_image_to_fits(dirty, dirty_name)
     
     arlexecute.save_statistics(name='clean_ms')
-
+    
     if not serial:
         arlexecute.close()
-
-    print("\nSKA LOW imaging using ARL")
-    print("Started at  %s" % start_epoch)
-    print("Finished at %s" % time.asctime())
+    
+    log.info("\nSKA LOW imaging using ARL")
+    log.info("Started at  %s" % start_epoch)
+    log.info("Finished at %s" % time.asctime())
