@@ -10,8 +10,8 @@ mpl.use('Agg')
 
 import matplotlib.pyplot as plt
 
-from processing_components.image.operations import export_image_to_fits, import_image_from_fits
-from processing_components.image.operations import copy_image, qa_image, show_image
+from rascil.processing_components.image.operations import export_image_to_fits, import_image_from_fits
+from rascil.processing_components.image.operations import copy_image, qa_image, show_image
 
 pp = pprint.PrettyPrinter()
 cwd = os.getcwd()

@@ -14,21 +14,21 @@ import matplotlib.pyplot as plt
 import numpy
 from astropy.coordinates import SkyCoord, EarthLocation
 
-from data_models.polarisation import ReceptorFrame, PolarisationFrame
-from processing_components.griddata.kernels import create_awterm_convolutionfunction
-from processing_components.image.operations import qa_image, export_image_to_fits, show_image, import_image_from_fits
-from processing_components.imaging.base import advise_wide_field, create_image_from_visibility
-from processing_components.visibility.base import create_blockvisibility_from_ms, vis_summary
-from processing_components.visibility.coalesce import convert_blockvisibility_to_visibility, coalesce_visibility
-from workflows.arlexecute.imaging.imaging_arlexecute import weight_list_arlexecute_workflow, \
-    invert_list_arlexecute_workflow, sum_invert_results_arlexecute
-from processing_components.griddata.convolution_functions import convert_convolutionfunction_to_image
-from workflows.arlexecute.pipelines.pipeline_arlexecute import continuum_imaging_list_arlexecute_workflow, \
-    ical_list_arlexecute_workflow
-from wrappers.arlexecute.execution_support.arlexecute import arlexecute
-from processing_components.visibility.operations import convert_blockvisibility_to_stokesI
+from rascil.data_models.polarisation import ReceptorFrame, PolarisationFrame
+from rascil.processing_components.griddata.kernels import create_awterm_convolutionfunction
+from rascil.processing_components.image.operations import qa_image, export_image_to_fits, show_image, import_image_from_fits
+from rascil.processing_components.imaging.base import advise_wide_field, create_image_from_visibility
+from rascil.processing_components.visibility.base import create_blockvisibility_from_ms, vis_summary
+from rascil.processing_components.visibility.coalesce import convert_blockvisibility_to_visibility, coalesce_visibility
+from rascil.workflows.rsexecute.imaging.imaging_rsexecute import weight_list_rsexecute_workflow, \
+    invert_list_rsexecute_workflow, sum_invert_results_rsexecute
+from rascil.processing_components.griddata.convolution_functions import convert_convolutionfunction_to_image
+from rascil.workflows.rsexecute.pipelines.pipeline_rsexecute import continuum_imaging_list_rsexecute_workflow, \
+    ical_list_rsexecute_workflow
+from rascil.workflows.rsexecute.execution_support.rsexecute import rsexecute
+from rascil.processing_components.visibility.operations import convert_blockvisibility_to_stokesI
 
-from processing_components.calibration.calibration_control import create_calibration_controls
+from rascil.processing_components.calibration.chain_calibration import create_calibration_controls
 
 pp = pprint.PrettyPrinter()
 cwd = os.getcwd()
@@ -187,8 +187,8 @@ if __name__ == "__main__":
         log.info("Will use serial processing")
         use_serial_invert = True
         use_serial_predict = True
-        arlexecute.set_client(use_dask=False)
-        print(arlexecute.client)
+        rsexecute.set_client(use_dask=False)
+        print(rsexecute.client)
     else:
         
         from dask.distributed import Client
@@ -202,9 +202,9 @@ if __name__ == "__main__":
             client = Client(threads_per_worker=threads_per_worker, n_workers=nworkers,
                             memory_limit=128 * 1024 * 1024 * 1024)
         
-        arlexecute.set_client(client=client)
+        rsexecute.set_client(client=client)
         
-        print(arlexecute.client)
+        print(rsexecute.client)
         if use_serial_invert:
             log.info("Will use serial invert")
         else:
@@ -214,7 +214,7 @@ if __name__ == "__main__":
         else:
             log.info("Will use distributed predict")
         
-        arlexecute.client.run(init_logging)
+        rsexecute.client.run(init_logging)
     
     ####################################################################################################################
     
@@ -264,17 +264,17 @@ if __name__ == "__main__":
         channels = [channels[0]]
         log.info("Will read single range of channels %s" % channels)
     
-    vis_list = [arlexecute.execute(read_convert)(target_ms, group_chan) for group_chan in channels]
-    vis_list = arlexecute.persist(vis_list)
+    vis_list = [rsexecute.execute(read_convert)(target_ms, group_chan) for group_chan in channels]
+    vis_list = rsexecute.persist(vis_list)
     
     ####################################################################################################################
     
     log.info("\nSetup of images")
     phasecentre = SkyCoord(ra=0.0 * u.deg, dec=-27.0 * u.deg)
     
-    advice = [arlexecute.execute(advise_wide_field)(v, guard_band_image=fov, delA=dela, verbose=(iv == 0))
+    advice = [rsexecute.execute(advise_wide_field)(v, guard_band_image=fov, delA=dela, verbose=(iv == 0))
               for iv, v in enumerate(vis_list)]
-    advice = arlexecute.compute(advice, sync=True)
+    advice = rsexecute.compute(advice, sync=True)
     
     if npixel is None:
         npixel = advice[0]['npixels_min']
@@ -334,28 +334,28 @@ if __name__ == "__main__":
         nwplanes = 1
     
     if initial_model is None:
-        model_list = [arlexecute.execute(create_image_from_visibility)(v, npixel=npixel, cellsize=cellsize)
+        model_list = [rsexecute.execute(create_image_from_visibility)(v, npixel=npixel, cellsize=cellsize)
                       for v in vis_list]
     else:
-        model_list = [arlexecute.execute(import_image_from_fits)(initial_model)
+        model_list = [rsexecute.execute(import_image_from_fits)(initial_model)
                       for v in vis_list]
     
-    model = arlexecute.compute(model_list[0], sync=True)
+    model = rsexecute.compute(model_list[0], sync=True)
     
     # Perform weighting. This is a collective computation, requiring all visibilities :(
     log.info("\nSetup of weighting")
     if weighting == 'uniform':
         log.info("Will apply uniform weighting")
-        vis_list = weight_list_arlexecute_workflow(vis_list, model_list)
+        vis_list = weight_list_rsexecute_workflow(vis_list, model_list)
     
     if context == 'wprojection' or context == 'wprojectwstack':
-        gcfcf_list = [arlexecute.execute(create_awterm_convolutionfunction)(m, nw=nwplanes, wstep=wstep,
+        gcfcf_list = [rsexecute.execute(create_awterm_convolutionfunction)(m, nw=nwplanes, wstep=wstep,
                                                                             oversampling=args.oversampling,
                                                                             support=support,
                                                                             maxsupport=512)
                       for m in model_list]
-        gcfcf_list = arlexecute.persist(gcfcf_list)
-        gcfcf = arlexecute.compute(gcfcf_list[0], sync=True)
+        gcfcf_list = rsexecute.persist(gcfcf_list)
+        gcfcf = rsexecute.compute(gcfcf_list[0], sync=True)
         cf = convert_convolutionfunction_to_image(gcfcf[1])
         cf.data = numpy.real(cf.data)
         export_image_to_fits(cf, "cf.fits")
@@ -364,11 +364,11 @@ if __name__ == "__main__":
     
     ####################################################################################################################
     
-    arlexecute.init_statistics()
+    rsexecute.init_statistics()
     
     if mode == 'pipeline':
         log.info("\nRunning pipeline")
-        cip_result = continuum_imaging_list_arlexecute_workflow(vis_list, model_list, context=actual_context,
+        cip_result = continuum_imaging_list_rsexecute_workflow(vis_list, model_list, context=actual_context,
                                                                 vis_slices=vis_slices,
                                                                 facets=facets, use_serial_invert=use_serial_invert,
                                                                 use_serial_predict=use_serial_predict,
@@ -394,7 +394,7 @@ if __name__ == "__main__":
                                                                 epsilon=args.epsilon)
         
         start = time.time()
-        result = arlexecute.compute(cip_result, sync=True)
+        result = rsexecute.compute(cip_result, sync=True)
         run_time = time.time() - start
         log.info("Processing took %.2f (s)" % run_time)
         
@@ -429,11 +429,11 @@ if __name__ == "__main__":
         
         controls['T']['first_selfcal'] = 0
         
-        controls['T']['timescale'] = 'auto'
+        controls['T']['timeslice'] = 60.0
         controls['T']['phase_only'] = True
         
         log.info("\nRunning ical pipeline")
-        ical_result = ical_list_arlexecute_workflow(vis_list, model_list, context=actual_context,
+        ical_result = ical_list_rsexecute_workflow(vis_list, model_list, context=actual_context,
                                                     vis_slices=vis_slices,
                                                     facets=facets, use_serial_invert=use_serial_invert,
                                                     use_serial_predict=use_serial_predict,
@@ -461,7 +461,7 @@ if __name__ == "__main__":
                                                     epsilon=args.epsilon)
         
         start = time.time()
-        result = arlexecute.compute(ical_result, sync=True)
+        result = rsexecute.compute(ical_result, sync=True)
         run_time = time.time() - start
         log.info("Processing took %.2f (s)" % run_time)
         
@@ -492,17 +492,17 @@ if __name__ == "__main__":
     
     else:
         log.info("\nRunning invert")
-        result = invert_list_arlexecute_workflow(vis_list, model_list, context=actual_context, vis_slices=nwplanes,
+        result = invert_list_rsexecute_workflow(vis_list, model_list, context=actual_context, vis_slices=nwplanes,
                                                  facets=facets, use_serial_invert=use_serial_invert,
                                                  gcfcf=gcfcf_list,
                                                  threads=args.threads,
                                                  epsilon=args.epsilon)
-        result = sum_invert_results_arlexecute(result)
-        result = arlexecute.persist(result)
+        result = sum_invert_results_rsexecute(result)
+        result = rsexecute.persist(result)
         dirty = result[0]
         
         start = time.time()
-        dirty = arlexecute.compute(dirty, sync=True)
+        dirty = rsexecute.compute(dirty, sync=True)
         run_time = time.time() - start
         log.info("Processing took %.2f (s)" % run_time)
         
@@ -510,7 +510,7 @@ if __name__ == "__main__":
         
         title = target_ms.split('/')[-1].replace(msext, ' dirty image')
         show_image(dirty, vmax=0.03, vmin=-0.003, title=title)
-        plot_name = target_ms.split('/')[-1].replace(msext, '_dirty.jpg')
+        plot_name = target_ms.split('/')[-1].replace(msext, '_dirty.png')
         plt.savefig(plot_name)
         plt.show(block=False)
         
@@ -518,10 +518,10 @@ if __name__ == "__main__":
         log.info("Writing dirty image to %s" % dirty_name)
         export_image_to_fits(dirty, dirty_name)
     
-    arlexecute.save_statistics(name='clean_ms')
+    rsexecute.save_statistics(name='clean_ms')
     
     if not serial:
-        arlexecute.close()
+        rsexecute.close()
     
     log.info("\nSKA LOW imaging using ARL")
     log.info("Started at  %s" % start_epoch)
