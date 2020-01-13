@@ -78,10 +78,10 @@ echo "Scheduler and workers now running"
 export ARL_DASK_SCHEDULER=${scheduler}:8786
 echo "Scheduler is running at ${scheduler}"
 
-CMD="python ../../clean_ms.py --ngroup 1 --nworkers 0 --weighting uniform --context ng \
+CMD="python ../../clean_ms.py --ngroup 1 --nworkers 0 --weighting uniform --context ng --threads 32 \
 --mode pipeline --niter 1000 --nmajor 3 --fractional_threshold 0.2 --threshold 0.01 --epsilon 1e-6 \
 --amplitude_loss 0.2 --deconvolve_facets 8 --deconvolve_overlap 16 --restore_facets 4 \
---msname /mnt/storage-ssd/tim/Code/sim-low-imaging/data/noniso/GLEAM_A-team_EoR1_160_MHz_iono.ms \
+--msname /mnt/storage-ssd/tim/Code/sim-low-imaging/data/noniso/GLEAM_A-team_EoR1_160_MHz_no_errors.ms \
 --time_coal 0.0 --frequency_coal 0.0 --channels 0 1 \
 --use_serial_invert True --use_serial_predict True --plot False --fov 1.4 --single False | tee clean_ms.log"
 

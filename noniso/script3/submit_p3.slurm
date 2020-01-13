@@ -67,7 +67,7 @@ for host in `cat hostfile.$JOBID`; do
         sleep 5
     fi
     echo "run dask-worker"
-    ssh $host dask-worker --nprocs 1 --nthreads 1 --interface ib0 \
+    ssh $host dask-worker --nprocs 1 --nthreads 8 --interface ib0 \
     --memory-limit 256GB --local-directory /mnt/storage-ssd/tim/dask-workspace/${host} $scheduler:8786  &
         sleep 1
     hostIndex="1"
@@ -78,11 +78,11 @@ echo "Scheduler and workers now running"
 export ARL_DASK_SCHEDULER=${scheduler}:8786
 echo "Scheduler is running at ${scheduler}"
 
-CMD="python ../../clean_ms.py --ngroup 1 --nworkers 0 --weighting uniform --context ng \
---mode pipeline --niter 1000 --nmajor 3 --fractional_threshold 0.2 --threshold 0.01 --epsilon 1e-6 \
---amplitude_loss 0.2 --deconvolve_facets 8 --deconvolve_overlap 16 --restore_facets 4 \
+CMD="python ../clean_ms_noniso.py --ngroup 1 --nworkers 0 --weighting uniform --context wprojectwstack --nwslabs 9 \
+--mode ical --niter 1000 --nmajor 5 --fractional_threshold 0.2 --threshold 0.01 \
+--amplitude_loss 0.25 --deconvolve_facets 8 --deconvolve_overlap 16 --restore_facets 4 \
 --msname /mnt/storage-ssd/tim/Code/sim-low-imaging/data/noniso/GLEAM_A-team_EoR1_160_MHz_iono.ms \
 --time_coal 0.0 --frequency_coal 0.0 --channels 0 1 \
---use_serial_invert True --use_serial_predict True --plot False --fov 1.4 --single False | tee clean_ms.log"
+--use_serial_invert True --use_serial_predict True --plot False --fov 2.5 --single False | tee clean_ms.log"
 
 eval $CMD
