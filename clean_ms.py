@@ -9,26 +9,22 @@ import matplotlib as mpl
 
 mpl.use('Agg')
 
-import astropy.units as u
 import matplotlib.pyplot as plt
+
 import numpy
 from astropy.coordinates import SkyCoord, EarthLocation
+import astropy.units as u
 
-from rascil.data_models.polarisation import ReceptorFrame, PolarisationFrame
-from rascil.processing_components.griddata.kernels import create_awterm_convolutionfunction
-from rascil.processing_components.image.operations import qa_image, export_image_to_fits, show_image, import_image_from_fits
-from rascil.processing_components.imaging.base import advise_wide_field, create_image_from_visibility
-from rascil.processing_components.visibility.base import create_blockvisibility_from_ms, vis_summary
-from rascil.processing_components.visibility.coalesce import convert_blockvisibility_to_visibility, coalesce_visibility
-from rascil.workflows.rsexecute.imaging.imaging_rsexecute import weight_list_rsexecute_workflow, \
-    invert_list_rsexecute_workflow, sum_invert_results_rsexecute
-from rascil.processing_components.griddata.convolution_functions import convert_convolutionfunction_to_image
-from rascil.workflows.rsexecute.pipelines.pipeline_rsexecute import continuum_imaging_list_rsexecute_workflow, \
-    ical_list_rsexecute_workflow
+from rascil.data_models import ReceptorFrame, PolarisationFrame
+from rascil.processing_components import create_awterm_convolutionfunction, qa_image, export_image_to_fits, show_image, \
+    import_image_from_fits, advise_wide_field, create_image_from_visibility, create_blockvisibility_from_ms, \
+    vis_summary, convert_blockvisibility_to_visibility, coalesce_visibility, convert_convolutionfunction_to_image, \
+    convert_blockvisibility_to_stokesI, create_calibration_controls
+
+from rascil.workflows import weight_list_rsexecute_workflow, invert_list_rsexecute_workflow, \
+    sum_invert_results_rsexecute, continuum_imaging_list_rsexecute_workflow, ical_list_rsexecute_workflow
+
 from rascil.workflows.rsexecute.execution_support.rsexecute import rsexecute
-from rascil.processing_components.visibility.operations import convert_blockvisibility_to_stokesI
-
-from rascil.processing_components.calibration.chain_calibration import create_calibration_controls
 
 pp = pprint.PrettyPrinter()
 cwd = os.getcwd()
@@ -53,38 +49,14 @@ if __name__ == "__main__":
     mpl_logger.setLevel(logging.WARNING)
     init_logging()
     
-    # 116G	/mnt/storage-ssd/tim/data/GLEAM_A-team_EoR0_0.270_dB.ms
-    # 116G	/mnt/storage-ssd/tim/data/GLEAM_A-team_EoR0_no_errors.ms
-    msnames = ['/mnt/storage-ssd/tim/data/GLEAM_A-team_EoR0_0.270_dB.ms',
-               '/mnt/storage-ssd/tim/data/GLEAM_A-team_EoR0_no_errors.ms']
-    
-    msnames = ['/alaska/tim/Code/sim-low-imaging/data/GLEAM_A-team_EoR0_0.270_dB.ms',
-               '/alaska/tim/Code/sim-low-imaging/data/GLEAM_A-team_EoR0_no_errors.ms']
-    
-    # 7.8G	/mnt/storage-ssd/tim/data/EoR0_20deg_24.MS
-    # 31G	/mnt/storage-ssd/tim/data/EoR0_20deg_96.MS
-    # 62G	/mnt/storage-ssd/tim/data/EoR0_20deg_192.MS
-    # 116G	/mnt/storage-ssd/tim/data/EoR0_20deg_360.MS
-    # 155G	/mnt/storage-ssd/tim/data/EoR0_20deg_480.MS
-    # 194G	/mnt/storage-ssd/tim/data/EoR0_20deg_600.MS
-    # 232G	/mnt/storage-ssd/tim/data/EoR0_20deg_720.MS
-    msname_times = [
-        '/alaska/tim/Code/sim-low-imaging/data/EoR0_20deg_24.MS',
-        '/alaska/tim/Code/sim-low-imaging/data/EoR0_20deg_96.MS',
-        '/alaska/tim/Code/sim-low-imaging/data/EoR0_20deg_192.MS',
-        '/alaska/tim/Code/sim-low-imaging/data/EoR0_20deg_480.MS',
-        '/alaska/tim/Code/sim-low-imaging/data/EoR0_20deg_600.MS',
-        '/alaska/tim/Code/sim-low-imaging/data/EoR0_20deg_360.MS',
-        '/alaska/tim/Code/sim-low-imaging/data/EoR0_20deg_720.MS']
-    
     start_epoch = time.asctime()
-    log.info("\nSKA LOW imaging using ARL\nStarted at %s\n" % start_epoch)
+    log.info("\nSKA LOW imaging using RASCIL\nStarted at %s\n" % start_epoch)
     
     ########################################################################################################################
     
-    parser = argparse.ArgumentParser(description='SKA LOW imaging using ARL')
-    parser.add_argument('--context', type=str, default='2d', help='Imaging context')
-    parser.add_argument('--mode', type=str, default='pipeline', help='Imaging mode')
+    parser = argparse.ArgumentParser(description='SKA LOW imaging using RASCIL')
+    parser.add_argument('--context', type=str, default='2d', help="Imaging context "'2d'|'ng')
+    parser.add_argument('--mode', type=str, default='pipeline', help="Imaging mode 'invert'|'cip'|'ical'")
     parser.add_argument('--msname', type=str, default='../data/EoR0_20deg_24.MS',
                         help='MS to process')
     parser.add_argument('--model_image', type=str, default=None, help='Initial model image')
@@ -95,7 +67,6 @@ if __name__ == "__main__":
     parser.add_argument('--ngroup', type=int, default=4,
                         help='Number of channels in each BlockVisibility')
     parser.add_argument('--single', type=str, default='False', help='Use a single channel')
-    parser.add_argument('--nmoment', type=int, default=1, help='Number of spectral moments')
     
     parser.add_argument('--time_coal', type=float, default=0.0, help='Coalesce time')
     parser.add_argument('--frequency_coal', type=float, default=0.0, help='Coalesce frequency')
@@ -104,36 +75,37 @@ if __name__ == "__main__":
     parser.add_argument('--fov', type=float, default=1.0, help='Field of view in primary beams')
     parser.add_argument('--cellsize', type=float, default=None, help='Cellsize in radians')
     
-    parser.add_argument('--wstep', type=float, default=None, help='FStep in w')
-    parser.add_argument('--nwplanes', type=int, default=None, help='Number of wplanes')
+    parser.add_argument('--wstep', type=float, default=None, help='Step in w (wavelengths)')
+    parser.add_argument('--nwplanes', type=int, default=None, help='Number of w planes')
     parser.add_argument('--nwslabs', type=int, default=None, help='Number of w slabs')
     parser.add_argument('--amplitude_loss', type=float, default=0.02, help='Amplitude loss due to w sampling')
-    parser.add_argument('--facets', type=int, default=1, help='Number of facets in imaging')
     parser.add_argument('--oversampling', type=int, default=16, help='Oversampling in w projection kernel')
+
     parser.add_argument('--epsilon', type=float, default=1e-12, help='Accuracy in nifty gridder')
     
     parser.add_argument('--weighting', type=str, default='natural', help='Type of weighting')
     
+    parser.add_argument('--nmoment', type=int, default=1, help='Number of spectral moments in MSMFS Clean')
     parser.add_argument('--nmajor', type=int, default=1, help='Number of major cycles')
-    parser.add_argument('--niter', type=int, default=1, help='Number of iterations per major cycle')
+    parser.add_argument('--niter', type=int, default=1000, help='Number of iterations per major cycle')
     parser.add_argument('--fractional_threshold', type=float, default=0.2,
                         help='Fractional threshold to terminate major cycle')
-    parser.add_argument('--threshold', type=float, default=0.01, help='Absolute threshold to terminate')
-    parser.add_argument('--window_shape', type=str, default=None, help='Window shape')
-    parser.add_argument('--window_edge', type=int, default=None, help='Window edge')
-    parser.add_argument('--restore_facets', type=int, default=1, help='Number of facets in restore')
+    parser.add_argument('--threshold', type=float, default=0.01, help='Absolute threshold (Jy) to terminate')
+    parser.add_argument('--window_shape', type=str, default=None, help="Window shape 'quarter'|'no_edge")
+    parser.add_argument('--window_edge', type=int, default=None, help='Window edge (pixels)')
     parser.add_argument('--deconvolve_facets', type=int, default=1, help='Number of facets in deconvolution')
-    parser.add_argument('--deconvolve_overlap', type=int, default=128, help='overlap in deconvolution')
-    parser.add_argument('--deconvolve_taper', type=str, default='tukey', help='Number of facets in deconvolution')
-    
-    parser.add_argument('--serial', type=str, default='False', help='Use serial processing?')
-    parser.add_argument('--nworkers', type=int, default=4, help='Number of workers')
-    parser.add_argument('--threads_per_worker', type=int, default=1, help='Number of threads per worker')
+    parser.add_argument('--deconvolve_overlap', type=int, default=128, help='Overlap in deconvolution')
+    parser.add_argument('--deconvolve_taper', type=str, default='tukey', help="Overlap function 'linear'|'tukey'")
+    parser.add_argument('--restore_facets', type=int, default=1, help='Number of facets in restore')
+
+    parser.add_argument('--serial', type=str, default='False', help='Use serial processing throughout?')
+    parser.add_argument('--nworkers', type=int, default=4, help='Number of workers for Dask processing')
+    parser.add_argument('--threads_per_worker', type=int, default=1, help='Number of threads per Dask worker')
     parser.add_argument('--threads', type=int, default=4, help='Number of threads for nifty gridder')
-    parser.add_argument('--memory', type=int, default=64, help='Memory of each worker')
+    parser.add_argument('--memory', type=int, default=64, help='Memory of each worker (GB)')
     
     parser.add_argument('--use_serial_invert', type=str, default='False', help='Use serial invert?')
-    parser.add_argument('--use_serial_predict', type=str, default='False', help='Use serial invert?')
+    parser.add_argument('--use_serial_predict', type=str, default='False', help='Use serial predict?')
     parser.add_argument('--plot', type=str, default='False', help='Plot data?')
     
     args = parser.parse_args()
@@ -157,7 +129,6 @@ if __name__ == "__main__":
     cellsize = args.cellsize
     mode = args.mode
     fov = args.fov
-    facets = args.facets
     wstep = args.wstep
     context = args.context
     use_serial_invert = args.use_serial_invert == "True"
@@ -193,7 +164,7 @@ if __name__ == "__main__":
         
         from dask.distributed import Client
         
-        scheduler = os.getenv('ARL_DASK_SCHEDULER', None)
+        scheduler = os.getenv('RASCIL_DASK_SCHEDULER', None)
         if scheduler is not None:
             log.info("Creating Dask Client using externally defined scheduler")
             client = Client(scheduler)
@@ -370,14 +341,14 @@ if __name__ == "__main__":
         log.info("\nRunning pipeline")
         cip_result = continuum_imaging_list_rsexecute_workflow(vis_list, model_list, context=actual_context,
                                                                 vis_slices=vis_slices,
-                                                                facets=facets, use_serial_invert=use_serial_invert,
+                                                                use_serial_invert=use_serial_invert,
                                                                 use_serial_predict=use_serial_predict,
                                                                 niter=args.niter,
                                                                 fractional_threshold=args.fractional_threshold,
                                                                 threshold=args.threshold,
                                                                 nmajor=args.nmajor, gain=0.1,
                                                                 algorithm='mmclean',
-                                                                nmoment=nmoment, findpeak='ARL',
+                                                                nmoment=nmoment, findpeak='RASCIL',
                                                                 scales=[0],
                                                                 restore_facets=args.restore_facets,
                                                                 psfwidth=1.0,
@@ -435,14 +406,14 @@ if __name__ == "__main__":
         log.info("\nRunning ical pipeline")
         ical_result = ical_list_rsexecute_workflow(vis_list, model_list, context=actual_context,
                                                     vis_slices=vis_slices,
-                                                    facets=facets, use_serial_invert=use_serial_invert,
+                                                    use_serial_invert=use_serial_invert,
                                                     use_serial_predict=use_serial_predict,
                                                     niter=args.niter,
                                                     fractional_threshold=args.fractional_threshold,
                                                     threshold=args.threshold,
                                                     nmajor=args.nmajor, gain=0.1,
                                                     algorithm='mmclean',
-                                                    nmoment=nmoment, findpeak='ARL',
+                                                    nmoment=nmoment, findpeak='RASCIL',
                                                     scales=[0],
                                                     restore_facets=args.restore_facets,
                                                     psfwidth=1.0,
@@ -493,7 +464,7 @@ if __name__ == "__main__":
     else:
         log.info("\nRunning invert")
         result = invert_list_rsexecute_workflow(vis_list, model_list, context=actual_context, vis_slices=nwplanes,
-                                                 facets=facets, use_serial_invert=use_serial_invert,
+                                                 use_serial_invert=use_serial_invert,
                                                  gcfcf=gcfcf_list,
                                                  threads=args.threads,
                                                  epsilon=args.epsilon)
@@ -523,6 +494,6 @@ if __name__ == "__main__":
     if not serial:
         rsexecute.close()
     
-    log.info("\nSKA LOW imaging using ARL")
+    log.info("\nSKA LOW imaging using RASCIL")
     log.info("Started at  %s" % start_epoch)
     log.info("Finished at %s" % time.asctime())
